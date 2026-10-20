@@ -1,0 +1,9 @@
+{
+  "title": "Max 40 hours a week",
+  "ownerWords": "Forty is the most, full stop. Anything over forty is a no, and breaks count in the hours. Even if someone's out sick, I'd rather be short than have someone burnt out.",
+  "precise": "For each person, the total rostered hours in a week (Monday to Sunday) must not exceed 40. Breaks count as rostered hours. Exactly 40 is allowed; 41 or more is not. This applies to all staff, including those on smaller contracts who pick up extra shifts, and applies even when cover is needed for sickness.",
+  "exceptions": "None",
+  "kind": "typed",
+  "whyKind": "Total rostered hours per person per week, including breaks, can be added up directly from the rota, so code can decide it from the facts alone.",
+  "howItWorks": "The check adds up every shift each person is rostered for across the week, breaks included. Anyone whose total goes above 40 hours gets a message, while exactly 40 hours is allowed."
+}

@@ -1,0 +1,9 @@
+{
+  "title": "Coffee machine cover, every open hour",
+  "ownerWords": "Someone trained on the coffee machine has to be on the whole time we're open, seven in the morning till eight at night, with no gaps. Not even on a quiet afternoon or when someone's off sick.",
+  "precise": "For every hour from 7am to 8pm, at least one person trained on the coffee machine must be rostered on. One trained person covering each hour is enough. Only rostered shifts count. Trained people named by the owner: Sarah, Tom, Niamh, Chloe. The rule fails if any open hour has no trained person on the rota.",
+  "exceptions": "None",
+  "kind": "typed",
+  "whyKind": "Whether each hour is covered by a trained person can be checked directly from the rota and the list of trained staff.",
+  "howItWorks": "For every hour from 7am to 8pm on every day of the week, someone trained on the coffee machine has to be rostered on. The check lists each stretch of time when nobody trained is on, and names the day it happens."
+}
