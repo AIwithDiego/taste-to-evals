@@ -1,0 +1,9 @@
+{
+  "title": "Share weekend shifts fairly",
+  "ownerWords": "Nobody should be stuck carrying most of the weekends while others get none. If someone's done a lot lately, they get a break. Someone who asks for extra weekends themselves is fine, but I still keep an eye on the total.",
+  "precise": "Look back over the last month, not just the current week, at how many weekend shifts each person has worked. If one person is carrying most of the weekends while others get none, that's a problem, and that person should be given a break. Asking for extra weekends yourself is allowed, but the owner still checks the overall total. Always ask people first before rostering them.",
+  "exceptions": "None",
+  "kind": "judged",
+  "whyKind": "The owner deliberately won't set a number, so it depends on judging who is carrying most of the weekends over the month.",
+  "howItWorks": "Weekend shifts are spread across everyone who wants them over the month, and no one is carrying a heavy share while others get few or none. The same people keep getting the weekends over the month while others get none, or someone is rostered onto weekends they asked to avoid or were never asked about."
+}

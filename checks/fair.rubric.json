@@ -1,0 +1,11 @@
+{
+  "criteria": [
+    "Look at the last month of rotas, not just the week being judged, and count how many weekend shifts each person has worked.",
+    "Ask whether a few people are carrying most of the weekends while others get none. Weekends should be shared, not piled onto the same names.",
+    "Someone who has done a lot of recent weekends should be given a break from them.",
+    "Volunteering for extra weekends is allowed, but the overall total still matters, so a volunteer who ends up with a heavy load over the month is not automatically fine.",
+    "Anyone who has asked for weekends off, or has a clear reason they can't work them, should be left off them, and people should be asked before being rostered on a weekend."
+  ],
+  "fineWhen": "Weekend shifts are spread across everyone who wants them over the month, and no one is carrying a heavy share while others get few or none.",
+  "notFineWhen": "The same people keep getting the weekends over the month while others get none, or someone is rostered onto weekends they asked to avoid or were never asked about."
+}
