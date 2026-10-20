@@ -1,0 +1,9 @@
+[
+  {"id": "sarah", "name": "Sarah Byrne", "role": "barista", "trainedBarista": true, "contractHours": 40, "unavailable": []},
+  {"id": "tom", "name": "Tom Kavanagh", "role": "barista", "trainedBarista": true, "contractHours": 40, "unavailable": []},
+  {"id": "niamh", "name": "Niamh Walsh", "role": "barista", "trainedBarista": true, "contractHours": 32, "unavailable": []},
+  {"id": "chloe", "name": "Chloe Doyle", "role": "floor", "trainedBarista": true, "contractHours": 32, "unavailable": []},
+  {"id": "liam", "name": "Liam O'Connor", "role": "floor", "trainedBarista": false, "contractHours": 40, "unavailable": []},
+  {"id": "aoife", "name": "Aoife Murphy", "role": "floor", "trainedBarista": false, "contractHours": 24, "unavailable": [{"date": "2026-10-27", "reason": "College on Tuesdays"}]},
+  {"id": "darragh", "name": "Darragh Kelly", "role": "kitchen", "trainedBarista": false, "contractHours": 24, "unavailable": [{"date": "2026-10-29", "reason": "Dentist"}]}
+]
