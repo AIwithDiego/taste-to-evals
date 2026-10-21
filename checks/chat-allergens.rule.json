@@ -1,0 +1,9 @@
+{
+  "title": "Only call something free from an allergen if the allergen sheet confirms it",
+  "ownerWords": "The chat only says something is free from an allergen if the allergen sheet says so, and the sheet counts, not the menu page. If it isn't sure, it says so and tells the customer to ask at the counter.",
+  "precise": "Applies to nuts, dairy, gluten, eggs and all other allergens, and to sealed packaged goods. The chat may describe an item as free from an allergen only when the allergen sheet explicitly confirms it; the allergen sheet overrides the menu page. If the sheet does not confirm it, or the chat is unsure, the chat must say it is not sure and tell the customer to ask at the counter. Shared kitchen equipment or cross-contact (e.g. baking nut-free items alongside nut products) means nothing can be called nut-free unless the sheet says so.",
+  "exceptions": "None",
+  "kind": "typed",
+  "whyKind": "Whether a reply claims 'free from' an allergen can be checked against whether the allergen sheet explicitly confirms that claim, so the code can decide it from the facts.",
+  "howItWorks": "The check reads every promise that an item is safe for someone with an allergy and looks that item up on Gráinne's allergen sheet. A promise stands only when the sheet does not list that allergen for the item, either as an ingredient or as a possible trace, and anything missing from the sheet is flagged."
+}

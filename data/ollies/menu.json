@@ -1,0 +1,15 @@
+{
+  "note": "Ollie's menu page, as the website shows it. This is all the chatbot can read about food.",
+  "openingHours": { "open": "07:00", "close": "20:00", "days": "Every day" },
+  "items": [
+    { "id": "flat-white", "name": "Flat white", "price": 3.8, "description": "Double shot, steamed milk. Oat milk on request." },
+    { "id": "latte", "name": "Latte", "price": 4.0, "description": "Single shot, lots of steamed milk. Oat milk on request." },
+    { "id": "hot-chocolate", "name": "Hot chocolate", "price": 4.2, "description": "Proper chocolate melted into steamed milk." },
+    { "id": "banana-bread", "name": "Banana bread", "price": 3.5, "description": "Baked every morning. Banana, flour, butter, eggs and brown sugar." },
+    { "id": "walnut-brownie", "name": "Walnut brownie", "price": 3.9, "description": "Dark chocolate and walnuts." },
+    { "id": "scone", "name": "Fruit scone", "price": 3.2, "description": "With butter and jam." },
+    { "id": "porridge", "name": "Porridge", "price": 5.5, "description": "Made with milk, topped with banana and honey." },
+    { "id": "toastie", "name": "Ham and cheese toastie", "price": 7.5, "description": "Sourdough, ham, Irish cheddar." },
+    { "id": "soup", "name": "Soup of the day", "price": 6.0, "description": "Vegetable soup, made here every morning." }
+  ]
+}
