@@ -1,0 +1,374 @@
+{
+  "started": "2026-10-20T20:21:32.142Z",
+  "events": [
+    {
+      "t": "start",
+      "cafe": "Ollie's, Dublin 2",
+      "owner": "Gráinne Nolan",
+      "ruleId": "hours",
+      "handwritten": "Nobody over 40 hours a week"
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard opens the interview"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "Tell me about a time a rota went wrong on hours, maybe someone was scheduled far too much or it caused a problem. What happened that week?"
+      }
+    },
+    {
+      "t": "status",
+      "text": "Gráinne answers"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "owner",
+        "text": "Oh, Tom. Last spring Niamh was out and he ended up covering her shifts, and by the end of that week he'd done 46 hours. By Saturday he was wrecked, snapping at customers, and then he dropped a full tray right in the middle of the rush. I stood there thinking, never again."
+      }
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard thinks about what to ask next"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "That sounds like a rough week for Tom, and a real scare for you. Looking at that week, was it the total hours that were the problem, or was it more that he had no break between shifts? And if it's the total, where would you draw the line for a single week?"
+      }
+    },
+    {
+      "t": "status",
+      "text": "Gráinne answers"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "owner",
+        "text": "Ah, it was the total for me, Tom just had nothing left in him by the end of it. Forty hours is the most anyone gets on the rota in a week, forty is fine, anything over forty is not. And even with contract hours on 24, people can pick up extra shifts, they just can't go past forty."
+      }
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard thinks about what to ask next"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "Got it, forty is the most, and forty itself is fine. Just so I count it the way you do: is a week Monday to Sunday, and are there any cases where you'd let someone go over forty, like a cover emergency?"
+      }
+    },
+    {
+      "t": "status",
+      "text": "Gráinne answers"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "owner",
+        "text": "Monday to Sunday, yeah, that's how the rota runs. And no, not even for a cover emergency. I'd rather be short a person than burn someone out, and it's the law anyway. Breaks count in the hours too, start to finish."
+      }
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard thinks about what to ask next"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "So the read-back: no one can be rostered past 40 hours in a Monday to Sunday week, 40 exactly is fine, and that holds even for cover emergencies. Hours are counted from start to finish of each shift, breaks included. Is that right?"
+      }
+    },
+    {
+      "t": "status",
+      "text": "Gráinne answers"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "owner",
+        "text": "Yep, that's it exactly. Forty's the ceiling, forty itself is grand, and no cover emergency changes that. Start to finish on every shift, breaks included. Sorted."
+      }
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard thinks about what to ask next"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "Thanks, that's all clear. I've got your rule saved: nobody gets rostered past 40 hours in a Monday to Sunday week, counted start to finish with breaks included, and no exceptions."
+      }
+    },
+    {
+      "t": "rule",
+      "rule": {
+        "title": "Max 40 hours a week",
+        "ownerWords": "Forty is the most anyone gets on the rota in a week. Forty itself is fine, anything over forty is not, even with contract hours on 24 people can pick up extra shifts but not past forty.",
+        "precise": "Measured per person over a Monday to Sunday week, counting the total rostered hours from start to finish of each shift, breaks included. The limit is 40 hours; exactly 40 is allowed, anything over 40 is not.",
+        "exceptions": "None. Not even for cover emergencies.",
+        "kind": "typed",
+        "whyKind": "The rota gives shift start and end times, so total weekly hours can be added up and compared to 40 without any judgement."
+      }
+    },
+    {
+      "t": "examples",
+      "weeks": [
+        {
+          "id": "good-normal",
+          "said": "A normal week. Sarah, Tom and Liam on 40, everyone else under.",
+          "verdict": "fine"
+        },
+        {
+          "id": "good-chloe-40",
+          "said": "Chloe picked up an extra Monday shift and hit exactly 40. That's fine.",
+          "verdict": "fine"
+        },
+        {
+          "id": "good-swap",
+          "said": "Aoife and Darragh swapped a Sunday. Same hours, no problem.",
+          "verdict": "fine"
+        },
+        {
+          "id": "bad-tom-48",
+          "said": "Tom covered an extra Monday opening on top of his week. 48 hours. Never again.",
+          "verdict": "not fine"
+        },
+        {
+          "id": "bad-liam-40-5",
+          "said": "Liam stayed on till 4 on the Saturday rush. Forty and a half. That's over.",
+          "verdict": "not fine"
+        },
+        {
+          "id": "bad-two-over",
+          "said": "Both Sarah and Liam did an extra Saturday rush. Two people over in one week.",
+          "verdict": "not fine"
+        }
+      ]
+    },
+    {
+      "t": "status",
+      "text": "Claude writes the check"
+    },
+    {
+      "t": "status",
+      "text": "Testing the check on Gráinne's weeks"
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "good-normal",
+        "source": "owner",
+        "expected": "pass",
+        "got": "pass",
+        "violations": [],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "good-chloe-40",
+        "source": "owner",
+        "expected": "pass",
+        "got": "pass",
+        "violations": [],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "good-swap",
+        "source": "owner",
+        "expected": "pass",
+        "got": "pass",
+        "violations": [],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "bad-tom-48",
+        "source": "owner",
+        "expected": "fail",
+        "got": "fail",
+        "violations": [
+          {
+            "staffId": "tom",
+            "message": "Tom Kavanagh would work 48 hours. Your limit is 40 hours."
+          }
+        ],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "bad-liam-40-5",
+        "source": "owner",
+        "expected": "fail",
+        "got": "fail",
+        "violations": [
+          {
+            "staffId": "liam",
+            "message": "Liam O'Connor would work 40 and a half hours. Your limit is 40 hours."
+          }
+        ],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "bad-two-over",
+        "source": "owner",
+        "expected": "fail",
+        "got": "fail",
+        "violations": [
+          {
+            "staffId": "sarah",
+            "message": "Sarah Byrne would work 48 hours. Your limit is 40 hours."
+          },
+          {
+            "staffId": "liam",
+            "message": "Liam O'Connor would work 48 hours. Your limit is 40 hours."
+          }
+        ],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "Niamh stays 40 hours and 15 minutes",
+        "source": "generated",
+        "expected": "fail",
+        "got": "fail",
+        "violations": [
+          {
+            "staffId": "niamh",
+            "message": "Niamh Walsh would work 40 hours and 15 minutes. Your limit is 40 hours."
+          }
+        ],
+        "ok": true
+      },
+      "short": "Niamh does the Saturday mid and stays till 4:15.",
+      "why": "Checks that a quarter of an hour over 40 is still caught, and that the message says it in words a person would use."
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "Darragh reaches exactly 40 across two extra shifts",
+        "source": "generated",
+        "expected": "pass",
+        "got": "pass",
+        "violations": [],
+        "ok": true
+      },
+      "short": "Darragh picks up two extra shifts, lands on exactly 40.",
+      "why": "Checks that 40 is still allowed when it is reached by adding two separate shifts rather than one, so the limit counts the total and not the number of shifts."
+    },
+    {
+      "t": "saved",
+      "howItWorks": "For each person, the check adds up the length of every shift they are rostered on across the week, from start to finish including breaks. If that total goes over 40 hours, it tells you who it is, how long they would work, and that your limit is 40 hours.",
+      "code": "export function check(rota: Rota): Violation[] { const LIMIT = 2400; const totals = new Map<string, number>(); for (const s of rota.shifts) { const span = toMin(s.end) - toMin(s.start); const cur = totals.get(s.staffId); totals.set(s.staffId, (cur === undefined ? 0 : cur) + span); } const out: Violation[] = []; for (const p of rota.staff) { const total = totals.get(p.id); const mins = total === undefined ? 0 : total; if (mins > LIMIT) { out.push({ staffId: p.id, message: p.name + ' would work ' + describe(mins) + '. Your limit is 40 hours.' }); } } return out; } function toMin(hhmm: string): number { const parts = hhmm.split(':'); return Number(parts[0]) * 60 + Number(parts[1]); } function describe(mins: number): string { const h = Math.floor(mins / 60); const r = mins % 60; if (r === 0) return h + ' hours'; if (r === 30) return h + ' and a half hours'; return h + ' hours and ' + r + (r === 1 ? ' minute' : ' minutes'); }",
+      "file": "checks/hours.ts"
+    },
+    {
+      "t": "done",
+      "costUsd": 0.0062796,
+      "calls": [
+        {
+          "step": "interview.ask.1",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1337,
+          "outputTokens": 63,
+          "costUsd": 0.0001652,
+          "ms": 1437
+        },
+        {
+          "step": "interview.owner.1",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1937,
+          "outputTokens": 105,
+          "costUsd": 0.0002462,
+          "ms": 1231
+        },
+        {
+          "step": "interview.ask.2",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1483,
+          "outputTokens": 92,
+          "costUsd": 0.0001943,
+          "ms": 1575
+        },
+        {
+          "step": "interview.owner.2",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 2112,
+          "outputTokens": 102,
+          "costUsd": 0.00026220000000000003,
+          "ms": 2047
+        },
+        {
+          "step": "interview.ask.3",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1655,
+          "outputTokens": 358,
+          "costUsd": 0.0003445,
+          "ms": 2880
+        },
+        {
+          "step": "interview.owner.3",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 2278,
+          "outputTokens": 84,
+          "costUsd": 0.0002698,
+          "ms": 1183
+        },
+        {
+          "step": "interview.ask.4",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1803,
+          "outputTokens": 99,
+          "costUsd": 0.0002298,
+          "ms": 1295
+        },
+        {
+          "step": "interview.owner.4",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 2438,
+          "outputTokens": 68,
+          "costUsd": 0.00027780000000000003,
+          "ms": 1478
+        },
+        {
+          "step": "interview.ask.5",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1947,
+          "outputTokens": 313,
+          "costUsd": 0.0003512,
+          "ms": 2071
+        },
+        {
+          "step": "generate",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 5511,
+          "outputTokens": 6775,
+          "costUsd": 0.0039386,
+          "ms": 29810
+        }
+      ],
+      "runFile": "runs/setup-hours-2026-10-20T20-21-32-142Z.json"
+    }
+  ]
+}

@@ -1,0 +1,384 @@
+{
+  "started": "2026-10-20T20:17:40.996Z",
+  "events": [
+    {
+      "t": "start",
+      "cafe": "Ollie's, Dublin 2",
+      "owner": "Gráinne Nolan",
+      "ruleId": "fair",
+      "handwritten": "Weekends shared fairly"
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard opens the interview"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "Think of a time weekend shifts got shared out in a way that caused trouble. What happened, and who ended up unhappy about it?"
+      }
+    },
+    {
+      "t": "status",
+      "text": "Gráinne answers"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "owner",
+        "text": "Oh, last autumn was a bad one. Chloe ended up with four weekends on the trot while Niamh didn't get a single one, and nobody planned it, it just drifted along. Chloe was wrecked, and she told me she'd forgotten what a Saturday off even felt like."
+      }
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard thinks about what to ask next"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "That sounds exhausting for Chloe, and unfair on Niamh too. When you say four weekends in a row, what would you want the limit to be: how many weekends a person can work in a row before they get one off?"
+      }
+    },
+    {
+      "t": "status",
+      "text": "Gráinne answers"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "owner",
+        "text": "Ah, I haven't really put a number on it, to be honest, and I don't want to be pulling one out of the air. What I'd want is that nobody's stuck carrying every weekend while others get none, and if someone's done loads lately, they get a break. I'd be looking at the last month, not just this week, and I'd always ask people first."
+      }
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard thinks about what to ask next"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "That makes sense, and we can leave the number out. One more thing: if someone asks to work lots of weekends themselves, say because they want the extra hours, is that fine as long as they've said yes?"
+      }
+    },
+    {
+      "t": "status",
+      "text": "Gráinne answers"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "owner",
+        "text": "Yeah, if they're asking for it themselves, that's grand with me. Nobody's stuck with it if they put their hand up, and I'd still keep an eye on the last month so nobody's quietly carrying the lot."
+      }
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard thinks about what to ask next"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "Here's what I've got: nobody should be left carrying most of the weekends while others get none, so look at the last month and give anyone who's done a lot a break. Someone who asks for extra weekends themselves is fine, as long as you still keep an eye on the total. Is that right?"
+      }
+    },
+    {
+      "t": "status",
+      "text": "Gráinne answers"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "owner",
+        "text": "Yeah, that's pretty much it. Nobody gets stuck carrying most of the weekends while others get none, I look back over the last month, and if someone's done loads they get a break. If they ask for extra weekends themselves, that's grand, but I still keep an eye on the total."
+      }
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard thinks about what to ask next"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "Thanks, that's all clear. I've got it down as a judgement call, since there's no number and it needs your eye on the whole picture."
+      }
+    },
+    {
+      "t": "rule",
+      "rule": {
+        "title": "Share weekend shifts fairly",
+        "ownerWords": "Nobody should be stuck carrying most of the weekends while others get none. If someone's done a lot lately, they get a break. Someone who asks for extra weekends themselves is fine, but I still keep an eye on the total.",
+        "precise": "Look back over the last month, not just the current week, at how many weekend shifts each person has worked. If one person is carrying most of the weekends while others get none, that's a problem, and that person should be given a break. Asking for extra weekends yourself is allowed, but the owner still checks the overall total. Always ask people first before rostering them.",
+        "exceptions": "None",
+        "kind": "judged",
+        "whyKind": "The owner deliberately won't set a number, so it depends on judging who is carrying most of the weekends over the month."
+      }
+    },
+    {
+      "t": "examples",
+      "weeks": [
+        {
+          "id": "good-normal",
+          "said": "A normal week. Everyone who wants weekends gets some, Sarah's off them like she asked.",
+          "verdict": "fine"
+        },
+        {
+          "id": "good-swap",
+          "said": "Niamh took Chloe's Sunday close. Spreads it out a bit more.",
+          "verdict": "fine"
+        },
+        {
+          "id": "good-aoife-rush",
+          "said": "Aoife did Liam's Saturday rush. She'd asked for more weekend hours.",
+          "verdict": "fine"
+        },
+        {
+          "id": "bad-chloe-again",
+          "said": "Chloe had done every weekend shift going for a month and we gave her both days again.",
+          "verdict": "not fine"
+        },
+        {
+          "id": "bad-sarah-sunday",
+          "said": "We put Sarah on a Sunday. She asked for weekends off till Christmas, she's minding her mam.",
+          "verdict": "not fine"
+        },
+        {
+          "id": "bad-same-three",
+          "said": "Chloe, Liam and Darragh on both days again. They've carried every weekend this month while the others had one.",
+          "verdict": "not fine"
+        }
+      ]
+    },
+    {
+      "t": "status",
+      "text": "Claude writes what the judge should weigh"
+    },
+    {
+      "t": "status",
+      "text": "The judge tries it on Gráinne's weeks"
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "good-normal",
+        "source": "owner",
+        "expected": "pass",
+        "got": "pass",
+        "violations": [],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "good-swap",
+        "source": "owner",
+        "expected": "pass",
+        "got": "pass",
+        "violations": [],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "good-aoife-rush",
+        "source": "owner",
+        "expected": "pass",
+        "got": "pass",
+        "violations": [],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "bad-chloe-again",
+        "source": "owner",
+        "expected": "fail",
+        "got": "fail",
+        "violations": [
+          {
+            "message": "Chloe has worked 8 of 8 weekend days in the last four weeks against a team average of 2.9, and she is on both days this weekend, while Niamh has had only 1. Chloe needs a break from weekends, and the others should be offered more of them."
+          }
+        ],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "bad-sarah-sunday",
+        "source": "owner",
+        "expected": "fail",
+        "got": "fail",
+        "violations": [
+          {
+            "message": "Sarah Byrne asked for weekends off until Christmas but is rostered on Sunday this weekend. Her last four weeks show 0 of 8 weekend days, so this is a request being ignored rather than a load problem."
+          }
+        ],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "bad-same-three",
+        "source": "owner",
+        "expected": "fail",
+        "got": "fail",
+        "violations": [
+          {
+            "message": "Chloe, Liam and Darragh have each worked 8 of the last 8 weekend days, against a team average of 3.9, while Niamh, Tom and Aoife have 1 each and Sarah 0 (she asked to be off, so that part is respected). The three heavy-load people need a break this weekend and the spread should be rebalanced."
+          }
+        ],
+        "ok": true
+      }
+    },
+    {
+      "t": "saved",
+      "howItWorks": "Weekend shifts are spread across everyone who wants them over the month, and no one is carrying a heavy share while others get few or none. The same people keep getting the weekends over the month while others get none, or someone is rostered onto weekends they asked to avoid or were never asked about.",
+      "code": "{\n  \"criteria\": [\n    \"Look at the last month of rotas, not just the week being judged, and count how many weekend shifts each person has worked.\",\n    \"Ask whether a few people are carrying most of the weekends while others get none. Weekends should be shared, not piled onto the same names.\",\n    \"Someone who has done a lot of recent weekends should be given a break from them.\",\n    \"Volunteering for extra weekends is allowed, but the overall total still matters, so a volunteer who ends up with a heavy load over the month is not automatically fine.\",\n    \"Anyone who has asked for weekends off, or has a clear reason they can't work them, should be left off them, and people should be asked before being rostered on a weekend.\"\n  ],\n  \"fineWhen\": \"Weekend shifts are spread across everyone who wants them over the month, and no one is carrying a heavy share while others get few or none.\",\n  \"notFineWhen\": \"The same people keep getting the weekends over the month while others get none, or someone is rostered onto weekends they asked to avoid or were never asked about.\"\n}",
+      "file": "checks/fair.rubric.json"
+    },
+    {
+      "t": "done",
+      "costUsd": 0.005472599999999999,
+      "calls": [
+        {
+          "step": "interview.ask.1",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1335,
+          "outputTokens": 59,
+          "costUsd": 0.000163,
+          "ms": 1613
+        },
+        {
+          "step": "interview.owner.1",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1931,
+          "outputTokens": 99,
+          "costUsd": 0.00024260000000000002,
+          "ms": 1535
+        },
+        {
+          "step": "interview.ask.2",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1471,
+          "outputTokens": 83,
+          "costUsd": 0.0001886,
+          "ms": 1220
+        },
+        {
+          "step": "interview.owner.2",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 2090,
+          "outputTokens": 112,
+          "costUsd": 0.000265,
+          "ms": 1465
+        },
+        {
+          "step": "interview.ask.3",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1643,
+          "outputTokens": 244,
+          "costUsd": 0.0002863,
+          "ms": 2775
+        },
+        {
+          "step": "interview.owner.3",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 2258,
+          "outputTokens": 78,
+          "costUsd": 0.0002648,
+          "ms": 1753
+        },
+        {
+          "step": "interview.ask.4",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1777,
+          "outputTokens": 199,
+          "costUsd": 0.00027720000000000007,
+          "ms": 1839
+        },
+        {
+          "step": "interview.owner.4",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 2418,
+          "outputTokens": 96,
+          "costUsd": 0.0002898,
+          "ms": 2265
+        },
+        {
+          "step": "interview.ask.5",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1955,
+          "outputTokens": 319,
+          "costUsd": 0.000355,
+          "ms": 2392
+        },
+        {
+          "step": "rubric",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1006,
+          "outputTokens": 507,
+          "costUsd": 0.00035410000000000004,
+          "ms": 4020
+        },
+        {
+          "step": "judge.example5",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1877,
+          "outputTokens": 240,
+          "costUsd": 0.00030770000000000005,
+          "ms": 2113
+        },
+        {
+          "step": "judge.example4",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1877,
+          "outputTokens": 314,
+          "costUsd": 0.00034470000000000003,
+          "ms": 2752
+        },
+        {
+          "step": "judge.example1",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1877,
+          "outputTokens": 656,
+          "costUsd": 0.0005157,
+          "ms": 4008
+        },
+        {
+          "step": "judge.example6",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1877,
+          "outputTokens": 615,
+          "costUsd": 0.0004952,
+          "ms": 4158
+        },
+        {
+          "step": "judge.example2",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1872,
+          "outputTokens": 787,
+          "costUsd": 0.0005807000000000001,
+          "ms": 4172
+        },
+        {
+          "step": "judge.example3",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1872,
+          "outputTokens": 710,
+          "costUsd": 0.0005422000000000001,
+          "ms": 5416
+        }
+      ],
+      "runFile": "runs/setup-fair-2026-10-20T20-17-40-996Z.json"
+    }
+  ]
+}

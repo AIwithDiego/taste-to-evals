@@ -1,0 +1,434 @@
+{
+  "started": "2026-10-20T20:14:46.757Z",
+  "events": [
+    {
+      "t": "start",
+      "cafe": "Ollie's, Dublin 2",
+      "owner": "Gráinne Nolan",
+      "ruleId": "staffing",
+      "handwritten": "Two in always, three Sat morning"
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard opens the interview"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "Let's start with a time it went wrong. Can you think of a shift when the café was short-staffed and it caused trouble?"
+      }
+    },
+    {
+      "t": "status",
+      "text": "Gráinne answers"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "owner",
+        "text": "Oh God, yes, the August Saturday. It was just Niamh and Aoife from eight till ten, and the queue was out the door. Half of them just walked off. Niamh was flying around like a headless chicken and I was in the back wishing I could clone myself."
+      }
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard thinks about what to ask next"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "That sounds stressful, and it's clear two people weren't enough at the busiest time. When the café is open, what's the least number of people you need on the floor, and does that number change by time of day or by how busy it is?"
+      }
+    },
+    {
+      "t": "status",
+      "text": "Gráinne answers"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "owner",
+        "text": "Two people, minimum, the whole time we're open, seven till eight, and kitchen counts too. But Saturday eight to noon is the rush, so that's three in. Never fewer than two, and more is never a problem."
+      }
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard thinks about what to ask next"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "Thanks, that's really clear. Just to be sure I have the edges right: does the three-person rule for Saturday eight to noon start at eight exactly, and does it end at noon, so that from noon onwards two is enough again?"
+      }
+    },
+    {
+      "t": "status",
+      "text": "Gráinne answers"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "owner",
+        "text": "Yes, eight sharp on the dot, and it runs right up to noon. From twelve on, two is enough again. Mind you, if you've got three or more at any time, that's grand too."
+      }
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard thinks about what to ask next"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "Got it. Does the three-person Saturday rush apply every single Saturday, or are there any times it doesn't, like bank holidays or quiet months?"
+      }
+    },
+    {
+      "t": "status",
+      "text": "Gráinne answers"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "owner",
+        "text": "Every Saturday, far as I'm concerned, eight to noon. Bank holidays, I'd say the same, I've not really thought about it being any different. Quiet months, sure, the tourists do thin out a bit in January, but I'd still want three in on a Saturday morning, the queue doesn't care what month it is."
+      }
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard thinks about what to ask next"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "So the rule is: the café always needs at least two people in, from seven until we close at eight, with the kitchen counting towards that. Saturdays from eight until noon need at least three, every Saturday, bank holidays and quiet months included. Is that right?"
+      }
+    },
+    {
+      "t": "status",
+      "text": "Gráinne answers"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "owner",
+        "text": "Yes, that's it exactly. Two minimum from seven till eight, kitchen included, and three on a Saturday from eight till noon, every week. Sure, that's the bones of it, and more people is never a problem."
+      }
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard thinks about what to ask next"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "Thanks, that's all clear. I've got it down as the rule for you to check."
+      }
+    },
+    {
+      "t": "rule",
+      "rule": {
+        "title": "Minimum staff while open, three on Saturday mornings",
+        "ownerWords": "Never fewer than two people on the floor the whole time we're open, kitchen counts too. Saturday eight to noon is the rush, so three in, every Saturday.",
+        "precise": "Whenever the café is open (seven until closing at eight), at least two staff must be on duty, with kitchen staff counting. On Saturdays from eight o'clock sharp until twelve noon, at least three staff must be on duty. Twelve noon onward, two is enough again. Having three or more at any time is always fine. Applies every Saturday, including bank holidays and quiet months like January.",
+        "exceptions": "None",
+        "kind": "typed",
+        "whyKind": "Headcount and clock times can be checked directly against the rota, so no judgement is needed."
+      }
+    },
+    {
+      "t": "examples",
+      "weeks": [
+        {
+          "id": "good-normal",
+          "said": "A normal week. Two in all day, three on the Saturday rush.",
+          "verdict": "fine"
+        },
+        {
+          "id": "good-extra",
+          "said": "We put Chloe on an extra Wednesday shift. More hands is never a problem.",
+          "verdict": "fine"
+        },
+        {
+          "id": "good-swap",
+          "said": "Darragh did Aoife's Monday close instead. Still two of us.",
+          "verdict": "fine"
+        },
+        {
+          "id": "bad-sarah-alone",
+          "said": "Liam was off Monday morning and nobody covered. Sarah on her own till half twelve.",
+          "verdict": "not fine"
+        },
+        {
+          "id": "bad-saturday-two",
+          "said": "No rush shift that Saturday. Two of us for the busiest morning of the week.",
+          "verdict": "not fine"
+        },
+        {
+          "id": "bad-chloe-early",
+          "said": "Chloe left at 7 on Sunday. Darragh on his own for the last hour.",
+          "verdict": "not fine"
+        }
+      ]
+    },
+    {
+      "t": "status",
+      "text": "Claude writes the check"
+    },
+    {
+      "t": "status",
+      "text": "Testing the check on Gráinne's weeks"
+    },
+    {
+      "t": "retry",
+      "attempt": 1,
+      "feedback": "The TypeScript compiler rejected the check:\nchecks/staffing.ts(4,542): error TS2532: Object is possibly 'undefined'.\nchecks/staffing.ts(4,554): error TS2532: Object is possibly 'undefined'.\nchecks/staffing.ts(4,927): error TS2769: No overload matches this call.\n  The last overload gave the following error.\n    Argument of type 'number | undefined' is not assignable to parameter of type 'number'.\n      Type 'undefined' is not assignable to type 'number'.\nchecks/staffing.ts(4,930): error TS18048: 'mo' is possibly 'undefined'.\nchecks/staffing.ts(4,938): error TS18048: 'dd' is possibly 'undefined'."
+    },
+    {
+      "t": "status",
+      "text": "Claude fixes the check"
+    },
+    {
+      "t": "status",
+      "text": "Testing the check on Gráinne's weeks"
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "good-normal",
+        "source": "owner",
+        "expected": "pass",
+        "got": "pass",
+        "violations": [],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "good-extra",
+        "source": "owner",
+        "expected": "pass",
+        "got": "pass",
+        "violations": [],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "good-swap",
+        "source": "owner",
+        "expected": "pass",
+        "got": "pass",
+        "violations": [],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "bad-sarah-alone",
+        "source": "owner",
+        "expected": "fail",
+        "got": "fail",
+        "violations": [
+          {
+            "date": "2026-10-26",
+            "message": "On Monday 26 October, from 7 am to 12:30 pm, Only one person is on duty. Your minimum for that time is two people."
+          }
+        ],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "bad-saturday-two",
+        "source": "owner",
+        "expected": "fail",
+        "got": "fail",
+        "violations": [
+          {
+            "date": "2026-10-31",
+            "message": "On Saturday 31 October, from 8 am to 12 noon, Only two people are on duty. Your minimum for that time is three people."
+          }
+        ],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "bad-chloe-early",
+        "source": "owner",
+        "expected": "fail",
+        "got": "fail",
+        "violations": [
+          {
+            "date": "2026-11-01",
+            "message": "On Sunday 1 November, from 7 pm to 8 pm, Only one person is on duty. Your minimum for that time is two people."
+          }
+        ],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "liam-leaves-at-eleven",
+        "source": "generated",
+        "expected": "fail",
+        "got": "fail",
+        "violations": [
+          {
+            "date": "2026-10-31",
+            "message": "On Saturday 31 October, from 11 am to 12 noon, Only two people are on duty. Your minimum for that time is three people."
+          }
+        ],
+        "ok": true
+      },
+      "short": "Liam's Saturday shift ends at eleven, an hour before the rush does.",
+      "why": "Whether the three-person requirement runs right up to noon, or stops early."
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "tom-counted-once",
+        "source": "generated",
+        "expected": "fail",
+        "got": "fail",
+        "violations": [
+          {
+            "date": "2026-10-31",
+            "message": "On Saturday 31 October, from 8 am to 12 noon, Only two people are on duty. Your minimum for that time is three people."
+          }
+        ],
+        "ok": true
+      },
+      "short": "Tom is down twice on Saturday, but he's still one person.",
+      "why": "Whether the count is of different people, so one person on two overlapping shifts still counts once."
+    },
+    {
+      "t": "saved",
+      "howItWorks": "The check walks through every day of the week from seven in the morning until eight at night and counts the different people on duty at each minute. It flags any stretch where that count is below two, or below three on Saturday from eight until noon.",
+      "code": "export function check(rota: Rota): Violation[] { const out: Violation[] = []; const words: string[] = ['none', 'one', 'two', 'three']; const months: string[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']; const dayNames: string[] = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']; const OPEN = 420; const CLOSE = 1200; const RUSH_FROM = 480; const RUSH_TO = 720; function minutesOf(hhmm: string): number { const p = hhmm.split(':'); return Number(p[0]) * 60 + Number(p[1]); } function clock(min: number): string { if (min === 720) return '12 noon'; const h24 = Math.floor(min / 60); const mm = min % 60; const suffix = h24 < 12 ? 'am' : 'pm'; const h12 = h24 % 12 === 0 ? 12 : h24 % 12; if (mm === 0) return h12 + ' ' + suffix; return h12 + ':' + (mm < 10 ? '0' : '') + mm + ' ' + suffix; } const ws = rota.weekStart.split('-'); const baseMs = Date.UTC(Number(ws[0]), Number(ws[1]) - 1, Number(ws[2])); for (let i = 0; i < 7; i++) { const d = new Date(baseMs + i * 86400000); const date = d.toISOString().slice(0, 10); const dow = d.getUTCDay(); const dayName = dayNames[dow] ?? ''; const monthName = months[d.getUTCMonth()] ?? ''; const dayNum = d.getUTCDate(); const spans = rota.shifts.filter(s => s.date === date).map(s => ({ id: s.staffId, from: minutesOf(s.start), to: minutesOf(s.end) })); let runStart = -1; let runHave = -1; let runNeed = -1; for (let m = OPEN; m <= CLOSE; m++) { let have = -1; let need = -1; if (m < CLOSE) { const on = new Set<string>(); for (const sp of spans) { if (sp.from <= m && m < sp.to) on.add(sp.id); } have = on.size; need = dow === 6 && m >= RUSH_FROM && m < RUSH_TO ? 3 : 2; } const short = have >= 0 && have < need; const same = short && runStart >= 0 && have === runHave && need === runNeed; if (runStart >= 0 && !same) { const dutyText = runHave === 0 ? 'Nobody is on duty' : runHave === 1 ? 'Only one person is on duty' : 'Only ' + (words[runHave] ?? '') + ' people are on duty'; out.push({ date: date, message: 'On ' + dayName + ' ' + dayNum + ' ' + monthName + ', from ' + clock(runStart) + ' to ' + clock(m) + ', ' + dutyText + '. Your minimum for that time is ' + (words[runNeed] ?? '') + ' people.' }); runStart = -1; } if (short && runStart < 0) { runStart = m; runHave = have; runNeed = need; } } } return out; }",
+      "file": "checks/staffing.ts"
+    },
+    {
+      "t": "done",
+      "costUsd": 0.0144247,
+      "calls": [
+        {
+          "step": "interview.ask.1",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1337,
+          "outputTokens": 56,
+          "costUsd": 0.00016170000000000003,
+          "ms": 1388
+        },
+        {
+          "step": "interview.owner.1",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1930,
+          "outputTokens": 91,
+          "costUsd": 0.0002385,
+          "ms": 1981
+        },
+        {
+          "step": "interview.ask.2",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1462,
+          "outputTokens": 82,
+          "costUsd": 0.00018720000000000002,
+          "ms": 1445
+        },
+        {
+          "step": "interview.owner.2",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 2081,
+          "outputTokens": 76,
+          "costUsd": 0.0002461,
+          "ms": 1269
+        },
+        {
+          "step": "interview.ask.3",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1598,
+          "outputTokens": 90,
+          "costUsd": 0.00020480000000000002,
+          "ms": 1313
+        },
+        {
+          "step": "interview.owner.3",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 2224,
+          "outputTokens": 66,
+          "costUsd": 0.00025540000000000003,
+          "ms": 1349
+        },
+        {
+          "step": "interview.ask.4",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1731,
+          "outputTokens": 251,
+          "costUsd": 0.00029860000000000005,
+          "ms": 2336
+        },
+        {
+          "step": "interview.owner.4",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 2334,
+          "outputTokens": 109,
+          "costUsd": 0.00028789999999999995,
+          "ms": 1451
+        },
+        {
+          "step": "interview.ask.5",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1884,
+          "outputTokens": 307,
+          "costUsd": 0.00034189999999999996,
+          "ms": 2358
+        },
+        {
+          "step": "interview.owner.5",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 2517,
+          "outputTokens": 76,
+          "costUsd": 0.00028970000000000005,
+          "ms": 1433
+        },
+        {
+          "step": "interview.ask.6",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 2034,
+          "outputTokens": 305,
+          "costUsd": 0.0003559,
+          "ms": 2233
+        },
+        {
+          "step": "generate",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 5481,
+          "outputTokens": 10082,
+          "costUsd": 0.0055891000000000005,
+          "ms": 108802
+        },
+        {
+          "step": "generate.retry",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 5749,
+          "outputTokens": 10786,
+          "costUsd": 0.0059679,
+          "ms": 46039
+        }
+      ],
+      "runFile": "runs/setup-staffing-2026-10-20T20-14-46-757Z.json"
+    }
+  ]
+}

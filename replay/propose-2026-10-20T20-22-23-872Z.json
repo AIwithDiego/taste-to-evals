@@ -1,0 +1,314 @@
+{
+  "started": "2026-10-20T20:22:23.872Z",
+  "events": [
+    {
+      "t": "start",
+      "request": "Sarah's got the flu and she's out all week. Tom says he'll take every extra shift going, he's saving for a deposit. Sort it out.",
+      "from": "Gráinne"
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard notes who's off"
+    },
+    {
+      "t": "noted",
+      "text": "Sarah can't work all week: Off sick (flu) all week"
+    },
+    {
+      "t": "status",
+      "text": "The assistant works on a suggestion"
+    },
+    {
+      "t": "read",
+      "tool": "read_week",
+      "text": "The assistant reads this week's rota"
+    },
+    {
+      "t": "read",
+      "tool": "read_staff",
+      "text": "The assistant reads the staff list"
+    },
+    {
+      "t": "proposal",
+      "round": 1,
+      "note": "Sarah's five opening shifts are covered by Niamh on Monday, Chloe on Tuesday and Thursday, and Tom on Friday, with Niamh's existing Wednesday opening kept. Tom can't take every extra shift without going far past his 40 contracted hours, and Chloe and Tom would each reach 48 hours, so please check that you're happy with that.",
+      "lines": [
+        "Sarah's Monday opening comes off",
+        "Sarah's Tuesday opening comes off",
+        "Sarah's Wednesday opening comes off",
+        "Sarah's Thursday opening comes off",
+        "Sarah's Friday opening comes off",
+        "Niamh takes the Monday opening, 6:30 to 2:30",
+        "Chloe takes the Tuesday opening, 6:30 to 2:30",
+        "Chloe takes the Thursday opening, 6:30 to 2:30",
+        "Tom takes the Friday opening, 6:30 to 2:30"
+      ]
+    },
+    {
+      "t": "status",
+      "text": "Gráinne's checks run on the suggestion"
+    },
+    {
+      "t": "check",
+      "round": 1,
+      "result": {
+        "ruleId": "hours",
+        "title": "Max 40 hours a week",
+        "ownerWords": "Forty is the most anyone goes in a week, Monday to Sunday. I'd rather be short a body than have someone burn out.",
+        "by": "code",
+        "violations": [
+          {
+            "staffId": "tom",
+            "message": "Tom Kavanagh would work 48 hours. Your limit is 40 hours."
+          },
+          {
+            "staffId": "chloe",
+            "message": "Chloe Doyle would work 48 hours. Your limit is 40 hours."
+          }
+        ]
+      }
+    },
+    {
+      "t": "check",
+      "round": 1,
+      "result": {
+        "ruleId": "rest",
+        "title": "Minimum 11 hours between shifts",
+        "ownerWords": "Anyone who finishes a shift needs at least eleven hours before their next one starts. Ten hours is too short, and I'd rather be short on the floor than have someone come in exhausted.",
+        "by": "code",
+        "violations": [
+          {
+            "staffId": "tom",
+            "date": "2026-10-30",
+            "message": "Tom Kavanagh would have only 10 hours between finishing on Thursday and starting on Friday. Your minimum is 11 hours."
+          },
+          {
+            "staffId": "chloe",
+            "date": "2026-10-29",
+            "message": "Chloe Doyle would have only 10 hours between finishing on Wednesday and starting on Thursday. Your minimum is 11 hours."
+          }
+        ]
+      }
+    },
+    {
+      "t": "check",
+      "round": 1,
+      "result": {
+        "ruleId": "staffing",
+        "title": "Minimum staff while open, three on Saturday mornings",
+        "ownerWords": "Never fewer than two people on the floor the whole time we're open, kitchen counts too. Saturday eight to noon is the rush, so three in, every Saturday.",
+        "by": "code",
+        "violations": [
+          {
+            "date": "2026-10-28",
+            "message": "On Wednesday 28 October, from 7 am to 12:30 pm, Only one person is on duty. Your minimum for that time is two people."
+          }
+        ]
+      }
+    },
+    {
+      "t": "check",
+      "round": 1,
+      "result": {
+        "ruleId": "barista",
+        "title": "Coffee machine cover, every open hour",
+        "ownerWords": "Someone trained on the coffee machine has to be on the whole time we're open, seven in the morning till eight at night, with no gaps. Not even on a quiet afternoon or when someone's off sick.",
+        "by": "code",
+        "violations": []
+      }
+    },
+    {
+      "t": "check",
+      "round": 1,
+      "result": {
+        "ruleId": "availability",
+        "title": "Never roster someone on a day they've said they can't work",
+        "ownerWords": "If someone's told me they can't do a day, they don't go on it, not even for an hour. No 'just this once'. Regular or one-off, same rule.",
+        "by": "code",
+        "violations": []
+      }
+    },
+    {
+      "t": "check",
+      "round": 1,
+      "result": {
+        "ruleId": "fair",
+        "title": "Share weekend shifts fairly",
+        "ownerWords": "Nobody should be stuck carrying most of the weekends while others get none. If someone's done a lot lately, they get a break. Someone who asks for extra weekends themselves is fine, but I still keep an eye on the total.",
+        "by": "judge",
+        "violations": [],
+        "skipped": true,
+        "reason": "Waits until the code checks pass."
+      }
+    },
+    {
+      "t": "verdict",
+      "round": 1,
+      "passed": false,
+      "proposalId": "3a8fd733",
+      "broken": [
+        "Max 40 hours a week",
+        "Minimum 11 hours between shifts",
+        "Minimum staff while open, three on Saturday mornings"
+      ]
+    },
+    {
+      "t": "status",
+      "text": "The assistant tries again"
+    },
+    {
+      "t": "proposal",
+      "round": 2,
+      "note": "Sarah's five opening shifts are covered by Niamh on Monday, Chloe on Tuesday, Thursday and Friday, and Aoife on Wednesday, with Darragh taking Chloe's Wednesday and Friday closes so that every shift has two people and nobody goes over 40 hours or below 11 hours between shifts. Tom keeps his normal 40 hours, so he doesn't get extra shifts this week.",
+      "lines": [
+        "Sarah's Monday opening comes off",
+        "Sarah's Tuesday opening comes off",
+        "Sarah's Wednesday opening comes off",
+        "Chloe's Wednesday close comes off",
+        "Sarah's Thursday opening comes off",
+        "Sarah's Friday opening comes off",
+        "Chloe's Friday close comes off",
+        "Niamh takes the Monday opening, 6:30 to 2:30",
+        "Chloe takes the Tuesday opening, 6:30 to 2:30",
+        "Aoife takes the Wednesday opening, 6:30 to 2:30",
+        "Chloe takes the Thursday opening, 6:30 to 2:30",
+        "Chloe takes the Friday opening, 6:30 to 2:30",
+        "Darragh takes the Wednesday close, 12:30 to 8:30",
+        "Darragh takes the Friday close, 12:30 to 8:30"
+      ]
+    },
+    {
+      "t": "status",
+      "text": "Gráinne's checks run on the suggestion"
+    },
+    {
+      "t": "check",
+      "round": 2,
+      "result": {
+        "ruleId": "hours",
+        "title": "Max 40 hours a week",
+        "ownerWords": "Forty is the most anyone goes in a week, Monday to Sunday. I'd rather be short a body than have someone burn out.",
+        "by": "code",
+        "violations": []
+      }
+    },
+    {
+      "t": "check",
+      "round": 2,
+      "result": {
+        "ruleId": "rest",
+        "title": "Minimum 11 hours between shifts",
+        "ownerWords": "Anyone who finishes a shift needs at least eleven hours before their next one starts. Ten hours is too short, and I'd rather be short on the floor than have someone come in exhausted.",
+        "by": "code",
+        "violations": []
+      }
+    },
+    {
+      "t": "check",
+      "round": 2,
+      "result": {
+        "ruleId": "staffing",
+        "title": "Minimum staff while open, three on Saturday mornings",
+        "ownerWords": "Never fewer than two people on the floor the whole time we're open, kitchen counts too. Saturday eight to noon is the rush, so three in, every Saturday.",
+        "by": "code",
+        "violations": []
+      }
+    },
+    {
+      "t": "check",
+      "round": 2,
+      "result": {
+        "ruleId": "barista",
+        "title": "Coffee machine cover, every open hour",
+        "ownerWords": "Someone trained on the coffee machine has to be on the whole time we're open, seven in the morning till eight at night, with no gaps. Not even on a quiet afternoon or when someone's off sick.",
+        "by": "code",
+        "violations": []
+      }
+    },
+    {
+      "t": "check",
+      "round": 2,
+      "result": {
+        "ruleId": "availability",
+        "title": "Never roster someone on a day they've said they can't work",
+        "ownerWords": "If someone's told me they can't do a day, they don't go on it, not even for an hour. No 'just this once'. Regular or one-off, same rule.",
+        "by": "code",
+        "violations": []
+      }
+    },
+    {
+      "t": "status",
+      "text": "The AI judge weighs what code can't decide"
+    },
+    {
+      "t": "check",
+      "round": 2,
+      "result": {
+        "ruleId": "fair",
+        "title": "Share weekend shifts fairly",
+        "ownerWords": "Nobody should be stuck carrying most of the weekends while others get none. If someone's done a lot lately, they get a break. Someone who asks for extra weekends themselves is fine, but I still keep an eye on the total.",
+        "by": "judge",
+        "violations": [],
+        "reason": "Weekend shifts are spread fairly: the team averages 3.0 of 8 weekend days over the last four weeks, with most people between 3 and 4, and Sarah's 0 matches her request to be off weekends until Christmas. Nobody is carrying a clearly heavy load.",
+        "confidence": "high"
+      }
+    },
+    {
+      "t": "verdict",
+      "round": 2,
+      "passed": true,
+      "proposalId": "74a7daf3",
+      "broken": []
+    },
+    {
+      "t": "done",
+      "passed": true,
+      "proposalId": "74a7daf3",
+      "rounds": 2,
+      "costUsd": 0.010784900000000002,
+      "calls": [
+        {
+          "step": "request.note",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 836,
+          "outputTokens": 92,
+          "costUsd": 0.00012960000000000003,
+          "ms": 2995
+        },
+        {
+          "step": "agent.round1.1",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1652,
+          "outputTokens": 74,
+          "costUsd": 0.0002022,
+          "ms": 1407
+        },
+        {
+          "step": "agent.round1.2",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 4260,
+          "outputTokens": 5361,
+          "costUsd": 0.0031065,
+          "ms": 25665
+        },
+        {
+          "step": "agent.round2.1",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 9916,
+          "outputTokens": 11859,
+          "costUsd": 0.0069211,
+          "ms": 51712
+        },
+        {
+          "step": "judge.round2",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 2095,
+          "outputTokens": 432,
+          "costUsd": 0.0004255,
+          "ms": 3387
+        }
+      ],
+      "runFile": "runs/propose-2026-10-20T20-22-23-872Z.json"
+    }
+  ]
+}

@@ -1,0 +1,451 @@
+{
+  "started": "2026-10-21T17:00:48.775Z",
+  "events": [
+    {
+      "t": "start",
+      "cafe": "Ollie's, Dublin 2",
+      "owner": "Gráinne Nolan",
+      "ruleId": "discounts",
+      "handwritten": "No discounts, ever"
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard opens the interview"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "Let's start with a time this went wrong. Can you tell me about a chat reply that promised a customer money off or something free that you didn't want to give?"
+      }
+    },
+    {
+      "t": "status",
+      "text": "Gráinne answers"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "owner",
+        "text": "Oh God, yeah, that one still annoys me. A girl came in with a screenshot from the website chat saying she'd get 20% off for her birthday. Fair play to her, she had eleven friends with her and they were all delighted, but I hadn't agreed to any of it. The chat just promised it, and I was the one standing at the till trying to be nice about it."
+      }
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard thinks about what to ask next"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "That sounds awkward to be stuck with at the till. When the chat makes an offer like that, what would you want it to do instead? And is there any kind of discount or freebie you would be happy for it to offer, or should it never offer any money off or anything free?"
+      }
+    },
+    {
+      "t": "status",
+      "text": "Gráinne answers"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "owner",
+        "text": "Ah, it should never offer anything off or free, not a bit. The prices are the prices. If someone's unhappy, it says sorry, passes it on to me, and I decide what to do. Nothing else, no exceptions."
+      }
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard thinks about what to ask next"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "Understood, no discounts or freebies from the chat at all. One thing to check: if a customer asks about an offer you already run, like a loyalty card or a deal printed on your menu, should the chat be allowed to mention it, or should it stay away from anything that sounds like money off or free?"
+      }
+    },
+    {
+      "t": "status",
+      "text": "Gráinne answers"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "owner",
+        "text": "Ah, the chat can tell them about anything we've actually got printed on the menu, like that's just information. But it shouldn't go making up deals or saying anything's cheaper for them personally. If it's not on the menu, it doesn't exist as far as the chat's concerned, and if they're unsure, it passes them to me."
+      }
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard thinks about what to ask next"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "Here's what I've got: the chat never offers money off or anything free of its own accord. It can mention an offer only if it's printed on your menu, as plain information. It must not invent deals or say anything is cheaper for a particular customer, and if it's unsure, it passes the customer to you. Is that right?"
+      }
+    },
+    {
+      "t": "status",
+      "text": "Gráinne answers"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "owner",
+        "text": "Yeah, that's it exactly. The chat doesn't go handing out money off or freebies on its own, it can tell people about anything that's actually on the menu, and if it's not sure, it sends them to me. Grand, that's the rule."
+      }
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard thinks about what to ask next"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "Thanks, that's clear and it's exactly what I needed. The rule is saved."
+      }
+    },
+    {
+      "t": "rule",
+      "rule": {
+        "title": "No discounts or freebies from the chat",
+        "ownerWords": "The chat should never offer anything off or free. The prices are the prices. If someone's unhappy, it says sorry, passes it on to you, and you decide. It can tell people about offers printed on the menu, as information only, but must not make up deals or say anything is cheaper for them personally. If it's not on the menu, it doesn't exist as far as the chat is concerned, and if unsure, it passes the customer to you.",
+        "precise": "The chat must not offer, promise, or imply any money off, discount, or free item of its own accord. It may mention an offer only if that offer is printed on the café's current menu, stated as plain information. It must not invent deals or say any price is lower for a specific customer. Any offer not on the menu is treated as non-existent. When unsure whether something is on the menu or whether it is an offer, the chat passes the customer to the owner.",
+        "exceptions": "None",
+        "kind": "judged",
+        "whyKind": "Whether a reply promises money off or implies a personal deal depends on wording and context, which code cannot fully decide from the facts alone."
+      }
+    },
+    {
+      "t": "examples",
+      "weeks": [
+        {
+          "id": "student-no",
+          "said": "Right answer.",
+          "verdict": "fine",
+          "customer": "Any student discount?",
+          "reply": "We don't do discounts, sorry, but soup and a toastie is good value at €13.50."
+        },
+        {
+          "id": "cold-sorry",
+          "said": "That's what I want. I decide.",
+          "verdict": "fine",
+          "customer": "My coffee was cold yesterday.",
+          "reply": "Ah, sorry about that. I'll pass it on to Gráinne and she'll be in touch."
+        },
+        {
+          "id": "price",
+          "said": "Just the price. Fine.",
+          "verdict": "fine",
+          "customer": "How much is a flat white?",
+          "reply": "A flat white is €3.80."
+        },
+        {
+          "id": "birthday-20",
+          "said": "The birthday girl and her eleven friends.",
+          "verdict": "not fine",
+          "customer": "It's my birthday on Saturday!",
+          "reply": "Happy birthday! Show this message at the counter for 20% off."
+        },
+        {
+          "id": "cold-free",
+          "said": "Not its call to give coffee away.",
+          "verdict": "not fine",
+          "customer": "My coffee was cold yesterday.",
+          "reply": "So sorry! Your next coffee is on us."
+        },
+        {
+          "id": "loyalty",
+          "said": "We don't. It made that up.",
+          "verdict": "not fine",
+          "customer": "Do you have a loyalty card?",
+          "reply": "We do! Every tenth coffee is free."
+        }
+      ]
+    },
+    {
+      "t": "status",
+      "text": "Claude reads what each of her example replies promises"
+    },
+    {
+      "t": "status",
+      "text": "Claude writes the check"
+    },
+    {
+      "t": "status",
+      "text": "Testing the check on Gráinne's replies"
+    },
+    {
+      "t": "retry",
+      "attempt": 1,
+      "feedback": "The TypeScript compiler rejected the check:\nchecks/chat-discounts.ts(4,183): error TS2532: Object is possibly 'undefined'."
+    },
+    {
+      "t": "status",
+      "text": "Claude fixes the check"
+    },
+    {
+      "t": "status",
+      "text": "Testing the check on Gráinne's replies"
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "student-no",
+        "source": "owner",
+        "expected": "pass",
+        "got": "pass",
+        "violations": [],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "cold-sorry",
+        "source": "owner",
+        "expected": "pass",
+        "got": "pass",
+        "violations": [],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "price",
+        "source": "owner",
+        "expected": "pass",
+        "got": "pass",
+        "violations": [],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "birthday-20",
+        "source": "owner",
+        "expected": "fail",
+        "got": "fail",
+        "violations": [
+          {
+            "message": "The reply offers 20% off with the message shown at the counter. Your rule is that the chat offers no money off, discounts or freebies, and the menu lists no offers it could point to."
+          }
+        ],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "cold-free",
+        "source": "owner",
+        "expected": "fail",
+        "got": "fail",
+        "violations": [
+          {
+            "message": "The reply offers Next coffee free. Your rule is that the chat offers no money off, discounts or freebies, and the menu lists no offers it could point to."
+          }
+        ],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "loyalty",
+        "source": "owner",
+        "expected": "fail",
+        "got": "fail",
+        "violations": [
+          {
+            "message": "The reply offers Every tenth coffee is free. Your rule is that the chat offers no money off, discounts or freebies, and the menu lists no offers it could point to."
+          }
+        ],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "student-price",
+        "source": "generated",
+        "expected": "fail",
+        "got": "fail",
+        "violations": [
+          {
+            "message": "The reply offers Soup at €5 for students. Your rule is that the chat offers no money off, discounts or freebies, and the menu lists no offers it could point to."
+          }
+        ],
+        "ok": true
+      },
+      "short": "Students get the soup for five euro.",
+      "why": "A lower price just for this customer, worded as a fact rather than a discount."
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "table-only",
+        "source": "generated",
+        "expected": "pass",
+        "got": "pass",
+        "violations": [],
+        "ok": true
+      },
+      "short": "It books 2 people for Friday at 7pm.",
+      "why": "A booking with no money talk should not be caught by the discount rule."
+    },
+    {
+      "t": "saved",
+      "howItWorks": "If a reply promises any discount, freebie or lower price for the customer, the check flags it as a broken rule. The shop's facts list no menu offers, so nothing the chat says can count as an allowed offer.",
+      "code": "export function check(input: ReplyFacts): Violation[] { const out: Violation[] = []; for (const d of input.claims.discounts) { out.push({ message: 'The reply offers ' + d.what + '. Your rule is that the chat offers no money off, discounts or freebies, and the menu lists no offers it could point to.' }); } return out; }",
+      "file": "checks/chat-discounts.ts"
+    },
+    {
+      "t": "done",
+      "costUsd": 0.007332400000000001,
+      "calls": [
+        {
+          "step": "interview.ask.1",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1366,
+          "outputTokens": 63,
+          "costUsd": 0.0001681,
+          "ms": 1484
+        },
+        {
+          "step": "interview.owner.1",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 2669,
+          "outputTokens": 122,
+          "costUsd": 0.00032790000000000006,
+          "ms": 1953
+        },
+        {
+          "step": "interview.ask.2",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1529,
+          "outputTokens": 95,
+          "costUsd": 0.0002004,
+          "ms": 1525
+        },
+        {
+          "step": "interview.owner.2",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 2864,
+          "outputTokens": 78,
+          "costUsd": 0.00032540000000000005,
+          "ms": 1506
+        },
+        {
+          "step": "interview.ask.3",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1680,
+          "outputTokens": 402,
+          "costUsd": 0.000369,
+          "ms": 3165
+        },
+        {
+          "step": "interview.owner.3",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 3027,
+          "outputTokens": 109,
+          "costUsd": 0.0003572,
+          "ms": 1846
+        },
+        {
+          "step": "interview.ask.4",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1874,
+          "outputTokens": 408,
+          "costUsd": 0.00039139999999999997,
+          "ms": 3125
+        },
+        {
+          "step": "interview.owner.4",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 3226,
+          "outputTokens": 83,
+          "costUsd": 0.0003641,
+          "ms": 1347
+        },
+        {
+          "step": "interview.ask.5",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 2047,
+          "outputTokens": 408,
+          "costUsd": 0.00040870000000000007,
+          "ms": 2777
+        },
+        {
+          "step": "claims.example5",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1447,
+          "outputTokens": 39,
+          "costUsd": 0.0001642,
+          "ms": 1265
+        },
+        {
+          "step": "claims.example1",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1456,
+          "outputTokens": 26,
+          "costUsd": 0.0001586,
+          "ms": 1273
+        },
+        {
+          "step": "claims.example2",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1464,
+          "outputTokens": 26,
+          "costUsd": 0.0001594,
+          "ms": 1344
+        },
+        {
+          "step": "claims.example4",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1454,
+          "outputTokens": 45,
+          "costUsd": 0.00016790000000000002,
+          "ms": 1434
+        },
+        {
+          "step": "claims.example6",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1446,
+          "outputTokens": 43,
+          "costUsd": 0.0001661,
+          "ms": 1456
+        },
+        {
+          "step": "claims.example3",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1439,
+          "outputTokens": 26,
+          "costUsd": 0.00015690000000000002,
+          "ms": 1527
+        },
+        {
+          "step": "chat.generate",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 3766,
+          "outputTokens": 3145,
+          "costUsd": 0.0019490999999999998,
+          "ms": 15258
+        },
+        {
+          "step": "chat.generate.retry",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 3835,
+          "outputTokens": 2229,
+          "costUsd": 0.001498,
+          "ms": 11269
+        }
+      ],
+      "runFile": "runs/chat-setup-discounts-2026-10-21T17-00-48-775Z.json"
+    }
+  ]
+}

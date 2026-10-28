@@ -1,0 +1,444 @@
+{
+  "started": "2026-10-20T20:08:59.443Z",
+  "events": [
+    {
+      "t": "start",
+      "cafe": "Ollie's, Dublin 2",
+      "owner": "Gráinne Nolan",
+      "ruleId": "rest",
+      "handwritten": "11 hours off between shifts"
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard opens the interview"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "Tell me about a time the rest between shifts went wrong, like someone closing one night and opening the next morning. What happened?"
+      }
+    },
+    {
+      "t": "status",
+      "text": "Gráinne answers"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "owner",
+        "text": "Oh, that one still makes me wince. In January Liam closed on the Thursday night at half eight and was back opening Friday at half six. He came in grey as a sheet, and I'll never forget him nearly fainting at the till. He was hardly able to stand, and I felt awful for putting him in that position."
+      }
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard thinks about what to ask next"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "That sounds rough, for both of you. Going from a close at half eight to an open at half six, how much time did he really have to rest in between?"
+      }
+    },
+    {
+      "t": "status",
+      "text": "Gráinne answers"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "owner",
+        "text": "Honestly, not nearly enough. It's ten hours from the close to the open, and half of that is just getting home and back in. I haven't put it into a rule yet, I'd just say he never got a proper sleep."
+      }
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard thinks about what to ask next"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "That makes sense, a ten-hour gap is hard to sleep properly in. So what's the least time you'd want between any close and the next open, say when it's fine and when it's not?"
+      }
+    },
+    {
+      "t": "status",
+      "text": "Gráinne answers"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "owner",
+        "text": "Ah, I haven't written that down yet, to be honest. But ten hours is a no for me, that's what Liam had and look what happened. Anything that gives someone a proper night's sleep and a bit of time to breathe, that's what I'm after."
+      }
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard thinks about what to ask next"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "Thanks, that helps a lot. So ten hours is too short for you. Would you be happy with a gap of eleven hours, or do you want something longer than that, like twelve?"
+      }
+    },
+    {
+      "t": "status",
+      "text": "Gráinne answers"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "owner",
+        "text": "Eleven is fine, that's exactly what I want. Ten is a no, but eleven means someone gets a proper sleep and a bit of breathing room before the next shift. Twelve isn't something I've thought about, to be honest, and I wouldn't want to make the rota that tight anyway."
+      }
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard thinks about what to ask next"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "Got it, so eleven hours is the minimum you want between a close and the next open. Let me read it back: if someone finishes a shift and the next one starts less than eleven hours later, the rota gets flagged, and exactly eleven hours is fine. Does that match what you mean, and are there any times, like a one-off cover or a special event, where you'd let it slide?"
+      }
+    },
+    {
+      "t": "status",
+      "text": "Gráinne answers"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "owner",
+        "text": "Yes, that's exactly it, eleven hours minimum and anything under gets flagged. No exceptions for me, not for cover or a special event. I'd rather be short on the floor than have someone walking in grey like Liam did."
+      }
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard thinks about what to ask next"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "Thanks, that's clear and it's exactly what I needed. I've got your rule: any gap under eleven hours between a shift ending and the next one starting gets flagged, eleven exactly is fine, and there are no exceptions. Thank you for walking me through what happened with Liam."
+      }
+    },
+    {
+      "t": "rule",
+      "rule": {
+        "title": "Minimum 11 hours between shifts",
+        "ownerWords": "Anyone who finishes a shift needs at least eleven hours before their next one starts. Ten hours is too short, and I'd rather be short on the floor than have someone come in exhausted.",
+        "precise": "Measured as the time from the end of one shift to the start of the next shift for the same person. The limit is eleven hours: a gap of less than eleven hours gets flagged, and a gap of exactly eleven hours is allowed. Applies to every close followed by an open, and any other back-to-back shifts.",
+        "exceptions": "None. No exceptions for cover or special events.",
+        "kind": "typed",
+        "whyKind": "The gap between two shift times on the rota is a plain calculation, so the code can check it without judgement."
+      }
+    },
+    {
+      "t": "examples",
+      "weeks": [
+        {
+          "id": "good-normal",
+          "said": "A normal week. Nobody closes and then opens the next morning.",
+          "verdict": "fine"
+        },
+        {
+          "id": "good-darragh-11",
+          "said": "Darragh closed Tuesday and came in at half seven Wednesday. Exactly 11 hours. Fine.",
+          "verdict": "fine"
+        },
+        {
+          "id": "good-sarah-late",
+          "said": "Sarah swapped her Friday opening for the close. Plenty of rest either side.",
+          "verdict": "fine"
+        },
+        {
+          "id": "bad-niamh-clopen",
+          "said": "Niamh closed Friday and opened Saturday. Ten hours. Never again.",
+          "verdict": "not fine"
+        },
+        {
+          "id": "bad-tom-clopen",
+          "said": "Tom closed Thursday and we had him opening Friday.",
+          "verdict": "not fine"
+        },
+        {
+          "id": "bad-darragh-10-5",
+          "said": "Darragh closed Tuesday and came in at 7 Wednesday. Ten and a half. Not enough.",
+          "verdict": "not fine"
+        }
+      ]
+    },
+    {
+      "t": "status",
+      "text": "Claude writes the check"
+    },
+    {
+      "t": "status",
+      "text": "Testing the check on Gráinne's weeks"
+    },
+    {
+      "t": "retry",
+      "attempt": 1,
+      "feedback": "The TypeScript compiler rejected the check:\nchecks/rest.ts(14,19): error TS2769: No overload matches this call.\n  The last overload gave the following error.\n    Argument of type 'number | undefined' is not assignable to parameter of type 'number'.\n      Type 'undefined' is not assignable to type 'number'.\nchecks/rest.ts(14,25): error TS2532: Object is possibly 'undefined'.\nchecks/rest.ts(19,10): error TS2532: Object is possibly 'undefined'.\nchecks/rest.ts(19,22): error TS2532: Object is possibly 'undefined'.\nchecks/rest.ts(32,3): error TS2322: Type 'string | undefined' is not assignable to type 'string'.\n  Type 'undefined' is not assignable to type 'string'.\nchecks/rest.ts(32,33): error TS2769: No overload matches this call.\n  The last overload gave the following error.\n    Argument of type 'number | undefined' is not assignable to parameter of type 'number'.\n      Type 'undefined' is not assignable to type 'number'.\nchecks/rest.ts(32,39): error TS2532: Object is possibly 'undefined'.\nchecks/rest.ts(37,52): error TS2532: Object is possibly 'undefined'.\nchecks/rest.ts(66,27): error TS2345: Argument of type 'Shift | undefined' is not assignable to parameter of type 'Shift'.\n  Type 'undefined' is not assignable to type 'Shift'.\nchecks/rest.ts(66,41): error TS2345: Argument of type 'Shift | undefined' is not assignable to parameter of type 'Shift'.\n  Type 'undefined' is not assignable to type 'Shift'.\nchecks/rest.ts(69,35): error TS18048: 'next' is possibly 'undefined'.\nchecks/rest.ts(69,115): error TS18048: 'next' is possibly 'undefined'.\nchecks/rest.ts(71,35): error TS18048: 'next' is possibly 'undefined'.\nchecks/rest.ts(71,134): error TS18048: 'prev' is possibly 'undefined'.\nchecks/rest.ts(71,178): error TS18048: 'next' is possibly 'undefined'."
+    },
+    {
+      "t": "status",
+      "text": "Claude fixes the check"
+    },
+    {
+      "t": "status",
+      "text": "Testing the check on Gráinne's weeks"
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "good-normal",
+        "source": "owner",
+        "expected": "pass",
+        "got": "pass",
+        "violations": [],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "good-darragh-11",
+        "source": "owner",
+        "expected": "pass",
+        "got": "pass",
+        "violations": [],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "good-sarah-late",
+        "source": "owner",
+        "expected": "pass",
+        "got": "pass",
+        "violations": [],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "bad-niamh-clopen",
+        "source": "owner",
+        "expected": "fail",
+        "got": "fail",
+        "violations": [
+          {
+            "staffId": "niamh",
+            "date": "2026-10-31",
+            "message": "Niamh Walsh would have only 10 hours between finishing on Friday and starting on Saturday. Your minimum is 11 hours."
+          }
+        ],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "bad-tom-clopen",
+        "source": "owner",
+        "expected": "fail",
+        "got": "fail",
+        "violations": [
+          {
+            "staffId": "tom",
+            "date": "2026-10-30",
+            "message": "Tom Kavanagh would have only 10 hours between finishing on Thursday and starting on Friday. Your minimum is 11 hours."
+          }
+        ],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "bad-darragh-10-5",
+        "source": "owner",
+        "expected": "fail",
+        "got": "fail",
+        "violations": [
+          {
+            "staffId": "darragh",
+            "date": "2026-10-28",
+            "message": "Darragh Kelly would have only 10 and a half hours between finishing on Tuesday and starting on Wednesday. Your minimum is 11 hours."
+          }
+        ],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "Aoife closes Wednesday, opens Thursday at 06:59",
+        "source": "generated",
+        "expected": "fail",
+        "got": "fail",
+        "violations": [
+          {
+            "staffId": "aoife",
+            "date": "2026-10-29",
+            "message": "Aoife Murphy would have only 10 hours and 59 minutes between finishing on Wednesday and starting on Thursday. Your minimum is 11 hours."
+          }
+        ],
+        "ok": true
+      },
+      "short": "Aoife closes Wednesday at eight, opens Thursday at 06:59.",
+      "why": "Tests the edge just under the limit: 10 hours and 59 minutes, one minute short, across midnight."
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "Sarah does a short evening after Monday opening",
+        "source": "generated",
+        "expected": "fail",
+        "got": "fail",
+        "violations": [
+          {
+            "staffId": "sarah",
+            "date": "2026-10-26",
+            "message": "Sarah Byrne would have only half an hour between two shifts on Monday. Your minimum is 11 hours."
+          },
+          {
+            "staffId": "sarah",
+            "date": "2026-10-27",
+            "message": "Sarah Byrne would have only 10 and a half hours between finishing on Monday and starting on Tuesday. Your minimum is 11 hours."
+          }
+        ],
+        "ok": true
+      },
+      "short": "Sarah does a short evening shift after her Monday opening.",
+      "why": "Tests two shifts on the same day with only half an hour between them, which the rule also counts."
+    },
+    {
+      "t": "saved",
+      "howItWorks": "The check measures the time from the end of each shift to the start of that person's next shift. If that gap is under 11 hours, it names the person and the day so you can move a shift.",
+      "code": "export function check(rota: Rota): Violation[] { const MIN_REST = 660; const DAYS = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']; const out: Violation[] = []; const nameOf = new Map<string, string>(); for (const s of rota.staff) { nameOf.set(s.id, s.name); } function clock(hhmm: string): number { const parts = hhmm.split(':'); const h = Number(parts[0] ?? 0); const m = Number(parts[1] ?? 0); return h * 60 + m; } function dayNo(date: string): number { return Math.round(Date.parse(date + 'T00:00:00Z') / 86400000); } function startAbs(s: Shift): number { return dayNo(s.date) * 1440 + clock(s.start); } function endAbs(s: Shift): number { return dayNo(s.date) * 1440 + clock(s.end); } function dayName(date: string): string { const d = new Date(date + 'T00:00:00Z').getUTCDay(); return DAYS[d] ?? date; } function hoursText(mins: number): string { const h = Math.floor(mins / 60); const r = mins - h * 60; if (r === 0) return h === 1 ? '1 hour' : h + ' hours'; if (r === 30) return h === 0 ? 'half an hour' : h + ' and a half hours'; const rest = r === 1 ? '1 minute' : r + ' minutes'; if (h === 0) return rest; if (h === 1) return '1 hour and ' + rest; return h + ' hours and ' + rest; } const byStaff = new Map<string, Shift[]>(); for (const sh of rota.shifts) { const list = byStaff.get(sh.staffId); if (list) { list.push(sh); } else { byStaff.set(sh.staffId, [sh]); } } byStaff.forEach(function (list, staffId) { const sorted = list.slice().sort(function (a, b) { return startAbs(a) - startAbs(b); }); const name = nameOf.get(staffId) ?? 'This person'; for (let i = 1; i < sorted.length; i++) { const prev = sorted[i - 1]; const next = sorted[i]; if (!prev || !next) continue; const gap = startAbs(next) - endAbs(prev); if (gap >= MIN_REST) continue; let message: string; if (gap <= 0) { message = name + ' has two shifts that overlap or run straight into each other on ' + dayName(next.date) + '. Your minimum is 11 hours between shifts.'; } else if (prev.date === next.date) { message = name + ' would have only ' + hoursText(gap) + ' between two shifts on ' + dayName(next.date) + '. Your minimum is 11 hours.'; } else { message = name + ' would have only ' + hoursText(gap) + ' between finishing on ' + dayName(prev.date) + ' and starting on ' + dayName(next.date) + '. Your minimum is 11 hours.'; } out.push({ staffId: staffId, date: next.date, message: message }); } }); return out; }",
+      "file": "checks/rest.ts"
+    },
+    {
+      "t": "done",
+      "costUsd": 0.015766000000000002,
+      "calls": [
+        {
+          "step": "interview.ask.1",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1338,
+          "outputTokens": 56,
+          "costUsd": 0.0001618,
+          "ms": 1527
+        },
+        {
+          "step": "interview.owner.1",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1931,
+          "outputTokens": 104,
+          "costUsd": 0.00024510000000000005,
+          "ms": 2790
+        },
+        {
+          "step": "interview.ask.2",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1476,
+          "outputTokens": 59,
+          "costUsd": 0.0001771,
+          "ms": 1511
+        },
+        {
+          "step": "interview.owner.2",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 2072,
+          "outputTokens": 74,
+          "costUsd": 0.0002442,
+          "ms": 1374
+        },
+        {
+          "step": "interview.ask.3",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1587,
+          "outputTokens": 74,
+          "costUsd": 0.0001957,
+          "ms": 1437
+        },
+        {
+          "step": "interview.owner.3",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 2197,
+          "outputTokens": 86,
+          "costUsd": 0.00026270000000000004,
+          "ms": 1450
+        },
+        {
+          "step": "interview.ask.4",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1724,
+          "outputTokens": 74,
+          "costUsd": 0.0002094,
+          "ms": 1560
+        },
+        {
+          "step": "interview.owner.4",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 2334,
+          "outputTokens": 101,
+          "costUsd": 0.00028389999999999996,
+          "ms": 1704
+        },
+        {
+          "step": "interview.ask.5",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1876,
+          "outputTokens": 133,
+          "costUsd": 0.0002541,
+          "ms": 1760
+        },
+        {
+          "step": "interview.owner.5",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 2545,
+          "outputTokens": 80,
+          "costUsd": 0.0002945,
+          "ms": 1203
+        },
+        {
+          "step": "interview.ask.6",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 2066,
+          "outputTokens": 359,
+          "costUsd": 0.0003861,
+          "ms": 3606
+        },
+        {
+          "step": "generate",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 5501,
+          "outputTokens": 11643,
+          "costUsd": 0.006371600000000001,
+          "ms": 46912
+        },
+        {
+          "step": "generate.retry",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 6278,
+          "outputTokens": 12104,
+          "costUsd": 0.0066798000000000005,
+          "ms": 50490
+        }
+      ],
+      "runFile": "runs/setup-rest-2026-10-20T20-08-59-443Z.json"
+    }
+  ]
+}

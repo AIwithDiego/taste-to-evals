@@ -1,0 +1,395 @@
+{
+  "started": "2026-10-20T20:13:01.018Z",
+  "events": [
+    {
+      "t": "start",
+      "cafe": "Ollie's, Dublin 2",
+      "owner": "Gráinne Nolan",
+      "ruleId": "availability",
+      "handwritten": "Respect when people can't work"
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard opens the interview"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "Tell me about a time a rota went wrong because someone was put on a day they'd said they couldn't work. What happened?"
+      }
+    },
+    {
+      "t": "status",
+      "text": "Gráinne answers"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "owner",
+        "text": "Oh God, yeah. Aoife had college on Tuesdays and I'd put her on a Tuesday anyway. She came in, missed a lab, and she was nearly out the door over it. And Darragh got rostered on the day of a hospital appointment he'd told me about weeks before. I felt awful, honestly. You'd think I'd have checked the notes, but the rota gets built in a rush and that's what happens."
+      }
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard thinks about what to ask next"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "That sounds stressful for everyone, and I'm sorry Darragh's appointment got caught up in it too. When someone tells you a day is off-limits, what should happen the next time you build a rota? Should it be a hard stop, or is there ever a case where it's fine to put them on that day?"
+      }
+    },
+    {
+      "t": "status",
+      "text": "Gráinne answers"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "owner",
+        "text": "Hard stop, no question. If someone's told me they can't do a day, they don't go on it, not even for an hour. I'd rather be scrambling for cover than have someone miss a lab or sit in a hospital waiting room because I put their name down. There's no 'just this once' in my book."
+      }
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard thinks about what to ask next"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "Got it, a hard stop with no exceptions. Just to be sure I have the edges right: if someone says they can't work a particular day, does that mean they can't be rostered on that day at all, or does it matter if it's a regular weekly thing versus a one-off like Darragh's appointment?"
+      }
+    },
+    {
+      "t": "status",
+      "text": "Gráinne answers"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "owner",
+        "text": "Doesn't matter to me, love. Regular or one-off, if they've said they can't do the day, their name doesn't go on it. Aoife's Tuesdays are college, Darragh's Thursday the 29th is the dentist, same rule for both. I'm not splitting hairs over it."
+      }
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard thinks about what to ask next"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "Let me check I've got it. If someone has told you they can't work a day, whether it's a regular commitment like Aoife's Tuesdays or a one-off like Darragh's dentist appointment, they don't go on the rota at all, not even for an hour, and there are no exceptions. Is that right?"
+      }
+    },
+    {
+      "t": "status",
+      "text": "Gráinne answers"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "owner",
+        "text": "Yes, that's it, love. Once someone's told me they can't do a day, their name doesn't go near it, not even for an hour. No exceptions, no 'just this once'. Aoife's Tuesdays and Darragh's Thursday are both off the table."
+      }
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard thinks about what to ask next"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "Thanks, that's clear. I'll capture it now."
+      }
+    },
+    {
+      "t": "rule",
+      "rule": {
+        "title": "Never roster someone on a day they've said they can't work",
+        "ownerWords": "If someone's told me they can't do a day, they don't go on it, not even for an hour. No 'just this once'. Regular or one-off, same rule.",
+        "precise": "For any staff member, if they have told the owner they cannot work a given day (whether a recurring commitment such as a weekly college day, or a one-off such as a single appointment), that person must not be rostered on that day in any amount, including a single hour. Applies to every day that has been declared unavailable, regardless of how often it recurs.",
+        "exceptions": "None",
+        "kind": "typed",
+        "whyKind": "Whether someone is rostered on a day they declared unavailable can be checked directly against the rota and the recorded availability, with no judgement needed."
+      }
+    },
+    {
+      "t": "examples",
+      "weeks": [
+        {
+          "id": "good-normal",
+          "said": "A normal week. Aoife off Tuesday, Darragh off for the dentist.",
+          "verdict": "fine"
+        },
+        {
+          "id": "good-aoife-wed",
+          "said": "Aoife picked up a Wednesday. She's free Wednesdays.",
+          "verdict": "fine"
+        },
+        {
+          "id": "good-darragh-fri",
+          "said": "Darragh did Aoife's Friday opening. He's only off Thursday.",
+          "verdict": "fine"
+        },
+        {
+          "id": "bad-aoife-tuesday",
+          "said": "Someone put Aoife on Tuesday. She has college.",
+          "verdict": "not fine"
+        },
+        {
+          "id": "bad-aoife-short",
+          "said": "Just a couple of hours Tuesday morning for Aoife. Still no. She told us.",
+          "verdict": "not fine"
+        },
+        {
+          "id": "bad-darragh-dentist",
+          "said": "Darragh was on Thursday, the day of his dentist.",
+          "verdict": "not fine"
+        }
+      ]
+    },
+    {
+      "t": "status",
+      "text": "Claude writes the check"
+    },
+    {
+      "t": "status",
+      "text": "Testing the check on Gráinne's weeks"
+    },
+    {
+      "t": "retry",
+      "attempt": 1,
+      "feedback": "The TypeScript compiler rejected the check:\nchecks/availability.ts(4,789): error TS2769: No overload matches this call.\n  The last overload gave the following error.\n    Argument of type 'number | undefined' is not assignable to parameter of type 'number'.\n      Type 'undefined' is not assignable to type 'number'.\nchecks/availability.ts(4,799): error TS2532: Object is possibly 'undefined'.\nchecks/availability.ts(4,890): error TS2532: Object is possibly 'undefined'."
+    },
+    {
+      "t": "status",
+      "text": "Claude fixes the check"
+    },
+    {
+      "t": "status",
+      "text": "Testing the check on Gráinne's weeks"
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "good-normal",
+        "source": "owner",
+        "expected": "pass",
+        "got": "pass",
+        "violations": [],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "good-aoife-wed",
+        "source": "owner",
+        "expected": "pass",
+        "got": "pass",
+        "violations": [],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "good-darragh-fri",
+        "source": "owner",
+        "expected": "pass",
+        "got": "pass",
+        "violations": [],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "bad-aoife-tuesday",
+        "source": "owner",
+        "expected": "fail",
+        "got": "fail",
+        "violations": [
+          {
+            "staffId": "aoife",
+            "date": "2026-10-27",
+            "message": "Aoife Murphy is rostered on Tuesday 27 October, a day they have said they cannot work (College on Tuesdays)."
+          }
+        ],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "bad-aoife-short",
+        "source": "owner",
+        "expected": "fail",
+        "got": "fail",
+        "violations": [
+          {
+            "staffId": "aoife",
+            "date": "2026-10-27",
+            "message": "Aoife Murphy is rostered on Tuesday 27 October, a day they have said they cannot work (College on Tuesdays)."
+          }
+        ],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "bad-darragh-dentist",
+        "source": "owner",
+        "expected": "fail",
+        "got": "fail",
+        "violations": [
+          {
+            "staffId": "darragh",
+            "date": "2026-10-29",
+            "message": "Darragh Kelly is rostered on Thursday 29 October, a day they have said they cannot work (Dentist)."
+          }
+        ],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "darragh-wed-pass",
+        "source": "generated",
+        "expected": "pass",
+        "got": "pass",
+        "violations": [],
+        "ok": true
+      },
+      "short": "Darragh covers Wednesday close, he's free that day.",
+      "why": "Checks the rule is about the person and the day: a neighbouring day with no declared absence must pass, even though Darragh is off on Thursday."
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "darragh-thu-quarter-hour",
+        "source": "generated",
+        "expected": "fail",
+        "got": "fail",
+        "violations": [
+          {
+            "staffId": "darragh",
+            "date": "2026-10-29",
+            "message": "Darragh Kelly is rostered on Thursday 29 October, a day they have said they cannot work (Dentist)."
+          }
+        ],
+        "ok": true
+      },
+      "short": "Darragh on Thursday for just a quarter hour. Still no.",
+      "why": "Tests the smallest possible breach on a declared day, a 15 minute mid shift for someone who is off that day for the dentist, which must still be flagged."
+    },
+    {
+      "t": "saved",
+      "howItWorks": "The check goes through every shift on the rota and flags any shift where the person has told you they cannot work that date. It does not matter how short the shift is or whether the day recurs every week, one hour on a declared day breaks the rule.",
+      "code": "const DAY_NAMES: string[] = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']; const MONTH_NAMES: string[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']; function dayLabel(iso: string): string { const y = Number(iso.slice(0, 4)); const m = Number(iso.slice(5, 7)); const d = Number(iso.slice(8, 10)); const when = new Date(Date.UTC(y, m - 1, d)); const wd = DAY_NAMES[when.getUTCDay()] ?? ''; const mn = MONTH_NAMES[m - 1] ?? ''; return wd + ' ' + d + ' ' + mn; } export function check(rota: Rota): Violation[] { const violations: Violation[] = []; const people = new Map<string, Staff>(); for (const s of rota.staff) { people.set(s.id, s); } const reported = new Set<string>(); for (const shift of rota.shifts) { const person = people.get(shift.staffId); if (person === undefined) { continue; } for (const block of person.unavailable) { if (block.date !== shift.date) { continue; } const key = person.id + '|' + shift.date; if (reported.has(key)) { continue; } reported.add(key); violations.push({ staffId: person.id, date: shift.date, message: person.name + ' is rostered on ' + dayLabel(shift.date) + ', a day they have said they cannot work (' + block.reason + ').' }); } } return violations; }",
+      "file": "checks/availability.ts"
+    },
+    {
+      "t": "done",
+      "costUsd": 0.0099701,
+      "calls": [
+        {
+          "step": "interview.ask.1",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1335,
+          "outputTokens": 56,
+          "costUsd": 0.0001615,
+          "ms": 1598
+        },
+        {
+          "step": "interview.owner.1",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1927,
+          "outputTokens": 142,
+          "costUsd": 0.00026370000000000007,
+          "ms": 1577
+        },
+        {
+          "step": "interview.ask.2",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1510,
+          "outputTokens": 109,
+          "costUsd": 0.0002055,
+          "ms": 1409
+        },
+        {
+          "step": "interview.owner.2",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 2156,
+          "outputTokens": 98,
+          "costUsd": 0.00026460000000000003,
+          "ms": 1395
+        },
+        {
+          "step": "interview.ask.3",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1695,
+          "outputTokens": 110,
+          "costUsd": 0.0002245,
+          "ms": 1951
+        },
+        {
+          "step": "interview.owner.3",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 2341,
+          "outputTokens": 101,
+          "costUsd": 0.00028460000000000003,
+          "ms": 1477
+        },
+        {
+          "step": "interview.ask.4",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1883,
+          "outputTokens": 324,
+          "costUsd": 0.0003503,
+          "ms": 2350
+        },
+        {
+          "step": "interview.owner.4",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 2532,
+          "outputTokens": 90,
+          "costUsd": 0.00029820000000000004,
+          "ms": 1119
+        },
+        {
+          "step": "interview.ask.5",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 2063,
+          "outputTokens": 286,
+          "costUsd": 0.00034930000000000003,
+          "ms": 1969
+        },
+        {
+          "step": "generate",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 5469,
+          "outputTokens": 5962,
+          "costUsd": 0.0035279,
+          "ms": 26946
+        },
+        {
+          "step": "generate.retry",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 5660,
+          "outputTokens": 6948,
+          "costUsd": 0.00404,
+          "ms": 30309
+        }
+      ],
+      "runFile": "runs/setup-availability-2026-10-20T20-13-01-018Z.json"
+    }
+  ]
+}
