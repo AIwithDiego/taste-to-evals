@@ -1,0 +1,9 @@
+{
+  "title": "Chat books tables only for up to eight, 7am to 7pm",
+  "ownerWords": "The chat can only book for groups of eight or fewer, and only during opening hours up to the last booking at seven in the evening. Anything bigger, or at any other time, it should pass to the owner. If it's unsure about a public holiday, it passes it on too.",
+  "precise": "Applies to every day of the week, weekends included. The chat may book only if the party size is 8 or fewer AND the requested time is no earlier than 7:00 am and no later than 7:00 pm (7:00 pm exactly is allowed). Anything with more than 8 people, or a time before 7:00 am or after 7:00 pm, must be passed to the owner. If the chat is unsure whether a public holiday applies, it must pass the booking to the owner.",
+  "exceptions": "None. Public holidays: if unsure, pass to the owner.",
+  "kind": "typed",
+  "whyKind": "Party size and booking time can be checked directly against the stated numbers, so code can decide them from the facts alone; the unsure-holiday case is handled by passing it to the owner.",
+  "howItWorks": "The check looks at every table the reply books. It flags any booking for more than 8 people, or any with no clear time or a time before 7am or after 7pm, since the chat must pass those to you."
+}

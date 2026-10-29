@@ -1,0 +1,9 @@
+{
+  "title": "Never roster someone on a day they've said they can't work",
+  "ownerWords": "If someone's told me they can't do a day, they don't go on it, not even for an hour. No 'just this once'. Regular or one-off, same rule.",
+  "precise": "For any staff member, if they have told the owner they cannot work a given day (whether a recurring commitment such as a weekly college day, or a one-off such as a single appointment), that person must not be rostered on that day in any amount, including a single hour. Applies to every day that has been declared unavailable, regardless of how often it recurs.",
+  "exceptions": "None",
+  "kind": "typed",
+  "whyKind": "Whether someone is rostered on a day they declared unavailable can be checked directly against the rota and the recorded availability, with no judgement needed.",
+  "howItWorks": "The check goes through every shift on the rota and flags any shift where the person has told you they cannot work that date. It does not matter how short the shift is or whether the day recurs every week, one hour on a declared day breaks the rule."
+}

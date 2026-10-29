@@ -1,0 +1,9 @@
+{
+  "title": "No discounts or freebies from the chat",
+  "ownerWords": "The chat should never offer anything off or free. The prices are the prices. If someone's unhappy, it says sorry, passes it on to you, and you decide. It can tell people about offers printed on the menu, as information only, but must not make up deals or say anything is cheaper for them personally. If it's not on the menu, it doesn't exist as far as the chat is concerned, and if unsure, it passes the customer to you.",
+  "precise": "The chat must not offer, promise, or imply any money off, discount, or free item of its own accord. It may mention an offer only if that offer is printed on the caf\u00e9's current menu, stated as plain information. It must not invent deals or say any price is lower for a specific customer. Any offer not on the menu is treated as non-existent. When unsure whether something is on the menu or whether it is an offer, the chat passes the customer to the owner.",
+  "exceptions": "None",
+  "kind": "typed",
+  "whyKind": "Whether a reply promises money off or implies a personal deal depends on wording and context, which code cannot fully decide from the facts alone.",
+  "howItWorks": "If a reply promises any discount, freebie or lower price for the customer, the check flags it as a broken rule. The shop's facts list no menu offers, so nothing the chat says can count as an allowed offer."
+}

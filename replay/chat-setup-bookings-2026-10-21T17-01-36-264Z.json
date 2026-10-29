@@ -1,0 +1,489 @@
+{
+  "started": "2026-10-21T17:01:36.264Z",
+  "events": [
+    {
+      "t": "start",
+      "cafe": "Ollie's, Dublin 2",
+      "owner": "Gráinne Nolan",
+      "ruleId": "bookings",
+      "handwritten": "Tables up to 8, last one at 7pm"
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard opens the interview"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "Let's start with a time this went wrong. Can you think of a recent chat reply that promised a table booking and caused trouble, like a group turning up with no table or a booking that shouldn't have been accepted?"
+      }
+    },
+    {
+      "t": "status",
+      "text": "Gráinne answers"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "owner",
+        "text": "Oh God, yes, the big one was a Saturday booking. The chat took a table for fourteen at half seven in the evening, and we were closing and didn't have the room, so I had to ring them myself to cancel. I was mortified, honestly, the poor people were already planning their night."
+      }
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard thinks about what to ask next"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "That sounds stressful, and I'm sorry they had to be let down like that. What is the largest group the chat should ever be allowed to book for on its own, and is that number itself okay, or should the chat hand bigger groups to you?"
+      }
+    },
+    {
+      "t": "status",
+      "text": "Gráinne answers"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "owner",
+        "text": "Eight is the most the chat can book on its own, and eight is fine. Anything bigger, the chat should pass it to me, because I'd rather ring them myself and sort out the room."
+      }
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard thinks about what to ask next"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "Got it, eight is the most the chat can book alone, and eight itself is fine. The Saturday booking was also near closing, so does the limit hold at every time of day and every day of the week, or are there times when the chat shouldn't take a booking even for a small group?"
+      }
+    },
+    {
+      "t": "status",
+      "text": "Gráinne answers"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "owner",
+        "text": "Ah, the time matters too, love. The chat can only book while we're open, and the last booking has to be at seven in the evening, since we close at eight. Seven exactly is grand, but nothing after that. And nothing before seven in the morning either. Anything outside those times, it should pass to me."
+      }
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard thinks about what to ask next"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "Thanks, that's clear. Does this hold every day of the week, including weekends and holidays, or are there any days or situations where the chat should pass a booking to you even if it fits these times and sizes?"
+      }
+    },
+    {
+      "t": "status",
+      "text": "Gráinne answers"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "owner",
+        "text": "Every day, love, we're open seven days, so the same times hold, weekends included. I haven't really thought about public holidays for the chat, to be honest. If it's unsure about a holiday, it should just pass it to me and I'll sort it out."
+      }
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard thinks about what to ask next"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "Let me check I have it right. The chat can book a table only for groups of up to eight people, and only for a time from 7:00 am up to and including 7:00 pm, every day of the week. Anything larger, or at any other time, goes to you. If it's unsure about a public holiday, it passes the booking to you. Is that right?"
+      }
+    },
+    {
+      "t": "status",
+      "text": "Gráinne answers"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "owner",
+        "text": "Yes, that's it exactly, love. Up to eight people, between seven in the morning and seven at night, every day. Anything bigger or outside those times, the chat passes it to me, and if it's a holiday and it's not sure, same thing. Sorted."
+      }
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard thinks about what to ask next"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "Thanks, that's all clear. I've got the rule down as: the chat can book a table only for groups of up to eight, between 7:00 am and 7:00 pm inclusive, every day, and passes anything else to you, including unsure public holidays."
+      }
+    },
+    {
+      "t": "rule",
+      "rule": {
+        "title": "Chat books tables only for up to eight, 7am to 7pm",
+        "ownerWords": "The chat can only book for groups of eight or fewer, and only during opening hours up to the last booking at seven in the evening. Anything bigger, or at any other time, it should pass to the owner. If it's unsure about a public holiday, it passes it on too.",
+        "precise": "Applies to every day of the week, weekends included. The chat may book only if the party size is 8 or fewer AND the requested time is no earlier than 7:00 am and no later than 7:00 pm (7:00 pm exactly is allowed). Anything with more than 8 people, or a time before 7:00 am or after 7:00 pm, must be passed to the owner. If the chat is unsure whether a public holiday applies, it must pass the booking to the owner.",
+        "exceptions": "None. Public holidays: if unsure, pass to the owner.",
+        "kind": "typed",
+        "whyKind": "Party size and booking time can be checked directly against the stated numbers, so code can decide them from the facts alone; the unsure-holiday case is handled by passing it to the owner."
+      }
+    },
+    {
+      "t": "examples",
+      "weeks": [
+        {
+          "id": "four-sat-10",
+          "said": "Normal booking. Fine.",
+          "verdict": "fine",
+          "customer": "Table for 4 on Saturday at 10am?",
+          "reply": "Lovely, that's booked: 4 people, Saturday at 10am."
+        },
+        {
+          "id": "eight-fri-7",
+          "said": "Eight at seven is grand.",
+          "verdict": "fine",
+          "customer": "Can we book for 8 at 7pm on Friday?",
+          "reply": "Yes, 8 at 7pm on Friday is booked. We close at 8, just so you know."
+        },
+        {
+          "id": "twelve-ring",
+          "said": "Exactly right, ring me.",
+          "verdict": "fine",
+          "customer": "Table for 12 for Sunday lunch?",
+          "reply": "We can only book up to 8 online. Give Gráinne a ring and she'll see what she can do."
+        },
+        {
+          "id": "twelve-yes",
+          "said": "Twelve. Where would I put them?",
+          "verdict": "not fine",
+          "customer": "Table for 12 on Sunday at 1pm?",
+          "reply": "No problem, that's booked for 12 on Sunday at 1pm."
+        },
+        {
+          "id": "four-730pm",
+          "said": "We're closing at that stage.",
+          "verdict": "not fine",
+          "customer": "4 people on Saturday at 7.30pm?",
+          "reply": "You're booked in for 4 at 7.30pm on Saturday."
+        },
+        {
+          "id": "two-630am",
+          "said": "We're not even open.",
+          "verdict": "not fine",
+          "customer": "Two of us on Monday at 6.30am, before work?",
+          "reply": "Booked: 2 people, Monday at 6.30am."
+        }
+      ]
+    },
+    {
+      "t": "status",
+      "text": "Claude reads what each of her example replies promises"
+    },
+    {
+      "t": "status",
+      "text": "Claude writes the check"
+    },
+    {
+      "t": "status",
+      "text": "Testing the check on Gráinne's replies"
+    },
+    {
+      "t": "retry",
+      "attempt": 1,
+      "feedback": "The TypeScript compiler rejected the check:\nchecks/chat-bookings.ts(4,204): error TS18048: 'b' is possibly 'undefined'.\nchecks/chat-bookings.ts(4,221): error TS18048: 'b' is possibly 'undefined'.\nchecks/chat-bookings.ts(4,246): error TS18048: 'b' is possibly 'undefined'.\nchecks/chat-bookings.ts(4,683): error TS18048: 'b' is possibly 'undefined'.\nchecks/chat-bookings.ts(4,971): error TS18048: 'b' is possibly 'undefined'.\nchecks/chat-bookings.ts(4,1076): error TS18048: 'b' is possibly 'undefined'.\nchecks/chat-bookings.ts(4,1138): error TS18048: 'b' is possibly 'undefined'.\nchecks/chat-bookings.ts(4,1200): error TS18048: 'b' is possibly 'undefined'."
+    },
+    {
+      "t": "status",
+      "text": "Claude fixes the check"
+    },
+    {
+      "t": "status",
+      "text": "Testing the check on Gráinne's replies"
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "four-sat-10",
+        "source": "owner",
+        "expected": "pass",
+        "got": "pass",
+        "violations": [],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "eight-fri-7",
+        "source": "owner",
+        "expected": "pass",
+        "got": "pass",
+        "violations": [],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "twelve-ring",
+        "source": "owner",
+        "expected": "pass",
+        "got": "pass",
+        "violations": [],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "twelve-yes",
+        "source": "owner",
+        "expected": "fail",
+        "got": "fail",
+        "violations": [
+          {
+            "message": "The reply books a table for 12 people on Sunday. Your rule lets the chat book only for up to 8, so bigger groups go to you."
+          }
+        ],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "four-730pm",
+        "source": "owner",
+        "expected": "fail",
+        "got": "fail",
+        "violations": [
+          {
+            "message": "The reply books a table at 7.30pm on Saturday. Your rule lets the chat book only from 7am to 7pm, so this goes to you."
+          }
+        ],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "two-630am",
+        "source": "owner",
+        "expected": "fail",
+        "got": "fail",
+        "violations": [
+          {
+            "message": "The reply books a table at 6.30am on Monday. Your rule lets the chat book only from 7am to 7pm, so this goes to you."
+          }
+        ],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "eight-tue-7am",
+        "source": "generated",
+        "expected": "pass",
+        "got": "pass",
+        "violations": [],
+        "ok": true
+      },
+      "short": "It books 8 people for Tuesday at 7am.",
+      "why": "Tests the inclusive edges: exactly 8 people and exactly 7am should both be allowed."
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "two-no-time",
+        "source": "generated",
+        "expected": "fail",
+        "got": "fail",
+        "violations": [
+          {
+            "message": "The reply books a table on Wednesday without a clear time. Your rule lets the chat book only from 7am to 7pm, so this goes to you."
+          }
+        ],
+        "ok": true
+      },
+      "short": "It books 2 people with no time given.",
+      "why": "Tests a booking whose time is missing, which can't be confirmed within 7am to 7pm, so it must fail."
+    },
+    {
+      "t": "saved",
+      "howItWorks": "The check looks at every table the reply books. It flags any booking for more than 8 people, or any with no clear time or a time before 7am or after 7pm, since the chat must pass those to you.",
+      "code": "function parseTime(t: string | null): number | null {\n  if (t === null) return null;\n  const parts = t.split(':');\n  if (parts.length !== 2) return null;\n  const h = Number(parts[0]);\n  const min = Number(parts[1]);\n  if (!Number.isInteger(h) || !Number.isInteger(min)) return null;\n  if (h < 0 || h > 23 || min < 0 || min > 59) return null;\n  return h * 60 + min;\n}\n\nfunction fmt(mins: number): string {\n  const h24 = Math.floor(mins / 60);\n  const min = mins % 60;\n  const suffix = h24 < 12 ? 'am' : 'pm';\n  let h12 = h24 % 12;\n  if (h12 === 0) h12 = 12;\n  const mm = min === 0 ? '' : '.' + (min < 10 ? '0' + String(min) : String(min));\n  return String(h12) + mm + suffix;\n}\n\nexport function check(input: ReplyFacts): Violation[] {\n  const out: Violation[] = [];\n  const earliest = 7 * 60;\n  const latest = 19 * 60;\n  for (const b of input.claims.bookings) {\n    const day = b.day !== null ? ' on ' + b.day : '';\n    if (b.partySize === null) {\n      out.push({ message: 'The reply books a table' + day + ' without saying how many people. Your rule lets the chat book only for up to 8, so this goes to you.' });\n    } else if (b.partySize > 8) {\n      out.push({ message: 'The reply books a table for ' + String(b.partySize) + ' people' + day + '. Your rule lets the chat book only for up to 8, so bigger groups go to you.' });\n    }\n    const t = parseTime(b.time);\n    if (t === null) {\n      out.push({ message: 'The reply books a table' + day + ' without a clear time. Your rule lets the chat book only from 7am to 7pm, so this goes to you.' });\n    } else if (t < earliest || t > latest) {\n      out.push({ message: 'The reply books a table at ' + fmt(t) + day + '. Your rule lets the chat book only from 7am to 7pm, so this goes to you.' });\n    }\n  }\n  return out;\n}\n",
+      "file": "checks/chat-bookings.ts"
+    },
+    {
+      "t": "done",
+      "costUsd": 0.0114656,
+      "calls": [
+        {
+          "step": "interview.ask.1",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1362,
+          "outputTokens": 83,
+          "costUsd": 0.0001777,
+          "ms": 2508
+        },
+        {
+          "step": "interview.owner.1",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 2684,
+          "outputTokens": 96,
+          "costUsd": 0.00031640000000000005,
+          "ms": 1901
+        },
+        {
+          "step": "interview.ask.2",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1518,
+          "outputTokens": 90,
+          "costUsd": 0.0001968,
+          "ms": 1459
+        },
+        {
+          "step": "interview.owner.2",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 2847,
+          "outputTokens": 65,
+          "costUsd": 0.0003172,
+          "ms": 1278
+        },
+        {
+          "step": "interview.ask.3",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1650,
+          "outputTokens": 223,
+          "costUsd": 0.0002765,
+          "ms": 1935
+        },
+        {
+          "step": "interview.owner.3",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 2989,
+          "outputTokens": 99,
+          "costUsd": 0.0003484,
+          "ms": 1750
+        },
+        {
+          "step": "interview.ask.4",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1826,
+          "outputTokens": 327,
+          "costUsd": 0.0003461,
+          "ms": 2786
+        },
+        {
+          "step": "interview.owner.4",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 3146,
+          "outputTokens": 84,
+          "costUsd": 0.00035660000000000005,
+          "ms": 1863
+        },
+        {
+          "step": "interview.ask.5",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1968,
+          "outputTokens": 480,
+          "costUsd": 0.0004368,
+          "ms": 3435
+        },
+        {
+          "step": "interview.owner.5",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 3327,
+          "outputTokens": 89,
+          "costUsd": 0.00037720000000000006,
+          "ms": 2120
+        },
+        {
+          "step": "interview.ask.6",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 2154,
+          "outputTokens": 458,
+          "costUsd": 0.00044439999999999996,
+          "ms": 2883
+        },
+        {
+          "step": "claims.example3",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1467,
+          "outputTokens": 26,
+          "costUsd": 0.0001597,
+          "ms": 1005
+        },
+        {
+          "step": "claims.example5",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1459,
+          "outputTokens": 51,
+          "costUsd": 0.00017140000000000002,
+          "ms": 1254
+        },
+        {
+          "step": "claims.example4",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1461,
+          "outputTokens": 51,
+          "costUsd": 0.0001716,
+          "ms": 1460
+        },
+        {
+          "step": "claims.example6",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1458,
+          "outputTokens": 50,
+          "costUsd": 0.0001708,
+          "ms": 1659
+        },
+        {
+          "step": "claims.example1",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1461,
+          "outputTokens": 51,
+          "costUsd": 0.0001716,
+          "ms": 1679
+        },
+        {
+          "step": "claims.example2",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1470,
+          "outputTokens": 50,
+          "costUsd": 0.000172,
+          "ms": 2160
+        },
+        {
+          "step": "chat.generate",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 3886,
+          "outputTokens": 6232,
+          "costUsd": 0.0035046,
+          "ms": 25311
+        },
+        {
+          "step": "chat.generate.retry",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 4233,
+          "outputTokens": 5853,
+          "costUsd": 0.0033498,
+          "ms": 24486
+        }
+      ],
+      "runFile": "runs/chat-setup-bookings-2026-10-21T17-01-36-264Z.json"
+    }
+  ]
+}

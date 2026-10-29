@@ -1,0 +1,396 @@
+{
+  "started": "2026-10-21T17:07:14.895Z",
+  "events": [
+    {
+      "t": "start",
+      "cafe": "Ollie's, Dublin 2",
+      "owner": "Gráinne Nolan",
+      "ruleId": "tone",
+      "handwritten": "Sound like us"
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard opens the interview"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "Think of a time the chatbot's reply to a customer went wrong and you wished it hadn't sent it. What did it say that made you wince?"
+      }
+    },
+    {
+      "t": "status",
+      "text": "Gráinne answers"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "owner",
+        "text": "Oh God, the bank one. A regular showed me a reply the chat had sent her that said \"Dear valued customer, your feedback has been escalated to the relevant team.\" She was laughing, but I was mortified. Sure it sounded like her bank, not a café on a side street in Dublin 2. Someone was after giving a complaint to a robot and got a letter from a bank back, and I wanted to crawl under the counter."
+      }
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard thinks about what to ask next"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "That sounds mortifying, especially with a regular reading it. What is it about that wording that made it sound like a bank to you, and what would you rather the chat had said in that spot?"
+      }
+    },
+    {
+      "t": "status",
+      "text": "Gráinne answers"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "owner",
+        "text": "It's the stiff, formal feel of it, like a letter with a reference number that nobody reads. Nobody at the counter talks like that, you know? I'd rather it said something like, sorry about that, I'm passing it straight to Gráinne, she'll be in touch. Short, warm, and like one of the lads had said it to her face."
+      }
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard thinks about what to ask next"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "That gives me a clear picture of the feel you want. Should this apply to every reply the chat sends, or are there times it should sound more formal, like a refund or an allergy question?"
+      }
+    },
+    {
+      "t": "status",
+      "text": "Gráinne answers"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "owner",
+        "text": "Every reply, honestly. Allergies are the one place I'd want it careful and clear, not stiff. If it isn't sure, it says so plainly and tells them to ask at the counter, like I'd say it myself. Refunds, no such thing here, so the chat just says sorry and passes it to me."
+      }
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard thinks about what to ask next"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "So every reply should sound short, warm and plain, like one of your staff talking to the customer, never like a formal letter. Allergy questions get careful, clear wording, and if it isn't sure it says so and tells them to ask at the counter. Refund complaints get an apology and get passed to you. Is that right?"
+      }
+    },
+    {
+      "t": "status",
+      "text": "Gráinne answers"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "owner",
+        "text": "Yeah, that's it exactly. Short, warm, like one of the lads at the counter, never a letter from the bank. Allergies, careful and clear, and if you're not sure, say so and send them to ask at the counter. No refunds or discounts, just a sorry and pass it on to me."
+      }
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard thinks about what to ask next"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "Thanks, that's exactly the feel you want, and I've got it down. The chat's tone is set."
+      }
+    },
+    {
+      "t": "rule",
+      "rule": {
+        "title": "Sound like a person at the counter",
+        "ownerWords": "Every reply should be short, warm and plain, like one of the lads at the counter talking to the customer, never a stiff letter from a bank. Allergy questions get careful, clear wording, and if the chat isn't sure, it says so plainly and tells them to ask at the counter. Refund complaints get a sorry and are passed to me.",
+        "precise": "Applies to every reply the chat sends. Replies must be short, warm and conversational, with no formal letter phrasing (for example 'Dear valued customer', 'escalated to the relevant team', or reference-number style wording). Allergy questions must be answered carefully and clearly; where the chat is not sure, it must say so plainly and direct the customer to ask at the counter. Refund or discount requests must not be promised or granted; the reply apologises and says it is being passed to the owner.",
+        "exceptions": "Allergy questions get more careful, clear wording rather than a looser tone. Refunds: none offered, the chat only apologises and passes it on.",
+        "kind": "judged",
+        "whyKind": "Whether wording sounds stiff, warm or like a letter is a matter of feel, so it needs judgement rather than a fixed check."
+      }
+    },
+    {
+      "t": "examples",
+      "weeks": [
+        {
+          "id": "warm-sorry",
+          "said": "That sounds like us.",
+          "verdict": "fine",
+          "customer": "My coffee was cold yesterday.",
+          "reply": "Ah, sorry about that. I'll pass it on to Gráinne and she'll be in touch."
+        },
+        {
+          "id": "warm-honest",
+          "said": "Kind and straight. Good.",
+          "verdict": "fine",
+          "customer": "Is the banana bread nut free?",
+          "reply": "There are no nuts in the recipe, but it's baked in a kitchen that uses nuts, so I can't promise it's safe. Best to have a word at the counter."
+        },
+        {
+          "id": "warm-booking",
+          "said": "Grand. One exclamation mark never hurt anyone.",
+          "verdict": "fine",
+          "customer": "Table for 4 on Saturday at 10am?",
+          "reply": "Lovely, that's booked: 4 people, Saturday at 10am. See you then!"
+        },
+        {
+          "id": "bank",
+          "said": "That's the bank one.",
+          "verdict": "not fine",
+          "customer": "My coffee was cold yesterday.",
+          "reply": "Dear valued customer, we apologise for any inconvenience. Your feedback has been escalated to the relevant team."
+        },
+        {
+          "id": "shouty",
+          "said": "Calm down.",
+          "verdict": "not fine",
+          "customer": "Are you open on Sunday?",
+          "reply": "YES we are!!! 🎉🎉 Open 7 till 8 every day!!! Come see us!!! 😍"
+        },
+        {
+          "id": "stiff",
+          "said": "Nobody talks like that in a café.",
+          "verdict": "not fine",
+          "customer": "What time do you close?",
+          "reply": "Thank you for your enquiry. Please be advised that our operating hours are 07:00 to 20:00 daily."
+        }
+      ]
+    },
+    {
+      "t": "status",
+      "text": "Claude writes what the judge should listen for"
+    },
+    {
+      "t": "status",
+      "text": "The judge tries it on Gráinne's replies"
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "warm-sorry",
+        "source": "owner",
+        "expected": "pass",
+        "got": "pass",
+        "violations": [],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "warm-honest",
+        "source": "owner",
+        "expected": "pass",
+        "got": "pass",
+        "violations": [],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "warm-booking",
+        "source": "owner",
+        "expected": "pass",
+        "got": "pass",
+        "violations": [],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "bank",
+        "source": "owner",
+        "expected": "fail",
+        "got": "fail",
+        "violations": [
+          {
+            "message": "The reply opens with 'Dear valued customer' and uses 'escalated to the relevant team', which reads like a stiff formal letter rather than someone at the counter."
+          }
+        ],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "shouty",
+        "source": "owner",
+        "expected": "fail",
+        "got": "fail",
+        "violations": [
+          {
+            "message": "The reply is hyper-excited, with stacked exclamation marks and multiple emojis in a row, so it doesn't sound like a calm person at the counter."
+          }
+        ],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "stiff",
+        "source": "owner",
+        "expected": "fail",
+        "got": "fail",
+        "violations": [
+          {
+            "message": "The reply is a stiff, formal notice ('Thank you for your enquiry', 'Please be advised') rather than a short, warm, plain answer like someone at the counter would give."
+          }
+        ],
+        "ok": true
+      }
+    },
+    {
+      "t": "saved",
+      "howItWorks": "The reply reads like one of the lads at the counter talking: short, warm, plain, calm, and careful in tone where allergies come up. The reply reads like a formal letter or bank notice, or is hyper-excited and cluttered with punctuation or emojis, so it no longer sounds like a person at the counter.",
+      "code": "{\n  \"criteria\": [\n    \"Does the reply sound like a friendly person at the counter, short, warm and plain, rather than a stiff letter or a bank notice?\",\n    \"Is it free of formal letter phrasing such as 'Dear valued customer', 'escalated to the relevant team', or reference-number style wording?\",\n    \"Is the tone calm and natural, with a light touch of warmth and at most an occasional exclamation mark, not shouting, piles of punctuation or emojis in a row?\",\n    \"For allergy questions, is the wording careful and clear, and where the chat is not sure, does it say so plainly and point the customer to ask at the counter?\",\n    \"For refund or complaint messages, does it apologise simply and say it is being passed on, without a stiff or over-formal tone?\"\n  ],\n  \"fineWhen\": \"The reply reads like one of the lads at the counter talking: short, warm, plain, calm, and careful in tone where allergies come up.\",\n  \"notFineWhen\": \"The reply reads like a formal letter or bank notice, or is hyper-excited and cluttered with punctuation or emojis, so it no longer sounds like a person at the counter.\"\n}",
+      "file": "checks/chat-tone.rubric.json"
+    },
+    {
+      "t": "done",
+      "costUsd": 0.0040335,
+      "calls": [
+        {
+          "step": "interview.ask.1",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1362,
+          "outputTokens": 63,
+          "costUsd": 0.0001677,
+          "ms": 1361
+        },
+        {
+          "step": "interview.owner.1",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 2664,
+          "outputTokens": 144,
+          "costUsd": 0.00033840000000000004,
+          "ms": 2047
+        },
+        {
+          "step": "interview.ask.2",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1543,
+          "outputTokens": 72,
+          "costUsd": 0.00019030000000000002,
+          "ms": 1310
+        },
+        {
+          "step": "interview.owner.2",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 2855,
+          "outputTokens": 113,
+          "costUsd": 0.000342,
+          "ms": 2204
+        },
+        {
+          "step": "interview.ask.3",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1706,
+          "outputTokens": 335,
+          "costUsd": 0.00033810000000000003,
+          "ms": 3602
+        },
+        {
+          "step": "interview.owner.3",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 3018,
+          "outputTokens": 103,
+          "costUsd": 0.0003533,
+          "ms": 1880
+        },
+        {
+          "step": "interview.ask.4",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1859,
+          "outputTokens": 297,
+          "costUsd": 0.0003344,
+          "ms": 2342
+        },
+        {
+          "step": "interview.owner.4",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 3213,
+          "outputTokens": 100,
+          "costUsd": 0.0003713,
+          "ms": 1787
+        },
+        {
+          "step": "interview.ask.5",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 2051,
+          "outputTokens": 503,
+          "costUsd": 0.00045660000000000004,
+          "ms": 3264
+        },
+        {
+          "step": "chat.rubric",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1338,
+          "outputTokens": 359,
+          "costUsd": 0.0003133,
+          "ms": 2557
+        },
+        {
+          "step": "chat.judge.example4",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1007,
+          "outputTokens": 79,
+          "costUsd": 0.0001402,
+          "ms": 1203
+        },
+        {
+          "step": "chat.judge.example1",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1002,
+          "outputTokens": 70,
+          "costUsd": 0.00013519999999999998,
+          "ms": 1432
+        },
+        {
+          "step": "chat.judge.example2",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1022,
+          "outputTokens": 71,
+          "costUsd": 0.00013769999999999999,
+          "ms": 1494
+        },
+        {
+          "step": "chat.judge.example3",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1004,
+          "outputTokens": 68,
+          "costUsd": 0.00013440000000000001,
+          "ms": 1789
+        },
+        {
+          "step": "chat.judge.example6",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1002,
+          "outputTokens": 83,
+          "costUsd": 0.0001417,
+          "ms": 1790
+        },
+        {
+          "step": "chat.judge.example5",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1009,
+          "outputTokens": 76,
+          "costUsd": 0.00013890000000000002,
+          "ms": 1796
+        }
+      ],
+      "runFile": "runs/chat-setup-tone-2026-10-21T17-07-14-895Z.json"
+    }
+  ]
+}

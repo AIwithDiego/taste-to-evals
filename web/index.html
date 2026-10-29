@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ShiftGuard at Ollie's</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="app" id="app">
+  <header class="top">
+    <div class="brand">
+      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M8 14h20v9a9 9 0 0 1-9 9h-2a9 9 0 0 1-9-9z" fill="currentColor"/><path d="M28 17h3a4 4 0 0 1 0 8h-3" fill="none" stroke="currentColor" stroke-width="3"/><path d="M14 4c-2 3 2 4 0 7M20 4c-2 3 2 4 0 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <div><strong>ShiftGuard</strong><span>at Ollie's, Dublin 2</span></div>
+    </div>
+    <ol class="chapters" id="chapters" aria-label="Where we are in the story">
+      <li data-chapter="1">Her rules</li>
+      <li data-chapter="2">The ask</li>
+      <li data-chapter="3">The gate</li>
+      <li data-chapter="4">Her call</li>
+      <li data-chapter="5">Her chat</li>
+    </ol>
+  </header>
+
+  <section class="caption" aria-live="polite">
+    <h1 id="caption"></h1>
+    <p id="subcaption"></p>
+    <p class="lesson" id="lesson" hidden></p>
+  </section>
+
+  <section class="track" id="track" aria-label="The rota's journey">
+    <div class="rail" id="rail" aria-hidden="true"><span class="rail-glow"></span></div>
+
+    <div class="station owner" id="stOwner">
+      <div class="avatar owner-avatar" aria-hidden="true">G</div>
+      <h2>Gráinne</h2>
+      <p class="role">Owner, Ollie's</p>
+      <ul class="notebook" id="notebook" aria-label="What went wrong, in Gráinne's notebook"></ul>
+    </div>
+
+    <div class="station agent" id="stAgent">
+      <div class="avatar agent-avatar" aria-hidden="true">
+        <svg viewBox="0 0 48 48"><rect x="10" y="14" width="28" height="22" rx="7" fill="currentColor"/><circle class="eye" cx="19" cy="25" r="3"/><circle class="eye" cx="29" cy="25" r="3"/><path d="M24 14V8" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="24" cy="7" r="3" fill="currentColor"/></svg>
+      </div>
+      <h2>Rota assistant</h2>
+      <p class="role">Can suggest.<br>Can't save.</p>
+    </div>
+
+    <div class="gates" id="gates"></div>
+
+    <div class="station judge" id="stJudge">
+      <div class="avatar judge-avatar" aria-hidden="true">
+        <svg viewBox="0 0 64 64" class="scales"><path d="M32 10v40M20 54h24" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><g class="beam"><path d="M12 18h40" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M12 18l-6 14h12zM52 18l-6 14h12z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/></g><circle cx="32" cy="10" r="3" fill="currentColor"/></svg>
+      </div>
+      <h2>AI judge</h2>
+      <p class="role">Weighs what code can't</p>
+    </div>
+
+    <div class="station approve" id="stApprove">
+      <div class="desk" aria-hidden="true"><span class="stamp" id="stamp">Approved</span></div>
+      <h2>Gráinne's call</h2>
+      <button type="button" class="approve-btn" id="approveBtn" disabled>Approve</button>
+    </div>
+
+    <div class="card" id="card" aria-hidden="true">
+      <div class="card-head"><span>Week of 26 Oct</span><b id="cardRound"></b></div>
+      <div class="card-grid" id="cardGrid"></div>
+      <div class="card-mark" id="cardMark"></div>
+    </div>
+  </section>
+
+  <section class="detail" id="detail" aria-live="polite"></section>
+
+  <footer class="controls">
+    <button type="button" class="ghost" id="inspectBtn" disabled>Technical detail</button>
+    <div class="stack" aria-label="Built with">
+      <ul class="chips" id="stackChips"></ul>
+      <p class="doing" id="stackDoing" aria-live="polite"></p>
+    </div>
+    <div class="go">
+      <p class="hint" id="hint">Press <kbd>→</kbd> to continue</p>
+      <button type="button" class="next" id="nextBtn" disabled>Next</button>
+    </div>
+  </footer>
+</div>
+
+<div class="title-card" id="titleCard">
+  <div class="title-inner">
+    <p class="kicker">ShiftGuard</p>
+    <h1>AI agents make decisions for us every day.<br><span class="hand">Who makes sure they're good ones?</span></h1>
+    <p class="title-sub">Here, one AI learns what “good” means to a café owner, and checks every decision another AI makes against it.</p>
+    <div class="pick" id="pick" role="radiogroup" aria-label="Which demo to play">
+      <button type="button" role="radio" data-show="rota" aria-checked="false"><b>Rota assistant</b><span>Gráinne approves the week</span></button>
+      <button type="button" role="radio" data-show="chat" aria-checked="false"><b>Website chat</b><span>Her rules are the approval</span></button>
+      <button type="button" role="radio" data-show="both" aria-checked="true"><b>Both</b><span>Rota first, then the chat</span></button>
+    </div>
+    <div class="title-actions">
+      <button type="button" class="primary" id="startReplay">Start</button>
+      <button type="button" class="ghost" id="startLive">Start live</button>
+    </div>
+    <p class="title-note">Start replays a real run, free and identical every time. Start live calls Claude for real (about 3 cents).</p>
+  </div>
+</div>
+
+<dialog id="inspect" aria-labelledby="inspectTitle">
+  <header><h2 id="inspectTitle">Technical detail</h2><button type="button" id="inspectClose">Close</button></header>
+  <div id="inspectBody"></div>
+</dialog>
+
+<script type="module" src="/app.js"></script>
+</body>
+</html>

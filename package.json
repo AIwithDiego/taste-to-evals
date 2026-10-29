@@ -1,0 +1,35 @@
+{
+  "name": "taste-to-evals",
+  "version": "1.0.0",
+  "description": "An agent interviews a business owner, turns their rules into typed checks and an LLM-judge rubric, and gates every proposal another agent makes before a human approves.",
+  "license": "MIT",
+  "author": "Diego Bauer (https://www.aiwithdiego.com)",
+  "type": "module",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "packageManager": "pnpm@10.24.0",
+  "scripts": {
+    "demo": "tsx src/server.ts",
+    "rota-setup": "tsx src/cli-setup.ts",
+    "propose": "tsx --no-warnings src/cli-propose.ts propose",
+    "approve": "tsx --no-warnings src/cli-propose.ts approve",
+    "chat-setup": "tsx src/chat/cli-setup.ts",
+    "chat": "tsx src/chat/cli-chat.ts",
+    "mcp": "tsx src/mcp.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "SHIFTGUARD_TELEMETRY=off tsx --test 'src/**/*.test.ts'"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.135.0",
+    "@modelcontextprotocol/sdk": "^1.32.1",
+    "dotenv": "^18.0.8",
+    "esbuild": "^0.28.2",
+    "typescript": "^7.0.2",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "tsx": "^4.23.15"
+  }
+}

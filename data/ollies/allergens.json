@@ -1,0 +1,15 @@
+{
+  "note": "Gráinne's allergen sheet, kept by the till. The chatbot never sees this; the checks do.",
+  "items": [
+    { "id": "flat-white", "name": "Flat white", "contains": ["dairy"], "mayContain": [] },
+    { "id": "latte", "name": "Latte", "contains": ["dairy"], "mayContain": [] },
+    { "id": "hot-chocolate", "name": "Hot chocolate", "contains": ["dairy", "soy"], "mayContain": [] },
+    { "id": "banana-bread", "name": "Banana bread", "contains": ["gluten", "egg", "dairy"], "mayContain": ["nuts"] },
+    { "id": "walnut-brownie", "name": "Walnut brownie", "contains": ["nuts", "gluten", "egg", "dairy"], "mayContain": [] },
+    { "id": "scone", "name": "Fruit scone", "contains": ["gluten", "egg", "dairy"], "mayContain": ["nuts"] },
+    { "id": "porridge", "name": "Porridge", "contains": ["dairy"], "mayContain": ["gluten"] },
+    { "id": "toastie", "name": "Ham and cheese toastie", "contains": ["gluten", "dairy"], "mayContain": [] },
+    { "id": "soup", "name": "Soup of the day", "contains": ["celery"], "mayContain": ["gluten"] },
+    { "id": "oat-milk", "name": "Oat milk", "contains": [], "mayContain": ["gluten"] }
+  ]
+}

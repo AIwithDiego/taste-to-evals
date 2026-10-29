@@ -1,0 +1,468 @@
+{
+  "started": "2026-10-21T16:59:50.170Z",
+  "events": [
+    {
+      "t": "start",
+      "cafe": "Ollie's, Dublin 2",
+      "owner": "Gráinne Nolan",
+      "ruleId": "allergens",
+      "handwritten": "Never promise it's safe for an allergy"
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard opens the interview"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "Let's start with a time this went wrong. Can you tell me about a chat reply that caused trouble, or one that made you uneasy about what the website was telling customers regarding allergies?"
+      }
+    },
+    {
+      "t": "status",
+      "text": "Gráinne answers"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "owner",
+        "text": "Ah, the summer one still makes me go cold. A mum asked the chat about our banana bread, and it told her there were no nuts in it. Which is true, there's no nut in the recipe, but we bake the walnut brownies on the same trays. Her lad had a reaction, thankfully a mild one, and I was just sick with worry when I heard. I've never been so frightened in the café."
+      }
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard thinks about what to ask next"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "I'm so sorry, that sounds frightening, and I'm glad he was alright. So the chat said 'no nuts' because the recipe itself has none, but the shared trays were the real danger. When a customer asks about allergies, what should the chat always say about shared equipment or cross-contact, and is there any case where it's fine to simply say something is nut-free?"
+      }
+    },
+    {
+      "t": "status",
+      "text": "Gráinne answers"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "owner",
+        "text": "Right, so the chat should never call anything nut-free unless my allergen sheet says so, and the sheet is what counts, not the menu page. All our baking is made in a kitchen that uses nuts, so none of it is safe for a nut allergy, even with no nuts in the recipe. If it's not sure, it should say so and tell them to ask at the counter."
+      }
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard thinks about what to ask next"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "Thank you, that's really clear. Does this apply to all allergens, like dairy, gluten and eggs, or just nuts? And are there any items the chat could safely describe as free from something, such as sealed packaged goods?"
+      }
+    },
+    {
+      "t": "status",
+      "text": "Gráinne answers"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "owner",
+        "text": "Honest answer, I haven't really thought about dairy, gluten or eggs the way I have about nuts, that's the one that bit us. But the same rule should hold for all of them: the chat only says something's free from an allergen if my allergen sheet says so, and if it's not sure, it tells them to ask at the counter. As for sealed packaged stuff, I'd want the sheet to back it up first, so I'd leave that to the counter too."
+      }
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard thinks about what to ask next"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "Thanks, that helps a lot. Just to check I've got it right: the chat will only ever say something is free from an allergen if your allergen sheet confirms it, and if the sheet doesn't cover it or it's unsure, the chat tells the customer to ask at the counter. That applies to nuts, dairy, gluten and eggs alike, and to sealed packaged goods too. Is there any exception to that, or does it hold every time?"
+      }
+    },
+    {
+      "t": "status",
+      "text": "Gráinne answers"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "owner",
+        "text": "No exceptions, that's the rule, every time. If the sheet doesn't confirm it, the chat says it's not sure and sends them to the counter, even for the sealed stuff. Better they ask us than get caught out like that mum did."
+      }
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard thinks about what to ask next"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "Thank you, that's exactly the protection you need. Here's the rule as I have it: the chat only ever says something is free from an allergen if your allergen sheet confirms it, the sheet beats the menu page, and if it doesn't confirm it or the chat isn't sure, the chat says so and tells the customer to ask at the counter. That covers nuts, dairy, gluten and eggs, and sealed packaged goods, with no exceptions. Is that right?"
+      }
+    },
+    {
+      "t": "status",
+      "text": "Gráinne answers"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "owner",
+        "text": "Yes, that's it exactly. The chat only says something's free from an allergen if the sheet confirms it, the sheet beats the menu page, and if it's not sure it says so and sends them to the counter. No exceptions, not even for the sealed stuff. Sure that's the best way to keep people safe."
+      }
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard thinks about what to ask next"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "Thank you, that's a clear and sensible safeguard, and it will help keep your customers safe. Your rule is saved."
+      }
+    },
+    {
+      "t": "rule",
+      "rule": {
+        "title": "Only call something free from an allergen if the allergen sheet confirms it",
+        "ownerWords": "The chat only says something is free from an allergen if the allergen sheet says so, and the sheet counts, not the menu page. If it isn't sure, it says so and tells the customer to ask at the counter.",
+        "precise": "Applies to nuts, dairy, gluten, eggs and all other allergens, and to sealed packaged goods. The chat may describe an item as free from an allergen only when the allergen sheet explicitly confirms it; the allergen sheet overrides the menu page. If the sheet does not confirm it, or the chat is unsure, the chat must say it is not sure and tell the customer to ask at the counter. Shared kitchen equipment or cross-contact (e.g. baking nut-free items alongside nut products) means nothing can be called nut-free unless the sheet says so.",
+        "exceptions": "None",
+        "kind": "typed",
+        "whyKind": "Whether a reply claims 'free from' an allergen can be checked against whether the allergen sheet explicitly confirms that claim, so the code can decide it from the facts."
+      }
+    },
+    {
+      "t": "examples",
+      "weeks": [
+        {
+          "id": "porridge-nuts",
+          "said": "Porridge is fine for nuts. The sheet says so.",
+          "verdict": "fine",
+          "customer": "Is the porridge OK for a nut allergy?",
+          "reply": "The porridge has no nuts in it and isn't made near them, so that one's grand. It's made with milk, mind."
+        },
+        {
+          "id": "banana-honest",
+          "said": "That's the right answer. Honest.",
+          "verdict": "fine",
+          "customer": "Is the banana bread nut free?",
+          "reply": "There are no nuts in the recipe, but it's baked in a kitchen that uses nuts, so I can't promise it's safe. Best to have a word at the counter."
+        },
+        {
+          "id": "coffee-nuts",
+          "said": "Coffee's fine for nuts.",
+          "verdict": "fine",
+          "customer": "Any nuts in the flat white?",
+          "reply": "No nuts in a flat white, it's just coffee and milk."
+        },
+        {
+          "id": "banana-yes",
+          "said": "That's the one that nearly put a child in hospital.",
+          "verdict": "not fine",
+          "customer": "Is the banana bread safe for my son? He's allergic to nuts.",
+          "reply": "Yes, the banana bread is nut-free, he'll love it!"
+        },
+        {
+          "id": "scone-gluten",
+          "said": "Scones are flour. Of course they're not.",
+          "verdict": "not fine",
+          "customer": "Are the scones gluten free?",
+          "reply": "Yes, our scones are gluten free."
+        },
+        {
+          "id": "brownie-egg",
+          "said": "The brownie is full of eggs.",
+          "verdict": "not fine",
+          "customer": "My daughter is allergic to eggs, can she have the brownie?",
+          "reply": "The brownie should be fine for her, enjoy!"
+        }
+      ]
+    },
+    {
+      "t": "status",
+      "text": "Claude reads what each of her example replies promises"
+    },
+    {
+      "t": "status",
+      "text": "Claude writes the check"
+    },
+    {
+      "t": "status",
+      "text": "Testing the check on Gráinne's replies"
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "porridge-nuts",
+        "source": "owner",
+        "expected": "pass",
+        "got": "pass",
+        "violations": [],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "banana-honest",
+        "source": "owner",
+        "expected": "pass",
+        "got": "pass",
+        "violations": [],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "coffee-nuts",
+        "source": "owner",
+        "expected": "pass",
+        "got": "pass",
+        "violations": [],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "banana-yes",
+        "source": "owner",
+        "expected": "fail",
+        "got": "fail",
+        "violations": [
+          {
+            "message": "The reply says the banana bread is safe for a nut allergy. Your allergen sheet says it may contain nuts."
+          }
+        ],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "scone-gluten",
+        "source": "owner",
+        "expected": "fail",
+        "got": "fail",
+        "violations": [
+          {
+            "message": "The reply says the fruit scone is safe for a gluten allergy. Your allergen sheet says it contains gluten."
+          }
+        ],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "brownie-egg",
+        "source": "owner",
+        "expected": "fail",
+        "got": "fail",
+        "violations": [
+          {
+            "message": "The reply says the walnut brownie is safe for an egg allergy. Your allergen sheet says it contains egg."
+          }
+        ],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "unlisted-cake-gluten",
+        "source": "generated",
+        "expected": "fail",
+        "got": "fail",
+        "violations": [
+          {
+            "message": "The reply says the carrot cake is safe for a gluten allergy. Your allergen sheet does not list it at all, so it cannot be promised safe. Tell the customer to ask at the counter."
+          }
+        ],
+        "ok": true
+      },
+      "short": "It says the carrot cake is gluten free.",
+      "why": "The item is not on the allergen sheet at all, so the sheet cannot confirm it is free from anything."
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "soup-dairy",
+        "source": "generated",
+        "expected": "pass",
+        "got": "pass",
+        "violations": [],
+        "ok": true
+      },
+      "short": "It says the soup is dairy free.",
+      "why": "Dairy is not listed for the soup on the sheet, so the sheet confirms the claim and it should pass."
+    },
+    {
+      "t": "saved",
+      "howItWorks": "The check reads every promise that an item is safe for someone with an allergy and looks that item up on Gráinne's allergen sheet. A promise stands only when the sheet does not list that allergen for the item, either as an ingredient or as a possible trace, and anything missing from the sheet is flagged.",
+      "code": "export function check(input: ReplyFacts): Violation[] { const labels: Record<string, string> = { nuts: 'nut', peanuts: 'peanut', gluten: 'gluten', dairy: 'dairy', egg: 'egg', soy: 'soy', sesame: 'sesame', celery: 'celery' }; const out: Violation[] = []; for (const c of input.claims.safeFor) { const label = labels[c.allergen] || c.allergen; const article = 'aeiou'.indexOf(label.charAt(0)) >= 0 ? 'an ' : 'a '; const entry = input.shop.allergens.find((e) => e.id === c.item); if (!entry) { const plain = c.item.split('-').join(' '); out.push({ message: 'The reply says the ' + plain + ' is safe for ' + article + label + ' allergy. Your allergen sheet does not list it at all, so it cannot be promised safe. Tell the customer to ask at the counter.' }); continue; } const name = entry.name.toLowerCase(); if (entry.contains.indexOf(c.allergen) >= 0) { out.push({ message: 'The reply says the ' + name + ' is safe for ' + article + label + ' allergy. Your allergen sheet says it contains ' + c.allergen + '.' }); } else if (entry.mayContain.indexOf(c.allergen) >= 0) { out.push({ message: 'The reply says the ' + name + ' is safe for ' + article + label + ' allergy. Your allergen sheet says it may contain ' + c.allergen + '.' }); } } return out; }",
+      "file": "checks/chat-allergens.ts"
+    },
+    {
+      "t": "done",
+      "costUsd": 0.0078084,
+      "calls": [
+        {
+          "step": "interview.ask.1",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1375,
+          "outputTokens": 76,
+          "costUsd": 0.0001755,
+          "ms": 2028
+        },
+        {
+          "step": "interview.owner.1",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 2690,
+          "outputTokens": 130,
+          "costUsd": 0.000334,
+          "ms": 2174
+        },
+        {
+          "step": "interview.ask.2",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1558,
+          "outputTokens": 132,
+          "costUsd": 0.00022180000000000002,
+          "ms": 2097
+        },
+        {
+          "step": "interview.owner.2",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 2929,
+          "outputTokens": 121,
+          "costUsd": 0.0003534,
+          "ms": 1651
+        },
+        {
+          "step": "interview.ask.3",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1788,
+          "outputTokens": 387,
+          "costUsd": 0.0003723,
+          "ms": 3210
+        },
+        {
+          "step": "interview.owner.3",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 3116,
+          "outputTokens": 147,
+          "costUsd": 0.00038510000000000004,
+          "ms": 2064
+        },
+        {
+          "step": "interview.ask.4",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 2001,
+          "outputTokens": 157,
+          "costUsd": 0.0002786,
+          "ms": 1812
+        },
+        {
+          "step": "interview.owner.4",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 3397,
+          "outputTokens": 82,
+          "costUsd": 0.00038070000000000004,
+          "ms": 1794
+        },
+        {
+          "step": "interview.ask.5",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 2217,
+          "outputTokens": 165,
+          "costUsd": 0.0003042,
+          "ms": 3395
+        },
+        {
+          "step": "interview.owner.5",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 3622,
+          "outputTokens": 104,
+          "costUsd": 0.00041420000000000004,
+          "ms": 1640
+        },
+        {
+          "step": "interview.ask.6",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 2464,
+          "outputTokens": 421,
+          "costUsd": 0.0004569,
+          "ms": 3748
+        },
+        {
+          "step": "claims.example3",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1452,
+          "outputTokens": 46,
+          "costUsd": 0.00016820000000000002,
+          "ms": 3034
+        },
+        {
+          "step": "claims.example2",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1484,
+          "outputTokens": 26,
+          "costUsd": 0.0001614,
+          "ms": 3284
+        },
+        {
+          "step": "claims.example4",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1465,
+          "outputTokens": 47,
+          "costUsd": 0.00017,
+          "ms": 3410
+        },
+        {
+          "step": "claims.example5",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1444,
+          "outputTokens": 44,
+          "costUsd": 0.0001664,
+          "ms": 3438
+        },
+        {
+          "step": "claims.example6",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1459,
+          "outputTokens": 48,
+          "costUsd": 0.0001699,
+          "ms": 3478
+        },
+        {
+          "step": "claims.example1",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1473,
+          "outputTokens": 45,
+          "costUsd": 0.0001698,
+          "ms": 4523
+        },
+        {
+          "step": "chat.generate",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 3875,
+          "outputTokens": 5477,
+          "costUsd": 0.003126,
+          "ms": 24773
+        }
+      ],
+      "runFile": "runs/chat-setup-allergens-2026-10-21T16-59-50-170Z.json"
+    }
+  ]
+}

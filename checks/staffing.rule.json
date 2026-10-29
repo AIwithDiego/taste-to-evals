@@ -1,0 +1,9 @@
+{
+  "title": "Minimum staff while open, three on Saturday mornings",
+  "ownerWords": "Never fewer than two people on the floor the whole time we're open, kitchen counts too. Saturday eight to noon is the rush, so three in, every Saturday.",
+  "precise": "Whenever the café is open (seven until closing at eight), at least two staff must be on duty, with kitchen staff counting. On Saturdays from eight o'clock sharp until twelve noon, at least three staff must be on duty. Twelve noon onward, two is enough again. Having three or more at any time is always fine. Applies every Saturday, including bank holidays and quiet months like January.",
+  "exceptions": "None",
+  "kind": "typed",
+  "whyKind": "Headcount and clock times can be checked directly against the rota, so no judgement is needed.",
+  "howItWorks": "The check walks through every day of the week from seven in the morning until eight at night and counts the different people on duty at each minute. It flags any stretch where that count is below two, or below three on Saturday from eight until noon."
+}

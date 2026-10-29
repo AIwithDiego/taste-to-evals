@@ -1,0 +1,391 @@
+{
+  "started": "2026-10-20T20:11:25.810Z",
+  "events": [
+    {
+      "t": "start",
+      "cafe": "Ollie's, Dublin 2",
+      "owner": "Gráinne Nolan",
+      "ruleId": "barista",
+      "handwritten": "A barista on at all times"
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard opens the interview"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "Let's start with a time this went wrong. Can you tell me about a shift where the coffee machine was left with nobody trained on it, and what happened?"
+      }
+    },
+    {
+      "t": "status",
+      "text": "Gráinne answers"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "owner",
+        "text": "Oh God, that Monday in September still makes me wince. Sarah was out sick, so the morning was Liam, Aoife and Darragh, and not one of them can work the machine. We were sold out of anything with milk in it, so we just sold buns and apologised to people for three hours. The place felt like a room with chairs, and I was mortified."
+      }
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard thinks about what to ask next"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "That sounds rough, especially with the queue watching. So on a shift like that, what exactly should have been true? For example, should someone trained on the machine be on for every hour the café is open, or only at certain times?"
+      }
+    },
+    {
+      "t": "status",
+      "text": "Gráinne answers"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "owner",
+        "text": "Ah, yeah, it's simple for me: someone trained on the machine has to be on the whole time we're open, seven in the morning till eight at night, no gaps. Sarah, Tom, Niamh and Chloe are the ones I count on for that. Without a barista we're not a café, we're a room with chairs."
+      }
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard thinks about what to ask next"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "Got it, someone trained on the machine on every open hour. Is there ever a time it's fine to run without one, like a quiet hour or a day someone's sick and you can't get anyone in?"
+      }
+    },
+    {
+      "t": "status",
+      "text": "Gráinne answers"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "owner",
+        "text": "Not really, no. Even on a dead Tuesday afternoon, somebody trained on the machine has to be on, and if Sarah's sick I'd rather ring Tom or Niamh in early than open without one. We tried running without one that Monday and it was a disaster, so I haven't thought about it as an exception, it just doesn't happen here."
+      }
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard thinks about what to ask next"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "So the rule is: from 7am to 8pm, every hour the café is open, at least one person trained on the coffee machine must be on the rota, with no gaps, and there are no exceptions, even on quiet afternoons or when someone's off sick. Is that right?"
+      }
+    },
+    {
+      "t": "status",
+      "text": "Gráinne answers"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "owner",
+        "text": "Yes, that's it exactly: someone trained on the machine has to be on every hour we're open, seven till eight, no gaps. No exceptions, not even a dead afternoon or someone being off sick, I'd ring someone in before opening without one."
+      }
+    },
+    {
+      "t": "status",
+      "text": "ShiftGuard thinks about what to ask next"
+    },
+    {
+      "t": "line",
+      "line": {
+        "who": "interviewer",
+        "text": "Thanks, that's clear. I've got it down: someone trained on the coffee machine must be on every open hour, 7am to 8pm, with no gaps and no exceptions."
+      }
+    },
+    {
+      "t": "rule",
+      "rule": {
+        "title": "Coffee machine cover, every open hour",
+        "ownerWords": "Someone trained on the coffee machine has to be on the whole time we're open, seven in the morning till eight at night, with no gaps. Not even on a quiet afternoon or when someone's off sick.",
+        "precise": "For every hour from 7am to 8pm, at least one person trained on the coffee machine must be rostered on. One trained person covering each hour is enough. Only rostered shifts count. Trained people named by the owner: Sarah, Tom, Niamh, Chloe. The rule fails if any open hour has no trained person on the rota.",
+        "exceptions": "None",
+        "kind": "typed",
+        "whyKind": "Whether each hour is covered by a trained person can be checked directly from the rota and the list of trained staff."
+      }
+    },
+    {
+      "t": "examples",
+      "weeks": [
+        {
+          "id": "good-normal",
+          "said": "A normal week. Someone on the machine every hour we're open.",
+          "verdict": "fine"
+        },
+        {
+          "id": "good-niamh-for-sarah",
+          "said": "Niamh did Sarah's Monday opening. Both trained, no problem.",
+          "verdict": "fine"
+        },
+        {
+          "id": "good-extra-floor",
+          "said": "Aoife did an extra Wednesday shift. She's not on the machine but the others were.",
+          "verdict": "fine"
+        },
+        {
+          "id": "bad-monday-morning",
+          "said": "Darragh covered Sarah's Monday opening. Him and Liam, nobody on the machine all morning.",
+          "verdict": "not fine"
+        },
+        {
+          "id": "bad-sunday-close",
+          "said": "Aoife took Chloe's Sunday close. Her and Darragh, no barista all evening.",
+          "verdict": "not fine"
+        },
+        {
+          "id": "bad-tom-early",
+          "said": "Tom left at half seven Monday. Aoife on her own, no coffee for the last half hour.",
+          "verdict": "not fine"
+        }
+      ]
+    },
+    {
+      "t": "status",
+      "text": "Claude writes the check"
+    },
+    {
+      "t": "status",
+      "text": "Testing the check on Gráinne's weeks"
+    },
+    {
+      "t": "retry",
+      "attempt": 1,
+      "feedback": "The TypeScript compiler rejected the check:\nchecks/barista.ts(4,713): error TS2769: No overload matches this call.\n  The last overload gave the following error.\n    Argument of type 'number | undefined' is not assignable to parameter of type 'number'.\n      Type 'undefined' is not assignable to type 'number'.\nchecks/barista.ts(4,719): error TS2532: Object is possibly 'undefined'.\nchecks/barista.ts(4,729): error TS2532: Object is possibly 'undefined'.\nchecks/barista.ts(4,888): error TS2769: No overload matches this call.\n  The last overload gave the following error.\n    Argument of type 'number | undefined' is not assignable to parameter of type 'number'.\n      Type 'undefined' is not assignable to type 'number'.\nchecks/barista.ts(4,894): error TS2532: Object is possibly 'undefined'.\nchecks/barista.ts(4,975): error TS2532: Object is possibly 'undefined'.\nchecks/barista.ts(4,1622): error TS2532: Object is possibly 'undefined'.\nchecks/barista.ts(4,1640): error TS2532: Object is possibly 'undefined'."
+    },
+    {
+      "t": "status",
+      "text": "Claude fixes the check"
+    },
+    {
+      "t": "status",
+      "text": "Testing the check on Gráinne's weeks"
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "good-normal",
+        "source": "owner",
+        "expected": "pass",
+        "got": "pass",
+        "violations": [],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "good-niamh-for-sarah",
+        "source": "owner",
+        "expected": "pass",
+        "got": "pass",
+        "violations": [],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "good-extra-floor",
+        "source": "owner",
+        "expected": "pass",
+        "got": "pass",
+        "violations": [],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "bad-monday-morning",
+        "source": "owner",
+        "expected": "fail",
+        "got": "fail",
+        "violations": [
+          {
+            "date": "2026-10-26",
+            "message": "Nobody trained on the coffee machine is on from 7am to 12:30pm on Monday. That leaves 5 hours and 30 minutes with no one trained on the machine."
+          }
+        ],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "bad-sunday-close",
+        "source": "owner",
+        "expected": "fail",
+        "got": "fail",
+        "violations": [
+          {
+            "date": "2026-11-01",
+            "message": "Nobody trained on the coffee machine is on from 2:30pm to 8pm on Sunday. That leaves 5 hours and 30 minutes with no one trained on the machine."
+          }
+        ],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "bad-tom-early",
+        "source": "owner",
+        "expected": "fail",
+        "got": "fail",
+        "violations": [
+          {
+            "date": "2026-10-26",
+            "message": "Nobody trained on the coffee machine is on from 7:30pm to 8pm on Monday. That leaves half an hour with no one trained on the machine."
+          }
+        ],
+        "ok": true
+      }
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "Sunday close ends at eight, not half past",
+        "source": "generated",
+        "expected": "pass",
+        "got": "pass",
+        "violations": [],
+        "ok": true
+      },
+      "short": "Chloe closes at eight on Sunday, not half eight.",
+      "why": "Checks that the last hour is still covered when a trained person's shift ends exactly at closing time."
+    },
+    {
+      "t": "outcome",
+      "outcome": {
+        "name": "Monday opening starts at quarter past seven",
+        "source": "generated",
+        "expected": "fail",
+        "got": "fail",
+        "violations": [
+          {
+            "date": "2026-10-26",
+            "message": "Nobody trained on the coffee machine is on from 7am to 7:15am on Monday. That leaves 15 minutes with no one trained on the machine."
+          }
+        ],
+        "ok": true
+      },
+      "short": "Sarah's Monday opening starts at quarter past seven.",
+      "why": "A trained person arrives 15 minutes after opening, leaving a short gap at the start of the day that is less than an hour long."
+    },
+    {
+      "t": "saved",
+      "howItWorks": "For every hour from 7am to 8pm on every day of the week, someone trained on the coffee machine has to be rostered on. The check lists each stretch of time when nobody trained is on, and names the day it happens.",
+      "code": "export function check(rota: Rota): Violation[] { const DAY_NAMES: string[] = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']; const OPEN_MIN = 420; const CLOSE_MIN = 1200; const DAY_MS = 86400000; const base = Date.parse(rota.weekStart + 'T00:00:00Z'); if (!Number.isFinite(base)) return []; const trained = new Set<string>(); for (const s of rota.staff) { if (s.trainedBarista) trained.add(s.id); } function parseMin(t: string): number { const parts = t.split(':'); const h = Number(parts[0]); const m = Number(parts[1]); if (!Number.isFinite(h) || !Number.isFinite(m)) return NaN; return h * 60 + m; } function fmtTime(min: number): string { const h = Math.floor(min / 60); const m = min % 60; const suffix = h >= 12 ? 'pm' : 'am'; let h12 = h % 12; if (h12 === 0) h12 = 12; if (m === 0) return String(h12) + suffix; return String(h12) + ':' + (m < 10 ? '0' : '') + String(m) + suffix; } function fmtLength(mins: number): string { const h = Math.floor(mins / 60); const m = mins % 60; if (h === 0) return mins === 30 ? 'half an hour' : String(mins) + ' minutes'; const hp = h === 1 ? '1 hour' : String(h) + ' hours'; if (m === 0) return hp; return hp + ' and ' + String(m) + ' minutes'; } const violations: Violation[] = []; for (let d = 0; d < 7; d++) { const dateStr = new Date(base + d * DAY_MS).toISOString().slice(0, 10); const dayName = DAY_NAMES[d] ?? 'that day'; const covered: boolean[] = new Array(1440).fill(false); for (const s of rota.shifts) { if (s.date !== dateStr || !trained.has(s.staffId)) continue; const a = parseMin(s.start); const b = parseMin(s.end); if (!Number.isFinite(a) || !Number.isFinite(b)) continue; for (let t = Math.max(0, a); t < Math.min(1440, b); t++) covered[t] = true; } let m = OPEN_MIN; while (m < CLOSE_MIN) { if (covered[m]) { m++; continue; } let end = m; while (end < CLOSE_MIN && !covered[end]) end++; violations.push({ date: dateStr, message: 'Nobody trained on the coffee machine is on from ' + fmtTime(m) + ' to ' + fmtTime(end) + ' on ' + dayName + '. That leaves ' + fmtLength(end - m) + ' with no one trained on the machine.' }); m = end; } } return violations; }",
+      "file": "checks/barista.ts"
+    },
+    {
+      "t": "done",
+      "costUsd": 0.0124559,
+      "calls": [
+        {
+          "step": "interview.ask.1",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1342,
+          "outputTokens": 64,
+          "costUsd": 0.00016620000000000003,
+          "ms": 1645
+        },
+        {
+          "step": "interview.owner.1",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1943,
+          "outputTokens": 116,
+          "costUsd": 0.0002523,
+          "ms": 5477
+        },
+        {
+          "step": "interview.ask.2",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1500,
+          "outputTokens": 81,
+          "costUsd": 0.0001905,
+          "ms": 1478
+        },
+        {
+          "step": "interview.owner.2",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 2118,
+          "outputTokens": 108,
+          "costUsd": 0.0002658,
+          "ms": 1845
+        },
+        {
+          "step": "interview.ask.3",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1667,
+          "outputTokens": 308,
+          "costUsd": 0.00032070000000000004,
+          "ms": 2712
+        },
+        {
+          "step": "interview.owner.3",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 2281,
+          "outputTokens": 117,
+          "costUsd": 0.00028660000000000003,
+          "ms": 2002
+        },
+        {
+          "step": "interview.ask.4",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1839,
+          "outputTokens": 346,
+          "costUsd": 0.0003569,
+          "ms": 3134
+        },
+        {
+          "step": "interview.owner.4",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 2476,
+          "outputTokens": 86,
+          "costUsd": 0.0002906,
+          "ms": 1796
+        },
+        {
+          "step": "interview.ask.5",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 2003,
+          "outputTokens": 545,
+          "costUsd": 0.0004728,
+          "ms": 2924
+        },
+        {
+          "step": "generate",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 5551,
+          "outputTokens": 7509,
+          "costUsd": 0.0043096,
+          "ms": 30635
+        },
+        {
+          "step": "generate.retry",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 5969,
+          "outputTokens": 9894,
+          "costUsd": 0.0055439,
+          "ms": 41215
+        }
+      ],
+      "runFile": "runs/setup-barista-2026-10-20T20-11-25-810Z.json"
+    }
+  ]
+}

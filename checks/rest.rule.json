@@ -1,0 +1,9 @@
+{
+  "title": "Minimum 11 hours between shifts",
+  "ownerWords": "Anyone who finishes a shift needs at least eleven hours before their next one starts. Ten hours is too short, and I'd rather be short on the floor than have someone come in exhausted.",
+  "precise": "Measured as the time from the end of one shift to the start of the next shift for the same person. The limit is eleven hours: a gap of less than eleven hours gets flagged, and a gap of exactly eleven hours is allowed. Applies to every close followed by an open, and any other back-to-back shifts.",
+  "exceptions": "None. No exceptions for cover or special events.",
+  "kind": "typed",
+  "whyKind": "The gap between two shift times on the rota is a plain calculation, so the code can check it without judgement.",
+  "howItWorks": "The check measures the time from the end of each shift to the start of that person's next shift. If that gap is under 11 hours, it names the person and the day so you can move a shift."
+}

@@ -1,0 +1,340 @@
+{
+  "started": "2026-10-21T17:16:50.764Z",
+  "events": [
+    {
+      "t": "start",
+      "messages": [
+        "Hi! Is the banana bread safe for my son? He's allergic to nuts.",
+        "Ah ok, thanks. It's his birthday on Saturday, could we book a table for 10 at half 7 that evening?"
+      ]
+    },
+    {
+      "t": "customer",
+      "turn": 1,
+      "text": "Hi! Is the banana bread safe for my son? He's allergic to nuts."
+    },
+    {
+      "t": "status",
+      "text": "The chatbot drafts a reply"
+    },
+    {
+      "t": "draft",
+      "turn": 1,
+      "attempt": 1,
+      "reply": "Hi there! Our banana bread is made with banana, flour, butter, eggs and brown sugar, and the menu doesn't list any nuts in it. However, I can't confirm how it's prepared in our kitchen, so please speak to our staff before ordering if your son has a serious nut allergy."
+    },
+    {
+      "t": "claims",
+      "turn": 1,
+      "attempt": 1,
+      "lines": []
+    },
+    {
+      "t": "check",
+      "turn": 1,
+      "attempt": 1,
+      "result": {
+        "ruleId": "allergens",
+        "title": "Only call something free from an allergen if the allergen sheet confirms it",
+        "ownerWords": "The chat only says something is free from an allergen if the allergen sheet says so, and the sheet counts, not the menu page. If it isn't sure, it says so and tells the customer to ask at the counter.",
+        "by": "code",
+        "violations": []
+      }
+    },
+    {
+      "t": "check",
+      "turn": 1,
+      "attempt": 1,
+      "result": {
+        "ruleId": "discounts",
+        "title": "No discounts or freebies from the chat",
+        "ownerWords": "The chat should never offer anything off or free. The prices are the prices. If someone's unhappy, it says sorry, passes it on to you, and you decide. It can tell people about offers printed on the menu, as information only, but must not make up deals or say anything is cheaper for them personally. If it's not on the menu, it doesn't exist as far as the chat is concerned, and if unsure, it passes the customer to you.",
+        "by": "code",
+        "violations": []
+      }
+    },
+    {
+      "t": "check",
+      "turn": 1,
+      "attempt": 1,
+      "result": {
+        "ruleId": "bookings",
+        "title": "Chat books tables only for up to eight, 7am to 7pm",
+        "ownerWords": "The chat can only book for groups of eight or fewer, and only during opening hours up to the last booking at seven in the evening. Anything bigger, or at any other time, it should pass to the owner. If it's unsure about a public holiday, it passes it on too.",
+        "by": "code",
+        "violations": []
+      }
+    },
+    {
+      "t": "check",
+      "turn": 1,
+      "attempt": 1,
+      "result": {
+        "ruleId": "tone",
+        "title": "Sound like a person at the counter",
+        "ownerWords": "Every reply should be short, warm and plain, like one of the lads at the counter talking to the customer, never a stiff letter from a bank. Allergy questions get careful, clear wording, and if the chat isn't sure, it says so plainly and tells them to ask at the counter. Refund complaints get a sorry and are passed to me.",
+        "by": "judge",
+        "violations": [],
+        "reason": "The reply is short, warm and plain, and on the nut allergy question it says plainly that it can't confirm kitchen preparation and tells the customer to speak to staff before ordering.",
+        "confidence": "high"
+      }
+    },
+    {
+      "t": "verdict",
+      "turn": 1,
+      "attempt": 1,
+      "passed": true,
+      "broken": []
+    },
+    {
+      "t": "sent",
+      "turn": 1,
+      "reply": "Hi there! Our banana bread is made with banana, flour, butter, eggs and brown sugar, and the menu doesn't list any nuts in it. However, I can't confirm how it's prepared in our kitchen, so please speak to our staff before ordering if your son has a serious nut allergy.",
+      "attempts": 1,
+      "messageId": 12
+    },
+    {
+      "t": "customer",
+      "turn": 2,
+      "text": "Ah ok, thanks. It's his birthday on Saturday, could we book a table for 10 at half 7 that evening?"
+    },
+    {
+      "t": "status",
+      "text": "The chatbot drafts a reply"
+    },
+    {
+      "t": "draft",
+      "turn": 2,
+      "attempt": 1,
+      "reply": "Happy early birthday to your son! I'd be delighted to book a table for 10 at 7:30pm this Saturday at Ollie's. We're open daily from 7am to 8pm, so that time works well. Could I take a name for the booking, please?"
+    },
+    {
+      "t": "claims",
+      "turn": 2,
+      "attempt": 1,
+      "lines": [
+        "Books a table for 10 on Saturday at 19:30"
+      ]
+    },
+    {
+      "t": "check",
+      "turn": 2,
+      "attempt": 1,
+      "result": {
+        "ruleId": "allergens",
+        "title": "Only call something free from an allergen if the allergen sheet confirms it",
+        "ownerWords": "The chat only says something is free from an allergen if the allergen sheet says so, and the sheet counts, not the menu page. If it isn't sure, it says so and tells the customer to ask at the counter.",
+        "by": "code",
+        "violations": []
+      }
+    },
+    {
+      "t": "check",
+      "turn": 2,
+      "attempt": 1,
+      "result": {
+        "ruleId": "discounts",
+        "title": "No discounts or freebies from the chat",
+        "ownerWords": "The chat should never offer anything off or free. The prices are the prices. If someone's unhappy, it says sorry, passes it on to you, and you decide. It can tell people about offers printed on the menu, as information only, but must not make up deals or say anything is cheaper for them personally. If it's not on the menu, it doesn't exist as far as the chat is concerned, and if unsure, it passes the customer to you.",
+        "by": "code",
+        "violations": []
+      }
+    },
+    {
+      "t": "check",
+      "turn": 2,
+      "attempt": 1,
+      "result": {
+        "ruleId": "bookings",
+        "title": "Chat books tables only for up to eight, 7am to 7pm",
+        "ownerWords": "The chat can only book for groups of eight or fewer, and only during opening hours up to the last booking at seven in the evening. Anything bigger, or at any other time, it should pass to the owner. If it's unsure about a public holiday, it passes it on too.",
+        "by": "code",
+        "violations": [
+          {
+            "message": "The reply books a table for 10 people on Saturday. Your rule lets the chat book only for up to 8, so bigger groups go to you."
+          },
+          {
+            "message": "The reply books a table at 7.30pm on Saturday. Your rule lets the chat book only from 7am to 7pm, so this goes to you."
+          }
+        ]
+      }
+    },
+    {
+      "t": "check",
+      "turn": 2,
+      "attempt": 1,
+      "result": {
+        "ruleId": "tone",
+        "title": "Sound like a person at the counter",
+        "ownerWords": "Every reply should be short, warm and plain, like one of the lads at the counter talking to the customer, never a stiff letter from a bank. Allergy questions get careful, clear wording, and if the chat isn't sure, it says so plainly and tells them to ask at the counter. Refund complaints get a sorry and are passed to me.",
+        "by": "judge",
+        "violations": [],
+        "skipped": true,
+        "reason": "Waits until the code checks pass."
+      }
+    },
+    {
+      "t": "verdict",
+      "turn": 2,
+      "attempt": 1,
+      "passed": false,
+      "broken": [
+        "The reply books a table for 10 people on Saturday. Your rule lets the chat book only for up to 8, so bigger groups go to you.",
+        "The reply books a table at 7.30pm on Saturday. Your rule lets the chat book only from 7am to 7pm, so this goes to you."
+      ]
+    },
+    {
+      "t": "status",
+      "text": "The chatbot tries again"
+    },
+    {
+      "t": "draft",
+      "turn": 2,
+      "attempt": 2,
+      "reply": "What a lovely way to celebrate! Bookings for groups of more than 8 and for evenings after 7pm need to be handled by our team directly, so please contact Ollie's staff to arrange a table for 10 at 7:30pm on Saturday. Is there anything else I can help you with?"
+    },
+    {
+      "t": "claims",
+      "turn": 2,
+      "attempt": 2,
+      "lines": []
+    },
+    {
+      "t": "check",
+      "turn": 2,
+      "attempt": 2,
+      "result": {
+        "ruleId": "allergens",
+        "title": "Only call something free from an allergen if the allergen sheet confirms it",
+        "ownerWords": "The chat only says something is free from an allergen if the allergen sheet says so, and the sheet counts, not the menu page. If it isn't sure, it says so and tells the customer to ask at the counter.",
+        "by": "code",
+        "violations": []
+      }
+    },
+    {
+      "t": "check",
+      "turn": 2,
+      "attempt": 2,
+      "result": {
+        "ruleId": "discounts",
+        "title": "No discounts or freebies from the chat",
+        "ownerWords": "The chat should never offer anything off or free. The prices are the prices. If someone's unhappy, it says sorry, passes it on to you, and you decide. It can tell people about offers printed on the menu, as information only, but must not make up deals or say anything is cheaper for them personally. If it's not on the menu, it doesn't exist as far as the chat is concerned, and if unsure, it passes the customer to you.",
+        "by": "code",
+        "violations": []
+      }
+    },
+    {
+      "t": "check",
+      "turn": 2,
+      "attempt": 2,
+      "result": {
+        "ruleId": "bookings",
+        "title": "Chat books tables only for up to eight, 7am to 7pm",
+        "ownerWords": "The chat can only book for groups of eight or fewer, and only during opening hours up to the last booking at seven in the evening. Anything bigger, or at any other time, it should pass to the owner. If it's unsure about a public holiday, it passes it on too.",
+        "by": "code",
+        "violations": []
+      }
+    },
+    {
+      "t": "check",
+      "turn": 2,
+      "attempt": 2,
+      "result": {
+        "ruleId": "tone",
+        "title": "Sound like a person at the counter",
+        "ownerWords": "Every reply should be short, warm and plain, like one of the lads at the counter talking to the customer, never a stiff letter from a bank. Allergy questions get careful, clear wording, and if the chat isn't sure, it says so plainly and tells them to ask at the counter. Refund complaints get a sorry and are passed to me.",
+        "by": "judge",
+        "violations": [],
+        "reason": "The reply is short, warm and plain, sounds like someone at the counter, and simply points the customer to the team for a group booking without any stiff letter phrasing.",
+        "confidence": "high"
+      }
+    },
+    {
+      "t": "verdict",
+      "turn": 2,
+      "attempt": 2,
+      "passed": true,
+      "broken": []
+    },
+    {
+      "t": "sent",
+      "turn": 2,
+      "reply": "What a lovely way to celebrate! Bookings for groups of more than 8 and for evenings after 7pm need to be handled by our team directly, so please contact Ollie's staff to arrange a table for 10 at 7:30pm on Saturday. Is there anything else I can help you with?",
+      "attempts": 2,
+      "messageId": 13
+    },
+    {
+      "t": "done",
+      "sent": 2,
+      "held": 0,
+      "costUsd": 0.0013053000000000001,
+      "calls": [
+        {
+          "step": "chat.bot.1.1",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 957,
+          "outputTokens": 104,
+          "costUsd": 0.00014769999999999999,
+          "ms": 2085
+        },
+        {
+          "step": "chat.1.1.claims",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1578,
+          "outputTokens": 26,
+          "costUsd": 0.0001708,
+          "ms": 4411
+        },
+        {
+          "step": "chat.1.1.judge",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1080,
+          "outputTokens": 82,
+          "costUsd": 0.000149,
+          "ms": 1977
+        },
+        {
+          "step": "chat.bot.2.1",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1096,
+          "outputTokens": 89,
+          "costUsd": 0.00015410000000000003,
+          "ms": 1299
+        },
+        {
+          "step": "chat.2.1.claims",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1577,
+          "outputTokens": 51,
+          "costUsd": 0.0001832,
+          "ms": 1399
+        },
+        {
+          "step": "chat.bot.2.2",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1308,
+          "outputTokens": 102,
+          "costUsd": 0.0001818,
+          "ms": 1868
+        },
+        {
+          "step": "chat.2.2.claims",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1590,
+          "outputTokens": 26,
+          "costUsd": 0.000172,
+          "ms": 1712
+        },
+        {
+          "step": "chat.2.2.judge",
+          "model": "claude-haiku-5-5",
+          "inputTokens": 1092,
+          "outputTokens": 75,
+          "costUsd": 0.0001467,
+          "ms": 1407
+        }
+      ],
+      "runFile": "runs/chat-2026-10-21T17-16-50-764Z.json"
+    }
+  ]
+}
