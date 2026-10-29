@@ -1,5 +1,7 @@
 # taste-to-evals
 
+[![CI](https://github.com/AIwithDiego/taste-to-evals/actions/workflows/ci.yml/badge.svg)](https://github.com/AIwithDiego/taste-to-evals/actions/workflows/ci.yml) ![License: MIT](https://img.shields.io/badge/license-MIT-green) ![Claude Haiku 5.5](https://img.shields.io/badge/Claude-Haiku%205.5-d97757) ![MCP](https://img.shields.io/badge/MCP-server-blue)
+
 **An agent interviews a business owner, turns her plain-language rules into typed checks (and an AI-judge rubric for the one rule code can't decide), and gates every proposal another agent makes on them before a human approves.**
 
 The demo case is ShiftGuard, running at Ollie's, an invented café in Dublin. Its owner, Gráinne, never wrote her rules down. A rota assistant, which has never seen her rules and can't save anything, has to get every draft past her gate. Only her Approve changes the week.
