@@ -4,7 +4,7 @@
 
 **Agents propose, owners' rules decide, every decision leaves evidence.**
 
-10,000 random rota changes: every rule-breaking draft stopped, no good one blocked. Reproduce it with `pnpm stress`, no API key needed.
+10,000 random rota changes: every rule-breaking draft stopped, no good one blocked. Reproduce the test with `pnpm stress`; no API key is needed.
 
 <sub>Built by [AIwithDiego](https://www.aiwithdiego.com). Need this for your team? [Talk to me](https://www.aiwithdiego.com).</sub>
 
@@ -18,9 +18,9 @@ git clone https://github.com/AIwithDiego/taste-to-evals && cd taste-to-evals && 
 
 ## Why this exists
 
-Agents are starting to act on businesses: drafting staff rotas, answering customers, booking tables. Most of them run with no oversight and leave no record of why they did what they did. The rules they should follow live in the owner's head, and the agent acting for her is often a vendor's, with a prompt she doesn't control.
+Agents are starting to draft staff rotas, answer customers and book tables for businesses. Many run with no oversight and leave no record of why they did what they did. The rules they should follow live in the owner's head, and the agent acting for her is often a vendor's, with a prompt she doesn't control.
 
-This project puts a gate between the agent and the business. An interview turns the owner's rules into tests. The agent can only propose. Every proposal passes the tests before a person approves it, and every decision leaves a trace and an evidence page someone can audit later.
+This project puts a gate between the agent and the business. An interview turns the owner's rules into tests. The agent can only propose. Every proposal must pass the tests before a person approves it, and each decision has a trace and an evidence page for later auditing.
 
 ## The controls
 
@@ -29,7 +29,7 @@ This project puts a gate between the agent and the business. An interview turns 
 | **Least privilege** | The acting agent has two read-only tools, never sees the rules, and only hears what broke. A test fails if it's ever given a write path. | `src/agent.ts`, `src/agent.test.ts` |
 | **Human oversight** | Approve is the only code that saves a rota, and it re-runs every code check instead of trusting the stored result. | `src/store.ts` |
 | **Isolated generated code** | The checks Claude writes are screened (no imports, `eval`, timers or network names) and run in an empty `node:vm` context with a one-second limit. | `src/sandbox.ts` |
-| **Code first, AI judge last** | Every rule code can decide is decided by code. The AI judge only weighs what's left, only after code passes, and is labelled "AI" everywhere. | `src/gate.ts`, `src/judge.ts` |
+| **Code first, AI judge last** | Code decides every rule it can. The AI judge weighs only what's left, runs only after code passes, and is labelled "AI" everywhere. | `src/gate.ts`, `src/judge.ts` |
 | **Evidence per decision** | A one-page PDF per run: what was asked, every try, each rule's verdict, the judge's reason, who approved, what it cost. [Sample](docs/evidence-sample.pdf). | `src/evidence.ts` |
 | **Observability, private by default** | Every live run can be one PostHog trace: each Claude call with tokens, cost and latency, each check as a span. Only structure goes to analytics; prompts, replies and names stay out of it unless you turn them on. | `src/telemetry.ts`, `src/telemetry.test.ts` |
 | **Measured, in CI** | 10,000 random rota changes run through the checks Claude wrote and through a hand-written version of the same rules. CI fails on any disagreement. [Results](docs/stress-test.md). | `src/stress.ts`, `src/reference.ts` |
@@ -58,7 +58,7 @@ ShiftGuard is a local demo on synthetic data (Ollie's and its staff are invented
 - A data processing agreement and transfer basis for the model provider: prompts, including staff data, go to Anthropic's API.
 - A production-grade sandbox. `node:vm` is not a security boundary.
 - The AI judge rule is not in the stress test, and Approve reuses its verdict rather than re-asking.
-- The website chatbot has no human per reply (the gate is the approval).
+- The website chatbot sends replies without a person approving each one (the gate is the approval).
 - Proof that approvals are meaningful, not rubber stamps.
 
 ## How it works
@@ -191,14 +191,14 @@ Everything runs on Claude Haiku 5.5 (`src/claude.ts`).
 
 ## Observability (optional)
 
-Set `SHIFTGUARD_TELEMETRY=on` and a PostHog project key in `.env`, and every live run becomes one trace in PostHog's LLM analytics (EU host). Each Claude call is a generation with its tokens, cost and latency, each of the owner's checks is a span in the same trace, and `shiftguard_check` / `shiftguard_gate_run` events give the failure rate by rule, code versus judge.
+Set `SHIFTGUARD_TELEMETRY=on` and a PostHog project key in `.env`, and every live run becomes one trace in PostHog's LLM analytics (EU host). Each Claude call is recorded as a generation with its tokens, cost and latency, and each of the owner's checks is a span in the same trace. The `shiftguard_check` / `shiftguard_gate_run` events report failure rates by rule, split between code checks and the judge.
 
 By default the trace carries structure only: rule ids, verdicts, counts, tokens, cost and latency. Prompts, replies, rule messages, rule titles, error text and the approver's name stay out of the trace; add `SHIFTGUARD_TELEMETRY_CONTENT=on` to send them while debugging. `src/telemetry.test.ts` fails if any of them leaks. The full record of each decision lives in the local evidence PDF.
 
 ## What it won't do
 
 - It isn't a product or a compliance tool. It shows the controls; a real deployment still needs the list above.
-- The domain is a café rota and a café chat. The loop carries over; the types in `src/domain.ts` and `src/chat/domain.ts` don't.
+- The domain is a café rota and a café chat. The loop works in other domains, but the types in `src/domain.ts` and `src/chat/domain.ts` are café-specific.
 - The AI-judged rule is not in the stress test: it needs an API key and its verdicts aren't deterministic.
 - `node:vm` isolation is right for a local demo, not for running generated code in production.
 
@@ -209,16 +209,16 @@ By default the trace carries structure only: rule ids, verdicts, counts, tokens,
 | Choice | Why | Trade-off |
 |---|---|---|
 | Code checks first, AI judge last | Arithmetic shouldn't get a model's vote. Code is instant, repeatable and testable; the judge only sees drafts that already pass. | Rules with no formula ("weekends shared fairly") still depend on a model, and can't be stress-tested the same way. |
-| The acting agent never sees the rules | Models the real case: the agent acting on your business is often a vendor's, with a prompt you don't control. | More retries and cost per request. With the rules in its prompt it never broke one, which hid the point. |
+| The acting agent never sees the rules | Models the real case: the agent acting on your business is often a vendor's, with a prompt you don't control. | More retries and cost per request. With the rules in its prompt, the agent never broke one, so the demo didn't show the gate catching anything. |
 | One write path, and it trusts nothing | Approve is the only code that saves, and it re-runs the code checks. The safety story fits in one sentence and a test enforces it. | The judge's verdict is reused from the run, not asked again at approval. |
-| For the chatbot, the gate is the approval | Customers can't wait for a person. Passing replies go out in about a second; three stopped drafts go to the owner with a holding line. | No human sees each reply, so the typed checks carry all the weight. |
+| For the chatbot, the gate is the approval | Customers can't wait for a person. Passing replies go out in about a second; three stopped drafts go to the owner with a holding line. | No person reviews each reply, so approval depends entirely on the typed checks. |
 | Traces carry structure only by default | Staff names and sick days are personal and health data. The evidence PDF keeps the full record locally; analytics doesn't need it. | Debugging a bad prompt means turning content on for that run. |
 
 Longer write-ups in [`docs/decisions/`](docs/decisions/).
 
 ## How this was built
 
-Built by Diego Bauer with Claude Code, in about a week in October 2026, for a five-minute slot at AI Tinkerers Dublin. I designed the flow and the demo, made the product, architecture and security calls, and presented it; Claude wrote most of the code under that direction, with tests at every step. In November I added the stress test and private-by-default traces, and had the EU AI Act and GDPR section checked by [Hank](https://github.com/AIwithDiego/hank), my security and EU compliance agent.
+Built by Diego Bauer with Claude Code, in about a week in October 2026, for a five-minute slot at AI Tinkerers Dublin. I designed the flow and the demo, made the product, architecture and security calls, and presented it. Claude wrote most of the code under my direction, with tests at every step. In November I added the stress test and private-by-default traces, and had the EU AI Act and GDPR section checked by [Hank](https://github.com/AIwithDiego/hank), my security and EU compliance agent.
 
 ## What I learned
 
@@ -228,7 +228,7 @@ The longer version, including what didn't work, is in [LEARNINGS.md](LEARNINGS.m
 2. Every rule ships with a passing and a failing example, or it isn't a rule yet.
 3. Code checks first. The AI judge goes last, only for what code can't decide, and it's labelled.
 4. The agent that acts has no write tool. Only the approve step writes, and only after a passing run.
-5. An answer key is code too. The stress test's first run found a bug in my hand-written rules, not in Claude's.
+5. An answer key is code too. The stress test's first run found a bug in my hand-written rules; Claude's checks were right.
 6. Privacy by default has to be tested. The first traces sent staff names and sick days to analytics.
 
 ## Project layout
@@ -246,6 +246,10 @@ docs/           how it works, decisions, stress test results, sample evidence pa
 ## Built with
 
 TypeScript, [Claude](https://www.anthropic.com/claude) (Haiku 5.5) through the Anthropic SDK with structured outputs, the official MCP TypeScript SDK, Node's built-in SQLite, esbuild, and PostHog for traces. No framework on the front end.
+
+## Contributing
+
+Issues and pull requests welcome. See [CONTRIBUTING.md](CONTRIBUTING.md). Security issues: [SECURITY.md](SECURITY.md).
 
 ## License
 
