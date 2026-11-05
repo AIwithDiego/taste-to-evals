@@ -23,6 +23,8 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm typecheck
       - run: pnpm test
+      - name: Stress test, 10,000 random rota changes (fails on any disagreement, and if the published numbers change)
+        run: pnpm stress > /dev/null && git diff --exit-code docs/stress-test.md
       - name: Demo server answers from the recorded runs, with no API key
         run: |
           pnpm demo &

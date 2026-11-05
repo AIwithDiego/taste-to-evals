@@ -44,7 +44,8 @@ function everyMinuteOpen(r: Rota, ok: (date: string, minute: number) => boolean)
 
 function coverage(r: Rota, _: (n: number) => number): boolean {
   return everyMinuteOpen(r, (date, m) => {
-    const n = r.shifts.filter((s) => s.date === date && toMinutes(s.start) <= m && m < toMinutes(s.end)).length;
+    // Count people, not shifts: someone double-booked is still one person on the floor.
+    const n = new Set(r.shifts.filter((s) => s.date === date && toMinutes(s.start) <= m && m < toMinutes(s.end)).map((s) => s.staffId)).size;
     const saturdayRush = new Date(`${date}T12:00:00Z`).getUTCDay() === 6 && m >= 8 * 60 && m < 12 * 60;
     return n >= (saturdayRush ? 3 : 2);
   });
