@@ -508,12 +508,14 @@ const CHAT_GATES = ["allergens", "discounts", "bookings"];
 
 function convo(customer: string, reply?: { text: string; state: "draft" | "stopped" | "sent" }): HTMLElement {
   const box = el("div", "convo");
+  // EU AI Act Art. 50(1): the customer is told up front that the replies come from an AI.
+  box.append(el("div", "disclosure", "You're chatting with Ollie's AI assistant. Anything it can't answer goes to a person."));
   const c = el("div", "bubble customer");
   c.append(el("span", "who", "Customer"), el("div", "text", customer));
   box.append(c);
   if (reply) {
     const b = el("div", `bubble bot ${reply.state}`);
-    b.append(el("span", "who", reply.state === "sent" ? "Ollie's chat · sent" : reply.state === "stopped" ? "Stopped · never sent" : "Ollie's chat · draft, not sent"), el("div", "text", reply.text));
+    b.append(el("span", "who", reply.state === "sent" ? "Ollie's AI assistant · sent" : reply.state === "stopped" ? "Stopped · never sent" : "Ollie's AI assistant · draft, not sent"), el("div", "text", reply.text));
     box.append(b);
   }
   return box;
