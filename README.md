@@ -193,7 +193,7 @@ Everything runs on Claude Haiku 5.5 (`src/claude.ts`).
 
 Set `SHIFTGUARD_TELEMETRY=on` and a PostHog project key in `.env`, and every live run becomes one trace in PostHog's LLM analytics (EU host). Each Claude call is a generation with its tokens, cost and latency, each of the owner's checks is a span in the same trace, and `shiftguard_check` / `shiftguard_gate_run` events give the failure rate by rule, code versus judge.
 
-By default the trace carries structure only: rule ids, verdicts, counts, tokens, cost and latency. Prompts, replies, rule messages, rule titles, error text and the approver's name stay on the machine; add `SHIFTGUARD_TELEMETRY_CONTENT=on` to send them while debugging. `src/telemetry.test.ts` fails if any of them leaks. The full record of each decision lives in the local evidence PDF.
+By default the trace carries structure only: rule ids, verdicts, counts, tokens, cost and latency. Prompts, replies, rule messages, rule titles, error text and the approver's name stay out of the trace; add `SHIFTGUARD_TELEMETRY_CONTENT=on` to send them while debugging. `src/telemetry.test.ts` fails if any of them leaks. The full record of each decision lives in the local evidence PDF.
 
 ## What it won't do
 
