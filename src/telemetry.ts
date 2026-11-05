@@ -1,7 +1,9 @@
 // Every run traced in PostHog (EU), in its AI observability format: each Claude call is an $ai_generation,
 // each of the owner's checks an $ai_span in the same trace, and each run's outcome a plain event.
-// Off unless you opt in (SHIFTGUARD_TELEMETRY=on plus a PostHog key in .env). Traces include full prompts
-// and replies. Fire-and-forget: without the internet nothing is sent and the demo carries on.
+// Fire-and-forget: without the key or the internet nothing is sent and the demo carries on.
+// Privacy by default (GDPR data minimisation): traces carry structure only, i.e. steps, rules, verdicts,
+// tokens, cost and latency. Prompts, replies, rule messages and names stay on the machine unless
+// SHIFTGUARD_TELEMETRY_CONTENT=on. The full record of each decision lives in the local evidence PDF.
 import { randomUUID } from "node:crypto";
 
 const HOST = process.env["POSTHOG_HOST"] ?? "https://eu.i.posthog.com";
@@ -26,13 +28,27 @@ let current: Trace | undefined;
 let lastTraceId: string | undefined;
 
 function key(): string | undefined {
-  // Read late: claude.ts loads .env on import.
+  // Read late: claude.ts loads ~/.claude/.env on import.
   return process.env["POSTHOG_PROJECT_API_KEY"] || undefined;
 }
 
 export function enabled(): boolean {
-  return key() !== undefined && process.env["SHIFTGUARD_TELEMETRY"] === "on";
+  return key() !== undefined && process.env["SHIFTGUARD_TELEMETRY"] !== "off";
 }
+
+/** Whether prompts, replies and free text may leave the machine. Off unless asked for. */
+export function sendsContent(): boolean {
+  return process.env["SHIFTGUARD_TELEMETRY_CONTENT"] === "on";
+}
+
+/** Free text goes out only when content is on; otherwise a marker, so the trace still shows the step. */
+function content(value: unknown): unknown {
+  return sendsContent() ? clip(value) : "[not sent: SHIFTGUARD_TELEMETRY_CONTENT is off]";
+}
+
+// Fields plain events may carry when content is off: ids, counts, verdicts and cost. Anything else
+// (a name, a title the owner wrote, free text) is dropped, so a new field can't leak by default.
+const STRUCTURE_FIELDS = new Set(["agent", "via", "passed", "attempt", "turn", "tries", "rule", "right", "total", "broken_rules", "proposal_id", "cost_usd", "claude_calls", "sent", "held"]);
 
 function clip(value: unknown): unknown {
   const text = typeof value === "string" ? value : JSON.stringify(value);
@@ -63,11 +79,11 @@ export async function endTrace(output: unknown, error?: string): Promise<void> {
       $ai_trace_id: t.id,
       $ai_session_id: null,
       $ai_span_name: t.name,
-      $ai_input_state: clip(t.input),
-      $ai_output_state: clip(output),
+      $ai_input_state: content(t.input),
+      $ai_output_state: content(output),
       $ai_latency: (Date.now() - t.started) / 1000,
       $ai_is_error: error !== undefined,
-      ...(error ? { $ai_error: error } : {}),
+      ...(error ? { $ai_error: sendsContent() ? error : "error (text not sent: SHIFTGUARD_TELEMETRY_CONTENT is off)" } : {}),
     });
   }
   await flush();
@@ -102,8 +118,8 @@ export function generation(g: GenerationRecord): void {
     $ai_parent_id: current.id,
     $ai_model: g.model,
     $ai_provider: "anthropic",
-    $ai_input: [{ role: "system", content: clip(g.system) }, ...g.messages.map((m) => clip(m))],
-    $ai_output_choices: [{ role: "assistant", content: clip(g.output) }],
+    $ai_input: sendsContent() ? [{ role: "system", content: clip(g.system) }, ...g.messages.map((m) => clip(m))] : content(null),
+    $ai_output_choices: sendsContent() ? [{ role: "assistant", content: clip(g.output) }] : content(null),
     $ai_input_tokens: g.inputTokens,
     $ai_output_tokens: g.outputTokens,
     $ai_input_cost_usd: g.inputCostUsd,
@@ -124,10 +140,12 @@ export function check(c: { agent: "rota" | "chat"; attempt: number; ruleId: stri
       $ai_trace_id: current.id,
       $ai_session_id: null,
       $ai_span_id: randomUUID(),
-      $ai_span_name: `${c.by === "judge" ? "AI judge" : "code check"}: ${c.title}`,
+      $ai_span_name: `${c.by === "judge" ? "AI judge" : "code check"}: ${sendsContent() ? c.title : c.ruleId}`,
       $ai_parent_id: current.id,
       $ai_input_state: { rule: c.ruleId, try: c.attempt },
-      $ai_output_state: { passed, broken: c.messages, ...(c.reason ? { reason: c.reason } : {}) },
+      $ai_output_state: sendsContent()
+        ? { passed, broken: c.messages, ...(c.reason ? { reason: c.reason } : {}) }
+        : { passed, broken_count: c.messages.length },
       $ai_is_error: false,
     });
   }
@@ -135,19 +153,20 @@ export function check(c: { agent: "rota" | "chat"; attempt: number; ruleId: stri
     $ai_trace_id: current?.id,
     agent: c.agent,
     rule: c.ruleId,
-    rule_title: c.title,
+    ...(sendsContent() ? { rule_title: c.title } : {}),
     checked_by: c.by,
     attempt: c.attempt,
     skipped: c.skipped,
     passed,
     broken_count: c.messages.length,
-    first_problem: c.messages[0],
+    ...(sendsContent() ? { first_problem: c.messages[0] } : {}),
   });
 }
 
 /** Anything else worth counting: a gate verdict, an approval, a reply sent or held, a rule set up. */
 export function capture(event: string, properties: Record<string, unknown>): void {
-  push(event, { $ai_trace_id: current?.id, ...properties });
+  const safe = sendsContent() ? properties : Object.fromEntries(Object.entries(properties).filter(([k]) => STRUCTURE_FIELDS.has(k)));
+  push(event, { $ai_trace_id: current?.id, ...safe });
 }
 
 /** Sends what's queued. Never throws and never waits more than 4 seconds. */
