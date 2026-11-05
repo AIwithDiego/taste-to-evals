@@ -1,5 +1,7 @@
 # taste-to-evals
 
+[Español](README.es.md)
+
 [![CI](https://github.com/AIwithDiego/taste-to-evals/actions/workflows/ci.yml/badge.svg)](https://github.com/AIwithDiego/taste-to-evals/actions/workflows/ci.yml) ![License: MIT](https://img.shields.io/badge/license-MIT-green) ![Claude Haiku 5.5](https://img.shields.io/badge/Claude-Haiku%205.5-d97757) ![MCP](https://img.shields.io/badge/MCP-server-blue)
 
 **Agents propose, owners' rules decide, every decision leaves evidence.**
