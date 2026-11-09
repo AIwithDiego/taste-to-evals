@@ -23,6 +23,8 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm typecheck
       - run: pnpm test
+      - name: Stress test, 10,000 random rota changes (fails on any disagreement, and if the published numbers change)
+        run: pnpm stress > /dev/null && git diff --exit-code docs/stress-test.md
       - name: Demo server answers from the recorded runs, with no API key
         run: |
           pnpm demo &
@@ -30,6 +32,8 @@ jobs:
           curl -sf http://localhost:4321/api/propose/latest > /dev/null
           curl -sf "http://localhost:4321/api/proposal?id=74a7daf3" > /dev/null
           curl -sf http://localhost:4321/api/chat/latest > /dev/null
+      - name: Live demo builds as static files (GitHub Pages)
+        run: pnpm pages && test -s dist/pages/api/approve.json
 
   secrets:
     runs-on: ubuntu-latest

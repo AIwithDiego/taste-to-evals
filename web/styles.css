@@ -422,3 +422,5 @@ body.rules-phase .detail { padding-left: 19%; }
 
 /* The rule the AI judge weighs, under its name, like a gate's label. */
 .judge-rule { position: absolute; top: 100%; left: 50%; translate: -50% 0; width: max-content; margin: 0.25rem 0 0; font-size: 0.9rem; font-weight: 700; line-height: 1.2; color: var(--violet, #a99bff); max-width: 11rem; animation: detail-in .4s ease-out both; }
+
+.convo .disclosure { font-size: 0.8em; opacity: 0.75; text-align: center; margin-bottom: 0.6em; }

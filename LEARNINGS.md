@@ -18,9 +18,13 @@ I built this in about a week in October 2026 for a five-minute slot at AI Tinker
 
 **Turn the request into facts before the agent starts.** "Sarah's out all week with the flu" was only a sentence in the request at first, and a draft that left Sarah on the rota (or changed nothing) passed every check. Now the request is read first and Sarah's absence is written onto the week, so the existing "can't work that day" rule holds every draft to it. What the gate checks against has to include what the human just said.
 
-**Only one thing writes, and it doesn't trust anyone.** The assistant has two read-only tools. Approve is the only code that saves a rota, and it re-runs every check rather than trusting the stored "passed". Tests fail if the agent is ever given a tool that isn't read-only or can reach the database. That's cheap to enforce and it makes the safety story one sentence long.
+**Only one thing writes, and it doesn't trust anyone.** The assistant has two read-only tools. Approve is the only code that saves a rota, and it re-runs every code check rather than trusting the stored "passed". Tests fail if the agent is ever given a tool that isn't read-only or can reach the database. That's cheap to enforce and it makes the safety story one sentence long.
 
 **Keep a second opinion on the generated checks.** I hand-wrote reference versions of each rule (`src/reference.ts`) and compared them with the ones Claude wrote. They agreed on all 13 proposals and all 32 stored weeks I compared. Without that I'd only have had the model's word that its own code was right.
+
+Later (5 Nov) I turned that comparison into a stress test: 10,000 random rota changes, every one run through both. The first run disagreed on three weeks, and the bug was mine. When the same person was booked on two overlapping shifts, my reference counted them as two people on the floor; Claude's check counted people, which is right. An answer key is code too, and it needs its own second opinion.
+
+**Privacy by default, not by promise.** The first version sent full prompts and replies to PostHog whenever tracing was on, staff names and "off sick" included. In a real café that's health data about employees going to an analytics tool. Now traces carry structure only (steps, rules, verdicts, tokens, cost) through an allow-list of fields, and a test fails if a name, a rule message or a prompt leaves the machine. The full record of each decision stays in the local evidence PDF, where it belongs.
 
 ## About the chatbot act
 
