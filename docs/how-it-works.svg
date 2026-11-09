@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 660" width="1200" height="660" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <title>taste-to-evals: how it works</title>
+  <desc>An interview turns the owner's stories about bad weeks into rules. Each rule becomes a typed check written by Claude, or a rubric for an AI judge, and must get all of her example weeks right before it ships. An acting agent with read-only tools proposes a change. The gate runs the code checks first and the AI judge last; anything that breaks goes back to the agent as what broke, never the rules. When everything passes, only the owner's Approve writes, after re-running the code checks. Every run leaves an evidence page and a trace.</desc>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#9fb3a7"/></marker>
+    <marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ff5f4a"/></marker>
+    <marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#4bd68f"/></marker>
+    <style>
+      .card { fill: #0e1f18; stroke: #23392f; stroke-width: 1.5; }
+      .step { font-size: 11.5px; font-weight: 700; letter-spacing: 1.2px; fill: #4bd68f; }
+      .h { font-size: 18px; font-weight: 700; fill: #f6ecd6; }
+      .t { font-size: 13.5px; fill: #9fb3a7; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; fill: #6f8579; }
+      .line { stroke: #9fb3a7; stroke-width: 2; fill: none; }
+    </style>
+  </defs>
+  <rect width="1200" height="660" rx="20" fill="#08130f"/>
+  <text x="48" y="62" font-size="32" font-weight="800" fill="#f6ecd6">taste-to-evals</text>
+  <text x="48" y="92" font-size="17" fill="#9fb3a7">Agents propose, the owner's rules decide, every decision leaves evidence.</text>
+  <rect class="card" x="48" y="130" width="200" height="210" rx="14"/>
+  <rect x="48" y="130" width="200" height="4" rx="2" fill="#4bd68f"/>
+  <text class="step" x="66" y="164" style="fill:#4bd68f">1 · INTERVIEW</text>
+  <text class="h" x="66" y="192">Her bad weeks</text>
+  <text class="t" x="66" y="222">“Tell me about a time</text>
+  <text class="t" x="66" y="242">a rota went wrong.”</text>
+  <text class="mono" x="66" y="320">src/interview.ts</text>
+  <path d="M250 235.0 H270" stroke="#9fb3a7" stroke-width="2" fill="none" marker-end="url(#a)"/>
+  <rect class="card" x="274" y="130" width="200" height="210" rx="14"/>
+  <rect x="274" y="130" width="200" height="4" rx="2" fill="#4bd68f"/>
+  <text class="step" x="292" y="164" style="fill:#4bd68f">2 · RULES</text>
+  <text class="h" x="292" y="192">Check or rubric</text>
+  <text class="t" x="292" y="222">Code if code can decide;</text>
+  <text class="t" x="292" y="242">an AI judge, labelled,</text>
+  <text class="t" x="292" y="262">if it can&#x27;t.</text>
+  <text class="mono" x="292" y="320">checks/</text>
+  <path d="M476 235.0 H496" stroke="#9fb3a7" stroke-width="2" fill="none" marker-end="url(#a)"/>
+  <rect class="card" x="500" y="130" width="200" height="210" rx="14"/>
+  <rect x="500" y="130" width="200" height="4" rx="2" fill="#4bd68f"/>
+  <text class="step" x="518" y="164" style="fill:#4bd68f">3 · PROOF</text>
+  <text class="h" x="518" y="192">Right on her weeks</text>
+  <text class="t" x="518" y="222">Every good and bad week</text>
+  <text class="t" x="518" y="242">she gave, or it doesn&#x27;t</text>
+  <text class="t" x="518" y="262">ship.</text>
+  <text class="mono" x="518" y="320">src/setup.ts</text>
+  <path d="M702 235.0 H722" stroke="#9fb3a7" stroke-width="2" fill="none" marker-end="url(#a)"/>
+  <rect class="card" x="726" y="130" width="200" height="210" rx="14"/>
+  <rect x="726" y="130" width="200" height="4" rx="2" fill="#f2b441"/>
+  <text class="step" x="744" y="164" style="fill:#f2b441">4 · GATE</text>
+  <text class="h" x="744" y="192">Code first, judge last</text>
+  <text class="t" x="744" y="222">Typed checks in a</text>
+  <text class="t" x="744" y="242">sandbox; the judge only</text>
+  <text class="t" x="744" y="262">if they all pass.</text>
+  <text class="mono" x="744" y="320">src/gate.ts</text>
+  <path d="M928 235.0 H948" stroke="#4bd68f" stroke-width="2" fill="none" marker-end="url(#g)"/>
+  <rect class="card" x="952" y="130" width="200" height="210" rx="14"/>
+  <rect x="952" y="130" width="200" height="4" rx="2" fill="#4bd68f"/>
+  <text class="step" x="970" y="164" style="fill:#4bd68f">5 · APPROVE</text>
+  <text class="h" x="970" y="192">Only she writes</text>
+  <text class="t" x="970" y="222">Re-runs every code</text>
+  <text class="t" x="970" y="242">check, then saves</text>
+  <text class="t" x="970" y="262">the week.</text>
+  <text class="mono" x="970" y="320">src/store.ts</text>
+  <rect x="600" y="410" width="330" height="110" rx="14" fill="#0e1f18" stroke="#b9a8ff" stroke-width="1.5"/>
+  <text class="step" x="620" y="440" style="fill:#b9a8ff">ACTING AGENT</text>
+  <text class="h" x="620" y="466">Proposes, never writes</text>
+  <text class="t" x="620" y="492">Two read-only tools. Never sees her rules.</text>
+  <text class="mono" x="910" y="440" text-anchor="end">src/agent.ts</text>
+  <path d="M856.0 408 V346" stroke="#9fb3a7" stroke-width="2" fill="none" marker-end="url(#a)"/>
+  <text x="866.0" y="382" font-size="13" font-weight="600" fill="#9fb3a7">proposal</text>
+  <path d="M796.0 342 V404" stroke="#ff5f4a" stroke-width="2" stroke-dasharray="6 5" fill="none" marker-end="url(#r)"/>
+  <text x="786.0" y="382" text-anchor="end" font-size="13" font-weight="600" fill="#ff5f4a">what broke, in plain words</text>
+  <text x="786.0" y="400" text-anchor="end" font-size="13" fill="#9fb3a7">(never the rules)</text>
+  <rect x="48" y="550" width="350" height="80" rx="14" fill="#0e1f18" stroke="#23392f" stroke-width="1.5"/>
+  <text class="step" x="68" y="580">EVIDENCE</text>
+  <text class="mono" x="378" y="580" text-anchor="end">src/evidence.ts</text>
+  <text class="t" x="68" y="608">One page per run: every try, verdict, approver, cost</text>
+  <rect x="425" y="550" width="350" height="80" rx="14" fill="#0e1f18" stroke="#23392f" stroke-width="1.5"/>
+  <text class="step" x="445" y="580">MEASURED</text>
+  <text class="mono" x="755" y="580" text-anchor="end">src/stress.ts</text>
+  <text class="t" x="445" y="608">10,000 random changes: every bad one stopped</text>
+  <rect x="802" y="550" width="350" height="80" rx="14" fill="#0e1f18" stroke="#23392f" stroke-width="1.5"/>
+  <text class="step" x="822" y="580">ANY AGENT</text>
+  <text class="mono" x="1132" y="580" text-anchor="end">src/mcp.ts</text>
+  <text class="t" x="822" y="608">The same gate as a read-only MCP server</text>
+</svg>

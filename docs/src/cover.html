@@ -1,0 +1,35 @@
+<!doctype html>
+<!-- The README cover, 1280×640. Render: see docs/src/README.md -->
+<html><head><meta charset="utf-8">
+<style>
+@font-face { font-family: "Atkinson Hyperlegible"; font-weight: 400; src: url("../../web/fonts/atkinson-400.woff2") format("woff2"); }
+@font-face { font-family: "Atkinson Hyperlegible"; font-weight: 700; src: url("../../web/fonts/atkinson-700.woff2") format("woff2"); }
+:root { --night:#08130f; --line:#23392f; --milk:#eef3ec; --milk-soft:#9fb3a7; --chalk:#f6ecd6; --green:#4bd68f; --tomato:#ff5f4a; }
+* { box-sizing: border-box; margin: 0; }
+html, body { width: 1280px; height: 640px; }
+body { background: radial-gradient(900px 600px at 30% 40%, #0f2a1e, var(--night)); color: var(--milk); font-family: "Atkinson Hyperlegible", system-ui, sans-serif; display: grid; grid-template-columns: 560px 1fr; gap: 40px; padding: 64px 0 64px 64px; overflow: hidden; }
+.kicker { color: var(--green); font-weight: 700; font-size: 20px; letter-spacing: .5px; }
+h1 { font-size: 46px; line-height: 1.12; margin-top: 18px; color: var(--chalk); }
+.num { margin-top: 34px; display: grid; gap: 16px; }
+.row { display: flex; align-items: baseline; gap: 16px; }
+.row b { font-size: 52px; line-height: 1; min-width: 190px; text-align: right; }
+.row span { font-size: 21px; color: var(--milk-soft); }
+.stop b { color: var(--green); }
+.zero b { color: var(--chalk); }
+.foot { margin-top: 30px; font-size: 17px; color: var(--milk-soft); }
+.shot { align-self: center; border-radius: 16px 0 0 16px; overflow: hidden; border: 1px solid var(--line); border-right: 0; box-shadow: 0 30px 80px rgba(0,0,0,.55); }
+.shot img { display: block; width: 900px; }
+</style></head>
+<body>
+  <div>
+    <div class="kicker">taste-to-evals · ShiftGuard</div>
+    <h1>Agents propose. The owner's rules decide.</h1>
+    <div class="num">
+      <div class="row"><b>10,000</b><span>random rota changes</span></div>
+      <div class="row stop"><b>9,549</b><span>rule-breaking drafts, all stopped</span></div>
+      <div class="row zero"><b>0</b><span>good drafts wrongly blocked</span></div>
+    </div>
+    <p class="foot">Reproduce it with <code>pnpm stress</code>. No API key needed.</p>
+  </div>
+  <div class="shot"><img src="../assets/sent-back.png" alt=""></div>
+</body></html>
