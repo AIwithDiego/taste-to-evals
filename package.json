@@ -19,7 +19,8 @@
     "mcp": "tsx src/mcp.ts",
     "typecheck": "tsc --noEmit",
     "test": "SHIFTGUARD_TELEMETRY=off tsx --test 'src/**/*.test.ts'",
-    "stress": "tsx src/stress.ts"
+    "stress": "tsx src/stress.ts",
+    "pages": "tsx scripts/build-pages.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.135.0",

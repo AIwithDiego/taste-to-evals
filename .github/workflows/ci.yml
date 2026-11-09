@@ -32,6 +32,8 @@ jobs:
           curl -sf http://localhost:4321/api/propose/latest > /dev/null
           curl -sf "http://localhost:4321/api/proposal?id=74a7daf3" > /dev/null
           curl -sf http://localhost:4321/api/chat/latest > /dev/null
+      - name: Live demo builds as static files (GitHub Pages)
+        run: pnpm pages && test -s dist/pages/api/approve.json
 
   secrets:
     runs-on: ubuntu-latest
