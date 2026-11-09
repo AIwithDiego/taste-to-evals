@@ -1,6 +1,6 @@
 # What I learned building taste-to-evals
 
-I built this in about a week in October 2026 for a five-minute slot at AI Tinkerers Dublin (28 Oct). These notes cover what worked, what surprised me, and what I'd do differently. The decisions behind them are in [`docs/decisions/`](docs/decisions/).
+I built this in about a week in October 2026 for the AI Tinkerers Dublin science fair (28 Oct). These notes cover what worked, what surprised me, and what I'd do differently. The decisions behind them are in [`docs/decisions/`](docs/decisions/).
 
 ## About getting rules out of people
 
@@ -30,7 +30,7 @@ Later (5 Nov) I turned that comparison into a stress test: 10,000 random rota ch
 
 **Claude reads, code decides.** Code can't reliably read a free-text reply, and an LLM shouldn't be the one deciding whether a booking for 10 at 7:30pm is allowed. So Claude extracts only what a reply promises (an allergen claim, a discount, a booking), and Gráinne's typed checks rule on those promises. Same reply, same promises, same answer.
 
-**The safety net mattered even when the model was good.** I tried to get Claude, set up as a literal menu bot, to call the banana bread nut-free (the incident in her notes). It wouldn't: it told the customer to check with staff every time. I kept the allergen check anyway. Your vendor's bot may not be Claude, and the gate doesn't care which model it is. The catch on stage became the booking instead.
+**The safety net mattered even when the model was good.** I tried to get Claude, set up as a literal menu bot, to call the banana bread nut-free (the incident in her notes). It wouldn't: it told the customer to check with staff every time. I kept the allergen check anyway. Your vendor's bot may not be Claude, and the gate doesn't care which model it is. The catch in the demo became the booking instead.
 
 **When customers can't wait, the gate is the approval.** No human can approve each chat message. A reply that passes goes out in about a second; one that fails goes back to the bot with only what broke; after three failures the customer gets a holding line and the question goes to Gráinne. Whatever can't pass goes to a person.
 

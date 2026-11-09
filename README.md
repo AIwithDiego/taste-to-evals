@@ -12,7 +12,7 @@
 
 [![10,000 random rota changes: 9,549 rule-breaking drafts, all stopped, and 0 good drafts wrongly blocked](docs/assets/cover.png)](https://aiwithdiego.github.io/taste-to-evals/)
 
-A case study. Built in about a week with Claude Code for a five-minute slot at AI Tinkerers Dublin, 28 October 2026; governance pass in November. Every name and number in it is synthetic.
+A case study. Built in about a week with Claude Code for the AI Tinkerers Dublin science fair, 28 October 2026; governance pass in November. Every name and number in it is synthetic.
 
 **[Open the live demo](https://aiwithdiego.github.io/taste-to-evals/)** (a recorded run, no key needed) · [Sample evidence page](docs/evidence-sample.pdf) · [Run it yourself](#run-it-yourself)
 
@@ -83,7 +83,7 @@ The case: Gráinne runs Ollie's, an invented café in Dublin. She never wrote he
 4. **Gate** (`src/gate.ts`): typed checks first; the judge only if they all pass. The agent hears "Tom would work 48 hours. Your limit is 40.", never the rule.
 5. **Approve** (`src/store.ts`): the single write path, which re-runs every code check. Then the evidence page (`src/evidence.ts`).
 
-**Second act, the website chat.** At the demo, people asked whether this only works for rotas. The same gate guards Ollie's website chat. Code can't read free text reliably, so **Claude reads, code decides**: Claude lists only what a draft reply promises (a booking for 10 at 7:30pm) and her typed checks rule on those promises. The chat tells customers they're talking to an AI. Customers can't wait for a person, so here the gate is the approval: a passing reply goes out in about a second; after three stopped drafts the customer gets a holding line and the question waits for Gráinne.
+**Second act, the website chat.** At the science fair, people asked whether this only works for rotas. The same gate guards Ollie's website chat. Code can't read free text reliably, so **Claude reads, code decides**: Claude lists only what a draft reply promises (a booking for 10 at 7:30pm) and her typed checks rule on those promises. The chat tells customers they're talking to an AI. Customers can't wait for a person, so here the gate is the approval: a passing reply goes out in about a second; after three stopped drafts the customer gets a holding line and the question waits for Gráinne.
 
 ![The chat act, sped up 3x: a table for 10 at 7:30pm is stopped before the customer sees it](docs/assets/chat.gif)
 
@@ -118,7 +118,7 @@ What it cost, all on Claude Haiku 5.5:
 
 ## The build
 
-Built by Diego Bauer with Claude Code. I designed the flow and the demo, made the product, architecture and security calls, and presented it. Claude wrote most of the code under my direction, with tests at every step. The work happened in a private lab repo; this public copy started on 29 October, so its history is short. The milestones:
+Built by Diego Bauer with Claude Code. I designed the flow and the demo, made the product, architecture and security calls, and showed it at the science fair. Claude wrote most of the code under my direction, with tests at every step. The work happened in a private lab repo; this public copy started on 29 October, so its history is short. The milestones:
 
 | When | What landed |
 |---|---|
@@ -127,14 +127,14 @@ Built by Diego Bauer with Claude Code. I designed the flow and the demo, made th
 | 20 Oct | "Weekends shared fairly" as a labelled AI-judge rule, agreeing with Gráinne on 6 of 6 weeks |
 | 21 Oct | The demo screen, presenter-paced, live or replayed; the evidence page; the gate as an MCP server; PostHog traces |
 | 21 Oct | The website chat, gated by the same owner: four rules, each right on all her replies |
-| 28 Oct | Presented at AI Tinkerers Dublin |
+| 28 Oct | Shown at the AI Tinkerers Dublin science fair |
 | 29 Oct | Public repo, [`bed9243`](https://github.com/AIwithDiego/taste-to-evals/commit/bed9243) |
 | 5 Nov | Governance pass: private-by-default traces, the 10,000-change stress test in CI, AI disclosure in the chat, EU AI Act and GDPR mapping checked by [Hank](https://github.com/AIwithDiego/hank), my security and compliance agent ([`caed783`](https://github.com/AIwithDiego/taste-to-evals/commit/caed783)) |
 | 9 Nov | Live demo on GitHub Pages: the demo screen replaying the recorded runs as static files (`scripts/build-pages.ts`) |
 
 ## Design system
 
-Short version: it's a one-screen demo, built to be read from the back of a room.
+Short version: it's a one-screen demo, built to be read by people walking up to the stand.
 
 ### How it got there
 
@@ -284,7 +284,7 @@ docs/             how it works, decisions, stress test results, sample evidence 
 
 ## Credits
 
-TypeScript, [Claude](https://www.anthropic.com/claude) (Haiku 5.5) through the Anthropic SDK with structured outputs, the official MCP TypeScript SDK, Node's built-in SQLite, esbuild, PostHog for traces, and Atkinson Hyperlegible by the Braille Institute. Thanks to AI Tinkerers Dublin for the slot and the questions that became the second act. Issues and pull requests welcome: [CONTRIBUTING.md](CONTRIBUTING.md). Security issues: [SECURITY.md](SECURITY.md).
+TypeScript, [Claude](https://www.anthropic.com/claude) (Haiku 5.5) through the Anthropic SDK with structured outputs, the official MCP TypeScript SDK, Node's built-in SQLite, esbuild, PostHog for traces, and Atkinson Hyperlegible by the Braille Institute. Thanks to AI Tinkerers Dublin for the science fair and the questions that became the second act. Issues and pull requests welcome: [CONTRIBUTING.md](CONTRIBUTING.md). Security issues: [SECURITY.md](SECURITY.md).
 
 ## Licence
 
